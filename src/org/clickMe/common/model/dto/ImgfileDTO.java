@@ -19,7 +19,6 @@ public class ImgfileDTO implements Serializable {
 
 	public ImgfileDTO(int no, int imgCatCode, int inqCode, int postCode, int reviewCode, String origName,
 			String uuidName) {
-		super();
 		this.no = no;
 		this.imgCatCode = imgCatCode;
 		this.inqCode = inqCode;
@@ -85,9 +84,6 @@ public class ImgfileDTO implements Serializable {
 		this.uuidName = uuidName;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 	@Override
 	public String toString() {

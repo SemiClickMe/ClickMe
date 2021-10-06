@@ -64,9 +64,6 @@ public class RecommentDTO implements Serializable {
 		this.reCommentYn = reCommentYn;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 	@Override
 	public String toString() {

@@ -31,10 +31,6 @@ public class InquiryType implements java.io.Serializable {
 		this.inqType = inqType;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
 		return "InquiryType [no=" + no + ", inqType=" + inqType + "]";
