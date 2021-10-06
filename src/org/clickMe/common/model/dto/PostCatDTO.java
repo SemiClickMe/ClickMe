@@ -10,7 +10,7 @@ public class PostCatDTO implements Serializable{
 	private String name;
 	
 	public PostCatDTO() {
-		super();
+		
 	}
 	public int getCode() {
 		return code;
@@ -29,7 +29,6 @@ public class PostCatDTO implements Serializable{
 	}
 	
 	public PostCatDTO(int code, String name) {
-		super();
 		this.code = code;
 		this.name = name;
 	}
