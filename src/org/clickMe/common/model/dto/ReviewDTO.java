@@ -65,10 +65,6 @@ public class ReviewDTO implements Serializable {
 		this.reviewTime = reviewTime;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
 		return "ReviewDTO [no=" + no + ", postCode=" + postCode + ", reviewContent=" + reviewContent + ", reviewGrade="

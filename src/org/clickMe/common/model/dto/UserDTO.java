@@ -155,10 +155,6 @@ public class UserDTO implements Serializable{
 		this.enrollDate = enrollDate;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
 		return "UserDTO [code=" + code + ", entCode=" + entCode + ", id=" + id + ", psw=" + psw + ", email=" + email
