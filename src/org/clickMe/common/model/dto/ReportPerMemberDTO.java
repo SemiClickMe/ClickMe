@@ -7,34 +7,26 @@ public class ReportPerMemberDTO implements Serializable{
 
 	private int userCode;
 	private int postCode;
-	
-	public CmtDTO(int userCode, int postCode) {
+	public ReportPerMemberDTO(int userCode, int postCode) {
 		this.userCode = userCode;
 		this.postCode = postCode;
 	}
-	
-	public CmtDTO() {
+	public ReportPerMemberDTO() {
 	}
-
 	public int getUserCode() {
 		return userCode;
 	}
-
 	public void setUserCode(int userCode) {
 		this.userCode = userCode;
 	}
-
 	public int getPostCode() {
 		return postCode;
 	}
-
 	public void setPostCode(int postCode) {
 		this.postCode = postCode;
 	}
-
 	@Override
 	public String toString() {
-		return "CmtDTO [userCode=" + userCode + ", postCode=" + postCode + "]";
+		return "ReportPerMemberDTO [userCode=" + userCode + ", postCode=" + postCode + "]";
 	}
-	
 }

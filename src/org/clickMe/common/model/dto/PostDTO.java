@@ -5,10 +5,6 @@ import java.sql.Date;
 
 import oracle.sql.NUMBER;
 
-/**
- * @author rlawn
- *
- */
 public class PostDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
