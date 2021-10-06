@@ -1,47 +1,43 @@
 package org.clickMe.common.model.dto;
 
-	public class InquiryType implements java.io.Serializable {
+public class InquiryType implements java.io.Serializable {
 
-		private static final long serialVersionUID = 1974348914846639079L;
-		
-		private int no;
-		private String inqType;
-		
-		public InquiryType() {
-		}
+	private static final long serialVersionUID = 1974348914846639079L;
 
-		public InquiryType(int no, String inqType) {
-			this.no = no;
-			this.inqType = inqType;
-		}
+	private int no;
+	private String inqType;
 
-		public int getNo() {
-			return no;
-		}
+	public InquiryType() {
+	}
 
-		public void setNo(int no) {
-			this.no = no;
-		}
+	public InquiryType(int no, String inqType) {
+		this.no = no;
+		this.inqType = inqType;
+	}
 
-		public String getInqType() {
-			return inqType;
-		}
+	public int getNo() {
+		return no;
+	}
 
-		public void setInqType(String inqType) {
-			this.inqType = inqType;
-		}
+	public void setNo(int no) {
+		this.no = no;
+	}
 
-		public static long getSerialversionuid() {
-			return serialVersionUID;
-		}
+	public String getInqType() {
+		return inqType;
+	}
 
-		@Override
-		public String toString() {
-			return "InquiryType [no=" + no + ", inqType=" + inqType + "]";
-		}
+	public void setInqType(String inqType) {
+		this.inqType = inqType;
+	}
 
-		
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
 
+	@Override
+	public String toString() {
+		return "InquiryType [no=" + no + ", inqType=" + inqType + "]";
 	}
 
 }
