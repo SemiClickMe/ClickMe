@@ -9,7 +9,7 @@ public class ImgfileDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = -3397402052630757434L;
 
-	private int no;
+	private int code;
 	private int imgCatCode;
 	private int inqCode;
 	private int postCode;
@@ -17,10 +17,9 @@ public class ImgfileDTO implements Serializable {
 	private String origName;
 	private String uuidName;
 
-	public ImgfileDTO(int no, int imgCatCode, int inqCode, int postCode, int reviewCode, String origName,
+	public ImgfileDTO(int code, int imgCatCode, int inqCode, int postCode, int reviewCode, String origName,
 			String uuidName) {
-		super();
-		this.no = no;
+		this.code = code;
 		this.imgCatCode = imgCatCode;
 		this.inqCode = inqCode;
 		this.postCode = postCode;
@@ -29,12 +28,12 @@ public class ImgfileDTO implements Serializable {
 		this.uuidName = uuidName;
 	}
 
-	public int getNo() {
-		return no;
+	public int getCode() {
+		return code;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
 	public int getImgCatCode() {
@@ -85,14 +84,10 @@ public class ImgfileDTO implements Serializable {
 		this.uuidName = uuidName;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
-		return "ImgfileDTO [no=" + no + ", imgCatCode=" + imgCatCode + ", inqCode=" + inqCode + ", postCode=" + postCode
-				+ ", reviewCode=" + reviewCode + ", origName=" + origName + ", uuidName=" + uuidName + "]";
+		return "ImgfileDTO [code=" + code + ", imgCatCode=" + imgCatCode + ", inqCode=" + inqCode + ", postCode="
+				+ postCode + ", reviewCode=" + reviewCode + ", origName=" + origName + ", uuidName=" + uuidName + "]";
 	}
 
 }

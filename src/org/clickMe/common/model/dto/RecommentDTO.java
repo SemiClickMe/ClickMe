@@ -9,27 +9,26 @@ public class RecommentDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 3803272163819491044L;
-	private int no;
+	private int code;
 	private int cmtCode;
 	private String reCommentContent;
 	private java.sql.Date reCommentTime;
 	private String reCommentYn;
 
-	public RecommentDTO(int no, int cmtCode, String reCommentContent, Date reCommentTime, String reCommentYn) {
-		super();
-		this.no = no;
+	public RecommentDTO(int code, int cmtCode, String reCommentContent, Date reCommentTime, String reCommentYn) {
+		this.code = code;
 		this.cmtCode = cmtCode;
 		this.reCommentContent = reCommentContent;
 		this.reCommentTime = reCommentTime;
 		this.reCommentYn = reCommentYn;
 	}
 
-	public int getNo() {
-		return no;
+	public int getCode() {
+		return code;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
 	public int getCmtCode() {
@@ -64,13 +63,9 @@ public class RecommentDTO implements Serializable {
 		this.reCommentYn = reCommentYn;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
-		return "RecommentDTO [no=" + no + ", cmtCode=" + cmtCode + ", reCommentContent=" + reCommentContent
+		return "RecommentDTO [code=" + code + ", cmtCode=" + cmtCode + ", reCommentContent=" + reCommentContent
 				+ ", reCommentTime=" + reCommentTime + ", reCommentYn=" + reCommentYn + "]";
 	}
 

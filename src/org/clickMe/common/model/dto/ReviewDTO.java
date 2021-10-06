@@ -10,27 +10,26 @@ public class ReviewDTO implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private int no;
+	private int code;
 	private int postCode;
 	private String reviewContent;
 	private int reviewGrade;
 	private java.sql.Date reviewTime;
 
-	public ReviewDTO(int no, int postCode, String reviewContent, int reviewGrade, Date reviewTime) {
-		super();
-		this.no = no;
+	public ReviewDTO(int code, int postCode, String reviewContent, int reviewGrade, Date reviewTime) {
+		this.code = code;
 		this.postCode = postCode;
 		this.reviewContent = reviewContent;
 		this.reviewGrade = reviewGrade;
 		this.reviewTime = reviewTime;
 	}
 
-	public int getNo() {
-		return no;
+	public int getCode() {
+		return code;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
 	public int getPostCode() {
@@ -65,14 +64,10 @@ public class ReviewDTO implements Serializable {
 		this.reviewTime = reviewTime;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
-		return "ReviewDTO [no=" + no + ", postCode=" + postCode + ", reviewContent=" + reviewContent + ", reviewGrade="
-				+ reviewGrade + ", reviewTime=" + reviewTime + "]";
+		return "ReviewDTO [code=" + code + ", postCode=" + postCode + ", reviewContent=" + reviewContent
+				+ ", reviewGrade=" + reviewGrade + ", reviewTime=" + reviewTime + "]";
 	}
 
 }
