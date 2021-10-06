@@ -4,23 +4,23 @@ public class InquiryType implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1974348914846639079L;
 
-	private int no;
+	private int code;
 	private String inqType;
-
+	
 	public InquiryType() {
 	}
 
-	public InquiryType(int no, String inqType) {
-		this.no = no;
+	public InquiryType(int code, String inqType) {
+		this.code = code;
 		this.inqType = inqType;
 	}
 
-	public int getNo() {
-		return no;
+	public int getCode() {
+		return code;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
 	public String getInqType() {
@@ -33,7 +33,8 @@ public class InquiryType implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "InquiryType [no=" + no + ", inqType=" + inqType + "]";
+		return "InquiryType [code=" + code + ", inqType=" + inqType + "]";
 	}
 
+	
 }

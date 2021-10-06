@@ -6,7 +6,7 @@ public class PaymentDTO implements java.io.Serializable {
 
 	private static final long serialVersionUID = -3667724811978898160L;
 
-	private int no;
+	private int code;
 	private int postCode;
 	private String method;
 	private Date paymentTime;
@@ -14,19 +14,19 @@ public class PaymentDTO implements java.io.Serializable {
 	public PaymentDTO() {
 	}
 
-	public PaymentDTO(int no, int postCode, String method, Date paymentTime) {
-		this.no = no;
+	public PaymentDTO(int code, int postCode, String method, Date paymentTime) {
+		this.code = code;
 		this.postCode = postCode;
 		this.method = method;
 		this.paymentTime = paymentTime;
 	}
 
-	public int getNo() {
-		return no;
+	public int getCode() {
+		return code;
 	}
 
-	public void setNo(int no) {
-		this.no = no;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
 	public int getPostCode() {
@@ -53,11 +53,14 @@ public class PaymentDTO implements java.io.Serializable {
 		this.paymentTime = paymentTime;
 	}
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> master
 	@Override
 	public String toString() {
-		return "PaymentDTO [no=" + no + ", postCode=" + postCode + ", method=" + method + ", paymentTime=" + paymentTime
-				+ "]";
+		return "PaymentDTO [code=" + code + ", postCode=" + postCode + ", method=" + method + ", paymentTime="
+				+ paymentTime + "]";
 	}
 	
 	
