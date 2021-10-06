@@ -6,18 +6,24 @@ public class ReportDTO implements Serializable{
 
 	private static final long serialVersionUID = -8180867708829928474L;
 
-	private int reportCode;
+	private int code;
 	private int postCode;
 	private String reason;
 	
 	public ReportDTO() {
 	}
 	
-	public int getReportCode() {
-		return reportCode;
+	public ReportDTO(int code, int postCode, String reason) {
+		this.code = code;
+		this.postCode = postCode;
+		this.reason = reason;
 	}
-	public void setReportCode(int reportCode) {
-		this.reportCode = reportCode;
+	
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
 	}
 	public int getPostCode() {
 		return postCode;
@@ -32,14 +38,9 @@ public class ReportDTO implements Serializable{
 		this.reason = reason;
 	}
 	
-	public ReportDTO(int reportCode, int postCode, String reason) {
-		this.reportCode = reportCode;
-		this.postCode = postCode;
-		this.reason = reason;
-	}
 	@Override
 	public String toString() {
-		return "ReportDTO [reportCode=" + reportCode + ", postCode=" + postCode + ", reason=" + reason + "]";
+		return "ReportDTO [code=" + code + ", postCode=" + postCode + ", reason=" + reason + "]";
 	}
 	
 }
