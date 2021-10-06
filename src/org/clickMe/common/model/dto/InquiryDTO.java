@@ -7,26 +7,26 @@ public class InquiryDTO implements java.io.Serializable {
 	private static final long serialVersionUID = -9194975670319475203L;
 
 	private int no;
-	private int inoTypeCode;
+	private int inqTypeCode;
 	private int userCode;
-	private String inoTitle;
-	private String inoContent;
-	private Date inoTime;
+	private String inqTitle;
+	private String inqContent;
+	private Date inqTime;
 	private String ansContent;
 	private Date ansTime;
 	private String ansYn;
-
+	
 	public InquiryDTO() {
 	}
 
-	public InquiryDTO(int no, int inoTypeCode, int userCode, String inoTitle, String inoContent, Date inoTime,
+	public InquiryDTO(int no, int inqTypeCode, int userCode, String inqTitle, String inqContent, Date inqTime,
 			String ansContent, Date ansTime, String ansYn) {
 		this.no = no;
-		this.inoTypeCode = inoTypeCode;
+		this.inqTypeCode = inqTypeCode;
 		this.userCode = userCode;
-		this.inoTitle = inoTitle;
-		this.inoContent = inoContent;
-		this.inoTime = inoTime;
+		this.inqTitle = inqTitle;
+		this.inqContent = inqContent;
+		this.inqTime = inqTime;
 		this.ansContent = ansContent;
 		this.ansTime = ansTime;
 		this.ansYn = ansYn;
@@ -40,12 +40,12 @@ public class InquiryDTO implements java.io.Serializable {
 		this.no = no;
 	}
 
-	public int getInoTypeCode() {
-		return inoTypeCode;
+	public int getInqTypeCode() {
+		return inqTypeCode;
 	}
 
-	public void setInoTypeCode(int inoTypeCode) {
-		this.inoTypeCode = inoTypeCode;
+	public void setInqTypeCode(int inqTypeCode) {
+		this.inqTypeCode = inqTypeCode;
 	}
 
 	public int getUserCode() {
@@ -56,28 +56,28 @@ public class InquiryDTO implements java.io.Serializable {
 		this.userCode = userCode;
 	}
 
-	public String getInoTitle() {
-		return inoTitle;
+	public String getInqTitle() {
+		return inqTitle;
 	}
 
-	public void setInoTitle(String inoTitle) {
-		this.inoTitle = inoTitle;
+	public void setInqTitle(String inqTitle) {
+		this.inqTitle = inqTitle;
 	}
 
-	public String getInoContent() {
-		return inoContent;
+	public String getInqContent() {
+		return inqContent;
 	}
 
-	public void setInoContent(String inoContent) {
-		this.inoContent = inoContent;
+	public void setInqContent(String inqContent) {
+		this.inqContent = inqContent;
 	}
 
-	public Date getInoTime() {
-		return inoTime;
+	public Date getInqTime() {
+		return inqTime;
 	}
 
-	public void setInoTime(Date inoTime) {
-		this.inoTime = inoTime;
+	public void setInqTime(Date inqTime) {
+		this.inqTime = inqTime;
 	}
 
 	public String getAnsContent() {
@@ -110,9 +110,11 @@ public class InquiryDTO implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "InquiryDTO [no=" + no + ", inoTypeCode=" + inoTypeCode + ", userCode=" + userCode + ", inoTitle="
-				+ inoTitle + ", inoContent=" + inoContent + ", inoTime=" + inoTime + ", ansContent=" + ansContent
+		return "InquiryDTO [no=" + no + ", inqTypeCode=" + inqTypeCode + ", userCode=" + userCode + ", inqTitle="
+				+ inqTitle + ", inqContent=" + inqContent + ", inqTime=" + inqTime + ", ansContent=" + ansContent
 				+ ", ansTime=" + ansTime + ", ansYn=" + ansYn + "]";
 	}
+	
+	
 
 }
