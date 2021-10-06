@@ -12,6 +12,7 @@ public class ReportDTO implements Serializable{
 	
 	public ReportDTO() {
 	}
+	
 	public int getReportCode() {
 		return reportCode;
 	}
@@ -30,13 +31,8 @@ public class ReportDTO implements Serializable{
 	public void setReason(String reason) {
 		this.reason = reason;
 	}
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-	
 	
 	public ReportDTO(int reportCode, int postCode, String reason) {
-		super();
 		this.reportCode = reportCode;
 		this.postCode = postCode;
 		this.reason = reason;

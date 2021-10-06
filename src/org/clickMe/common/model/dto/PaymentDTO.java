@@ -53,9 +53,6 @@ public class PaymentDTO implements java.io.Serializable {
 		this.paymentTime = paymentTime;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
 
 	@Override
 	public String toString() {

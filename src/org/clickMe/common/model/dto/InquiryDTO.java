@@ -104,10 +104,6 @@ public class InquiryDTO implements java.io.Serializable {
 		this.ansYn = ansYn;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public String toString() {
 		return "InquiryDTO [no=" + no + ", inqTypeCode=" + inqTypeCode + ", userCode=" + userCode + ", inqTitle="
