@@ -9,60 +9,60 @@ public class ReviewDTO implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	private int review_code;
-	private int post_code;
-	private String review_content;
-	private int review_grade;
-	private java.sql.Date review_time;
-	
-	public ReviewDTO(int review_code, int post_code, String review_content, int review_grade, Date review_time) {
+
+	private int no;
+	private int postCode;
+	private String reviewContent;
+	private int reviewGrade;
+	private java.sql.Date reviewTime;
+
+	public ReviewDTO(int no, int postCode, String reviewContent, int reviewGrade, Date reviewTime) {
 		super();
-		this.review_code = review_code;
-		this.post_code = post_code;
-		this.review_content = review_content;
-		this.review_grade = review_grade;
-		this.review_time = review_time;
+		this.no = no;
+		this.postCode = postCode;
+		this.reviewContent = reviewContent;
+		this.reviewGrade = reviewGrade;
+		this.reviewTime = reviewTime;
 	}
 
-	public int getReview_code() {
-		return review_code;
+	public int getNo() {
+		return no;
 	}
 
-	public void setReview_code(int review_code) {
-		this.review_code = review_code;
+	public void setNo(int no) {
+		this.no = no;
 	}
 
-	public int getPost_code() {
-		return post_code;
+	public int getPostCode() {
+		return postCode;
 	}
 
-	public void setPost_code(int post_code) {
-		this.post_code = post_code;
+	public void setPostCode(int postCode) {
+		this.postCode = postCode;
 	}
 
-	public String getReview_content() {
-		return review_content;
+	public String getReviewContent() {
+		return reviewContent;
 	}
 
-	public void setReview_content(String review_content) {
-		this.review_content = review_content;
+	public void setReviewContent(String reviewContent) {
+		this.reviewContent = reviewContent;
 	}
 
-	public int getReview_grade() {
-		return review_grade;
+	public int getReviewGrade() {
+		return reviewGrade;
 	}
 
-	public void setReview_grade(int review_grade) {
-		this.review_grade = review_grade;
+	public void setReviewGrade(int reviewGrade) {
+		this.reviewGrade = reviewGrade;
 	}
 
-	public java.sql.Date getReview_time() {
-		return review_time;
+	public java.sql.Date getReviewTime() {
+		return reviewTime;
 	}
 
-	public void setReview_time(java.sql.Date review_time) {
-		this.review_time = review_time;
+	public void setReviewTime(java.sql.Date reviewTime) {
+		this.reviewTime = reviewTime;
 	}
 
 	public static long getSerialversionuid() {
@@ -71,9 +71,8 @@ public class ReviewDTO implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ReviewDTO [review_code=" + review_code + ", post_code=" + post_code + ", review_content="
-				+ review_content + ", review_grade=" + review_grade + ", review_time=" + review_time + "]";
+		return "ReviewDTO [no=" + no + ", postCode=" + postCode + ", reviewContent=" + reviewContent + ", reviewGrade="
+				+ reviewGrade + ", reviewTime=" + reviewTime + "]";
 	}
 
-	
 }
