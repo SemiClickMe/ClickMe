@@ -53,16 +53,9 @@ public class PaymentDTO implements java.io.Serializable {
 		this.paymentTime = paymentTime;
 	}
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
 	@Override
 	public String toString() {
 		return "PaymentDTO [code=" + code + ", postCode=" + postCode + ", method=" + method + ", paymentTime="
 				+ paymentTime + "]";
 	}
-	
-	
-	
 }
