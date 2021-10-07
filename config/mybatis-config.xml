@@ -19,6 +19,7 @@
 		</environment>
 	</environments>
 	<mappers>
+		<mapper resource="org/clickMe/xmlmapper/InquiryMapper.xml"/>
 	</mappers>
 </configuration>
 
