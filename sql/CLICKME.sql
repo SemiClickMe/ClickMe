@@ -234,6 +234,22 @@ VALUES
 , TO_DATE('2021-05-10', 'YYYY-MM-DD')
 );
 
+INSERT
+  INTO "USER"
+(
+  USER_CODE, ENT_CODE, USER_ID, USER_PSW, USER_EMAIL
+, PHONE, USER_NAME, BIRTH_DATE, GENDER, AUTHORITY
+, DEPOSIT, PROFILE_ORIG_NAME, PROFILE_UUID_NAME, PROFILE_IMG_PATH, LAST_LOGIN
+, ENROLL_DATE
+)
+VALUES
+(
+  SEQ_USER_CODE.NEXTVAL, 1, 'user03', 'pass03', 'isntiteasy@gmail.com'
+, '010-3333-4444', 'Bob Ross', TO_DATE('1942-10-29', 'YYYY-MM-DD'), 'M', 'N'
+, '6300000', NULL, NULL, NULL, TO_DATE('2021-10-07', 'YYYY-MM-DD')
+, TO_DATE('2021-05-30', 'YYYY-MM-DD')
+);
+
 CREATE TABLE INQUIRY(
   INQ_CODE NUMBER CONSTRAINT PK_INQ_CODE PRIMARY KEY
 , INQ_TYPE_CODE NUMBER CONSTRAINT NN_INQ_TYPE_CODE NOT NULL
@@ -430,6 +446,7 @@ CREATE TABLE POST(
 , BUYER_CODE NUMBER 
 , POST_CAT_CODE NUMBER CONSTRAINT POST_CAT_CODE_NN NOT NULL
 , AUTH_CODE NUMBER DEFAULT 1 CONSTRAINT AUTH_CODE_NN NOT NULL
+, POST_TITLE VARCHAR2(255) CONSTRAINT NN_POST_TITLE NOT NULL
 , POST_CONTENT VARCHAR2(4000) CONSTRAINT NN_POST_CONTENT NOT NULL
 , LIKE_COUNT NUMBER DEFAULT 0 CONSTRAINT NN_LIKE_COUNT NOT NULL
 , POST_TIME DATE DEFAULT SYSDATE CONSTRAINT NN_POST_TIME NOT NULL
@@ -442,6 +459,8 @@ CREATE TABLE POST(
 , CONSTRAINT FK_BUYER_CODE FOREIGN KEY (BUYER_CODE) REFERENCES "USER" (USER_CODE)
 , CONSTRAINT POST_CAT_CODE_FK FOREIGN KEY (POST_CAT_CODE) REFERENCES POST_CAT (POST_CAT_CODE)
 , CONSTRAINT AUTH_CODE_FK FOREIGN KEY (AUTH_CODE) REFERENCES AUTHENTIC (AUTH_CODE)
+, CONSTRAINT CK_SOLD_YN CHECK(SOLD_YN IN ('Y', 'N'))
+, CONSTRAINT CK_BLIND_YN CHECK(BLIND_YN IN ('Y', 'N'))
 );
 
     COMMENT ON COLUMN POST.POST_CODE IS '게시글코드';
@@ -449,6 +468,7 @@ CREATE TABLE POST(
     COMMENT ON COLUMN POST.BUYER_CODE IS '구매자코드';
     COMMENT ON COLUMN POST.POST_CAT_CODE IS '게시글카테고리코드';
     COMMENT ON COLUMN POST.AUTH_CODE IS '감정상태코드';
+    COMMENT ON COLUMN POST.POST_TITLE IS '게시글제목';
     COMMENT ON COLUMN POST.POST_CONTENT IS '게시글내용';
     COMMENT ON COLUMN POST.LIKE_COUNT IS '!좋아요';
     COMMENT ON COLUMN POST.POST_TIME IS '게시글작성시간';
@@ -457,6 +477,322 @@ CREATE TABLE POST(
     COMMENT ON COLUMN POST.BLIND_YN IS '블라인드처리유무';
     COMMENT ON COLUMN POST.ITEM_PRICE IS '물품가격';
     COMMENT ON COLUMN POST.POST_VIEW IS '조회수';
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  2, 1, TO_DATE('2021-06-05 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 150000,
+  '#1 판매중인 게시글 입니다.',
+  '♚♚히어로즈 오브 더 스☆톰♚♚가입시$$전원 카드팩☜☜뒷면100%증정※ ♜월드오브 워크래프트♜펫 무료증정￥ 특정조건 §§디아블로3§§★공허의유산★초상화획득기회@@@ 즉시이동http://kr.battle.net/heroes/ko/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  2, 1, TO_DATE('2021-06-06 22:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 210000,
+  '#2 판매중인 게시글 입니다.',
+  '??어서☆오세요 #밖은 너무 춥다구요♡하스스톤♧워크래프트의 영웅들??카드팩＄＄전원 1회 후불제☜☜※야생에서의 만남￥ 특정조건 §§낙스라마스§§★고블린대 노움★2년 이용시 야생 승격@@@ 퇴직금 10만원 제공♡♡즉시이동kr.battle.net/hearthstone/ko'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  3, 1, TO_DATE('2021-06-07 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 330000,
+  '#3 판매중인 게시글 입니다.',
+  'ㄷ1앎블롪ＩＩ✮ ➷ஜzㅔㅈㅓ렉❀쎥01 ி톪♞앓옸ㅏㄷㅏ!! ♔꾾□ㅐ 즉ㅅ1 Lㅔ팗렘읝 힘으로➞ 복구1✇ ㄱㅏ능ஊ! 즉시이동 https://diablo2.blizzard.com/ko-kr/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  3, 1, TO_DATE('2021-06-08 12:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 150000,
+  '#4 판매중인 게시글 입니다람쥐.',
+  '♚♚히어로즈 오브 더 스☆톰♚♚가입시$$전원 카드팩☜☜뒷면100%증정※ ♜월드오브 워크래프트♜펫 무료증정￥ 특정조건 §§디아블로3§§★공허의유산★초상화획득기회@@@ 즉시이동http://kr.battle.net/heroes/ko/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  4, 1, TO_DATE('2021-06-09 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 210000,
+  '#5 판매중인 게시글 입니다람쥐.',
+  '??어서☆오세요 #밖은 너무 춥다구요♡하스스톤♧워크래프트의 영웅들??카드팩＄＄전원 1회 후불제☜☜※야생에서의 만남￥ 특정조건 §§낙스라마스§§★고블린대 노움★2년 이용시 야생 승격@@@ 퇴직금 10만원 제공♡♡즉시이동kr.battle.net/hearthstone/ko'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  4, 2, TO_DATE('2021-06-10 16:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 330000,
+  '#6 판매중인 게시글 입니다람쥐.',
+  'ㄷ1앎블롪ＩＩ✮ ➷ஜzㅔㅈㅓ렉❀쎥01 ி톪♞앓옸ㅏㄷㅏ!! ♔꾾□ㅐ 즉ㅅ1 Lㅔ팗렘읝 힘으로➞ 복구1✇ ㄱㅏ능ஊ! 즉시이동 https://diablo2.blizzard.com/ko-kr/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  2, 1, TO_DATE('2021-06-11 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 150000,
+  '#7 판매중인 게시글 입니다.',
+  '♚♚히어로즈 오브 더 스☆톰♚♚가입시$$전원 카드팩☜☜뒷면100%증정※ ♜월드오브 워크래프트♜펫 무료증정￥ 특정조건 §§디아블로3§§★공허의유산★초상화획득기회@@@ 즉시이동http://kr.battle.net/heroes/ko/'
+);
+
+INSERT INTO POST
+(
+  -- Constant Data
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  -- Variable Data
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  2, 1, TO_DATE('2021-06-11 22:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 210000,
+  '#8 판매중인 게시글 입니다.',
+  '??어서☆오세요 #밖은 너무 춥다구요♡하스스톤♧워크래프트의 영웅들??카드팩＄＄전원 1회 후불제☜☜※야생에서의 만남￥ 특정조건 §§낙스라마스§§★고블린대 노움★2년 이용시 야생 승격@@@ 퇴직금 10만원 제공♡♡즉시이동kr.battle.net/hearthstone/ko'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  3, 1, TO_DATE('2021-06-12 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 330000,
+  '#9 판매중인 게시글 입니다.',
+  'ㄷ1앎블롪ＩＩ✮ ➷ஜzㅔㅈㅓ렉❀쎥01 ி톪♞앓옸ㅏㄷㅏ!! ♔꾾□ㅐ 즉ㅅ1 Lㅔ팗렘읝 힘으로➞ 복구1✇ ㄱㅏ능ஊ! 즉시이동 https://diablo2.blizzard.com/ko-kr/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  -- Constant Data
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 15, 0,
+  -- Variable Data
+  3, 1, TO_DATE('2021-06-12 12:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'Y', 150000,
+  '#10 판매중인 게시글 입니다람쥐.',
+  '♚♚히어로즈 오브 더 스☆톰♚♚가입시$$전원 카드팩☜☜뒷면100%증정※ ♜월드오브 워크래프트♜펫 무료증정￥ 특정조건 §§디아블로3§§★공허의유산★초상화획득기회@@@ 즉시이동http://kr.battle.net/heroes/ko/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  4, 3, TO_DATE('2021-06-13 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 210000,
+  '#11 판매중인 게시글 입니다람쥐.',
+  '??어서☆오세요 #밖은 너무 춥다구요♡하스스톤♧워크래프트의 영웅들??카드팩＄＄전원 1회 후불제☜☜※야생에서의 만남￥ 특정조건 §§낙스라마스§§★고블린대 노움★2년 이용시 야생 승격@@@ 퇴직금 10만원 제공♡♡즉시이동kr.battle.net/hearthstone/ko'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  4, 2, TO_DATE('2021-07-13 16:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 330000,
+  '#12 판매중인 게시글 입니다람쥐.',
+  'ㄷ1앎블롪ＩＩ✮ ➷ஜzㅔㅈㅓ렉❀쎥01 ி톪♞앓옸ㅏㄷㅏ!! ♔꾾□ㅐ 즉ㅅ1 Lㅔ팗렘읝 힘으로➞ 복구1✇ ㄱㅏ능ஊ! 즉시이동 https://diablo2.blizzard.com/ko-kr/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  2, 1, TO_DATE('2021-07-05 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 150000,
+  '#13 판매중인 게시글 입니다.',
+  '♚♚히어로즈 오브 더 스☆톰♚♚가입시$$전원 카드팩☜☜뒷면100%증정※ ♜월드오브 워크래프트♜펫 무료증정￥ 특정조건 §§디아블로3§§★공허의유산★초상화획득기회@@@ 즉시이동http://kr.battle.net/heroes/ko/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  2, 1, TO_DATE('2021-07-06 22:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 210000,
+  '#14 판매중인 게시글 입니다.',
+  '??어서☆오세요 #밖은 너무 춥다구요♡하스스톤♧워크래프트의 영웅들??카드팩＄＄전원 1회 후불제☜☜※야생에서의 만남￥ 특정조건 §§낙스라마스§§★고블린대 노움★2년 이용시 야생 승격@@@ 퇴직금 10만원 제공♡♡즉시이동kr.battle.net/hearthstone/ko'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  3, 1, TO_DATE('2021-07-07 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 330000,
+  '#15 판매중인 게시글 입니다.',
+  'ㄷ1앎블롪ＩＩ✮ ➷ஜzㅔㅈㅓ렉❀쎥01 ி톪♞앓옸ㅏㄷㅏ!! ♔꾾□ㅐ 즉ㅅ1 Lㅔ팗렘읝 힘으로➞ 복구1✇ ㄱㅏ능ஊ! 즉시이동 https://diablo2.blizzard.com/ko-kr/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  3, 1, TO_DATE('2021-07-08 12:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 150000,
+  '#16 판매중인 게시글 입니다람쥐.',
+  '♚♚히어로즈 오브 더 스☆톰♚♚가입시$$전원 카드팩☜☜뒷면100%증정※ ♜월드오브 워크래프트♜펫 무료증정￥ 특정조건 §§디아블로3§§★공허의유산★초상화획득기회@@@ 즉시이동http://kr.battle.net/heroes/ko/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  4, 1, TO_DATE('2021-07-09 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 210000,
+  '#17 판매중인 게시글 입니다람쥐.',
+  '??어서☆오세요 #밖은 너무 춥다구요♡하스스톤♧워크래프트의 영웅들??카드팩＄＄전원 1회 후불제☜☜※야생에서의 만남￥ 특정조건 §§낙스라마스§§★고블린대 노움★2년 이용시 야생 승격@@@ 퇴직금 10만원 제공♡♡즉시이동kr.battle.net/hearthstone/ko'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  4, , TO_DATE('2021-07-10 16:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 330000,
+  '#18 판매중인 게시글 입니다람쥐.',
+  'ㄷ1앎블롪ＩＩ✮ ➷ஜzㅔㅈㅓ렉❀쎥01 ி톪♞앓옸ㅏㄷㅏ!! ♔꾾□ㅐ 즉ㅅ1 Lㅔ팗렘읝 힘으로➞ 복구1✇ ㄱㅏ능ஊ! 즉시이동 https://diablo2.blizzard.com/ko-kr/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  2, 2, TO_DATE('2021-07-11 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 150000,
+  '#19 판매중인 게시글 입니다.',
+  '♚♚히어로즈 오브 더 스☆톰♚♚가입시$$전원 카드팩☜☜뒷면100%증정※ ♜월드오브 워크래프트♜펫 무료증정￥ 특정조건 §§디아블로3§§★공허의유산★초상화획득기회@@@ 즉시이동http://kr.battle.net/heroes/ko/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  2, 1, TO_DATE('2021-07-11 22:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'Y', 210000,
+  '#20 판매중인 게시글 입니다.',
+  '??어서☆오세요 #밖은 너무 춥다구요♡하스스톤♧워크래프트의 영웅들??카드팩＄＄전원 1회 후불제☜☜※야생에서의 만남￥ 특정조건 §§낙스라마스§§★고블린대 노움★2년 이용시 야생 승격@@@ 퇴직금 10만원 제공♡♡즉시이동kr.battle.net/hearthstone/ko'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  3, 3, TO_DATE('2021-07-12 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 330000,
+  '#21 판매중인 게시글 입니다.',
+  'ㄷ1앎블롪ＩＩ✮ ➷ஜzㅔㅈㅓ렉❀쎥01 ி톪♞앓옸ㅏㄷㅏ!! ♔꾾□ㅐ 즉ㅅ1 Lㅔ팗렘읝 힘으로➞ 복구1✇ ㄱㅏ능ஊ! 즉시이동 https://diablo2.blizzard.com/ko-kr/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  3, 2, TO_DATE('2021-07-12 12:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 150000,
+  '#22 판매중인 게시글 입니다람쥐.',
+  '♚♚히어로즈 오브 더 스☆톰♚♚가입시$$전원 카드팩☜☜뒷면100%증정※ ♜월드오브 워크래프트♜펫 무료증정￥ 특정조건 §§디아블로3§§★공허의유산★초상화획득기회@@@ 즉시이동http://kr.battle.net/heroes/ko/'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  4, 1, TO_DATE('2021-07-13 09:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 210000,
+  '#23 판매중인 게시글 입니다람쥐.',
+  '??어서☆오세요 #밖은 너무 춥다구요♡하스스톤♧워크래프트의 영웅들??카드팩＄＄전원 1회 후불제☜☜※야생에서의 만남￥ 특정조건 §§낙스라마스§§★고블린대 노움★2년 이용시 야생 승격@@@ 퇴직금 10만원 제공♡♡즉시이동kr.battle.net/hearthstone/ko'
+);
+
+INSERT INTO POST
+(
+  POST_CODE, BUYER_CODE, POST_CAT_CODE, LIKE_COUNT, REPORT_COUNT, POST_VIEW,
+  SELLER_CODE, AUTH_CODE, POST_TIME, SOLD_YN, BLIND_YN, ITEM_PRICE, POST_TITLE, POST_CONTENT
+)
+VALUES
+(
+  SEQ_POST_CODE.NEXTVAL, NULL, 1, 0, 0, 0,
+  4, 1, TO_DATE('2021-07-13 16:25:17', 'YYYY-MM-DD HH24:MI:SS'), 'N', 'N', 330000,
+  '#24 판매중인 게시글 입니다람쥐.',
+  'ㄷ1앎블롪ＩＩ✮ ➷ஜzㅔㅈㅓ렉❀쎥01 ி톪♞앓옸ㅏㄷㅏ!! ♔꾾□ㅐ 즉ㅅ1 Lㅔ팗렘읝 힘으로➞ 복구1✇ ㄱㅏ능ஊ! 즉시이동 https://diablo2.blizzard.com/ko-kr/'
+);
 
 CREATE TABLE CMT(
     CMT_CODE NUMBER CONSTRAINT PK_CMT_CODE PRIMARY KEY
