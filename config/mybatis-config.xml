@@ -4,7 +4,7 @@
 	<properties resource="connection-info.properties"></properties>
 	
 	<typeAliases>
-
+		<typeAlias type="org.clickMe.common.model.dto.PostDTO" alias="PostDTO"/>
 	</typeAliases>
 	
 	<environments default="dev">
@@ -20,6 +20,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="org/clickMe/xmlmapper/InquiryMapper.xml"/>
+		<mapper resource="org/clickMe/xmlmapper/PostMapper.xml"/>
 	</mappers>
 </configuration>
 
