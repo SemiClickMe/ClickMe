@@ -25,8 +25,9 @@ public class UserDTO implements Serializable{
 	private java.sql.Date enrollDate;
 	
 	public UserDTO() {
+		
 	}
-
+	
 	public int getCode() {
 		return code;
 	}
