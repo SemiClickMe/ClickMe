@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.clickMe.common.post.model.dao.PostMapper">
+<mapper namespace="org.clickMe.post.model.dao.PostMapper">
 	<resultMap type="PostDTO" id="postDefaultResultMap">
 		<id property="code" column="POST_CODE"/>
 		<result property="sellerCode" column="SELLER_CODE"/>

@@ -1,4 +1,4 @@
-package org.clickMe.common.post.model.dto;
+package org.clickMe.post.model.dto;
 
 import java.io.Serializable;
 

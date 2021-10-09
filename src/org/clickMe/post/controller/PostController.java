@@ -1,13 +1,11 @@
-package org.clickMe.common.post.controller;
+package org.clickMe.post.controller;
 
 import java.util.List;
 
-import javax.naming.directory.SearchControls;
-
 import org.clickMe.common.model.dto.PostDTO;
-import org.clickMe.common.post.PostUnitTestResultView;
-import org.clickMe.common.post.model.dto.SearchOption;
-import org.clickMe.common.post.model.service.PostService;
+import org.clickMe.post.PostUnitTestResultView;
+import org.clickMe.post.model.dto.SearchOption;
+import org.clickMe.post.model.service.PostService;
 
 public class PostController {
 	private final PostService postService;

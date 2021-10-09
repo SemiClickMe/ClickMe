@@ -1,9 +1,9 @@
-package org.clickMe.common.post.model.dao;
+package org.clickMe.post.model.dao;
 
 import java.util.List;
 
 import org.clickMe.common.model.dto.PostDTO;
-import org.clickMe.common.post.model.dto.SearchOption;
+import org.clickMe.post.model.dto.SearchOption;
 
 public interface PostMapper {
 
