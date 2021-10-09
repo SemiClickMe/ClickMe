@@ -1,9 +1,9 @@
-package org.clickMe.common.post;
+package org.clickMe.post;
 
 import java.util.Scanner;
 
-import org.clickMe.common.post.controller.PostController;
-import org.clickMe.common.post.model.dto.SearchOption;
+import org.clickMe.post.controller.PostController;
+import org.clickMe.post.model.dto.SearchOption;
 
 public class PostUnitTestApplication {
 	

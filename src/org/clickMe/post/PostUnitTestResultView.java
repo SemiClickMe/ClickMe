@@ -1,4 +1,4 @@
-package org.clickMe.common.post;
+package org.clickMe.post;
 
 import java.util.List;
 

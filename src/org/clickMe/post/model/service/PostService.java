@@ -1,4 +1,4 @@
-package org.clickMe.common.post.model.service;
+package org.clickMe.post.model.service;
 
 import static org.clickMe.common.Template.getSqlSession;
 
@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.clickMe.common.model.dto.PostDTO;
-import org.clickMe.common.post.model.dao.PostMapper;
-import org.clickMe.common.post.model.dto.SearchOption;
+import org.clickMe.post.model.dao.PostMapper;
+import org.clickMe.post.model.dto.SearchOption;
 
 public class PostService {
 
