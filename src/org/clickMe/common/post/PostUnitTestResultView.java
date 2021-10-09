@@ -17,6 +17,7 @@ public class PostUnitTestResultView {
 		
 		switch (errorCode) {
 		case "selectList": errorMessage = "전체 게시글 목록 조회에 실패했습니다."; break;
+		case "selectListWithSearchOption": errorMessage = "게시글 목록 검색에 실패했습니다."; break;
 		}
 		
 		System.out.println(errorMessage);
