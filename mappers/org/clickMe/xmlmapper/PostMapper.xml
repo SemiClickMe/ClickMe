@@ -37,4 +37,32 @@
           FROM POST A
          ORDER BY A.POST_CODE DESC
 	</select>
+	<select id="selectPostBySearchOption" parameterType="SearchOption" resultMap="postDefaultResultMap">
+		SELECT A.POST_CODE
+             , A.SELLER_CODE
+             , A.BUYER_CODE
+             , A.POST_CAT_CODE
+             , A.AUTH_CODE
+             , A.POST_TITLE
+             , A.POST_CONTENT
+             , A.LIKE_COUNT
+             , A.POST_TIME
+             , A.SOLD_YN
+             , A.REPORT_COUNT
+             , A.BLIND_YN
+             , A.ITEM_PRICE
+             , A.POST_VIEW
+          FROM POST A
+		<if test="option == '작성자'">
+		  JOIN "USER" B ON (A.SELLER_CODE = B.USER_CODE)
+		 WHERE B.USER_ID LIKE '%' || #{value} || '%'
+		</if>
+		<if test="option == '제목'">
+		 WHERE A.POST_TITLE LIKE '%' || #{value} || '%'
+		</if>
+		<if test="option == '내용'">
+		 WHERE A.POST_CONTENT LIKE '%' || #{value} || '%'
+		</if>
+         ORDER BY A.POST_CODE DESC
+	</select>
 </mapper>

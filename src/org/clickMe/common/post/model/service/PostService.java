@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.clickMe.common.model.dto.PostDTO;
 import org.clickMe.common.post.model.dao.PostMapper;
+import org.clickMe.common.post.model.dto.SearchOption;
 
 public class PostService {
 
@@ -20,6 +21,18 @@ public class PostService {
 		sqlSession.close();
 		
 		return postList;
+	}
+
+	public List<PostDTO> selectPostBySearchOption(SearchOption searchOption) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		List<PostDTO> searchedPostList = postMapper.selectPostBySearchOption(searchOption);
+		
+		sqlSession.close();
+		
+		return searchedPostList;
 	}
 
 }

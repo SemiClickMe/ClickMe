@@ -2,8 +2,11 @@ package org.clickMe.common.post.controller;
 
 import java.util.List;
 
+import javax.naming.directory.SearchControls;
+
 import org.clickMe.common.model.dto.PostDTO;
 import org.clickMe.common.post.PostUnitTestResultView;
+import org.clickMe.common.post.model.dto.SearchOption;
 import org.clickMe.common.post.model.service.PostService;
 
 public class PostController {
@@ -22,6 +25,16 @@ public class PostController {
 			resultView.printPostList(postList);
 		} else {
 			resultView.printErrorMessage("selectList");
+		}
+	}
+
+	public void selectPostBySearchOption(SearchOption searchOption) {
+		List<PostDTO> searchedPostList = postService.selectPostBySearchOption(searchOption);
+		
+		if (!searchedPostList.isEmpty()) {
+			resultView.printPostList(searchedPostList);
+		} else {
+			resultView.printErrorMessage("selectListWithSearchOption");
 		}
 	}
 
