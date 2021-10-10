@@ -62,4 +62,22 @@ public class PostController {
 		}
 	}
 
+	public void blindPostByCode(Map<String, String> parameter) {
+		int code = Integer.valueOf(parameter.get("code"));
+		
+		if (postService.blindPostByCode(code)) {
+			resultView.printSuccessMessage("blind");
+		} else {
+			resultView.printErrorMessage("blind");
+		}
+	}
+
+	public void modifyPost(Map<String, Object> parameter) {
+		if (postService.modifyPost(parameter)) {
+			resultView.printSuccessMessage("update");
+		} else {
+			resultView.printErrorMessage("update");
+		}
+	}
+
 }

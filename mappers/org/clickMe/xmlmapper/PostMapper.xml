@@ -93,5 +93,28 @@
 		  FROM POST A
 		 WHERE A.POST_CODE = #{code}
 	</delete>
-	
+	<update id="blindPostByCode" parameterType="_int">
+		UPDATE
+			   POST A
+		   SET A.BLIND_YN = 'Y'
+		 WHERE A.POST_CODE = #{code}
+	</update>
+	<update id="modifyPost" parameterType="hashmap">
+		UPDATE
+			   POST A
+		<set>
+			<if test="title != null and title != ''">
+				A.POST_TITLE = #{title}
+			</if>
+			<if test="content != null and content != ''">
+				A.POST_CONTENT = #{content}
+			</if>
+			<if test="itemPrice != null and itemPrice gt 0">
+				A.ITEM_PRICE = #{itemPrice}
+			</if>
+		</set>
+		<if test="code != null and code gt 0">
+		 WHERE A.POST_CODE = #{code}
+		</if>
+	</update>
 </mapper>
