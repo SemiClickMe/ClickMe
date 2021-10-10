@@ -35,4 +35,19 @@ public class PostService {
 		return searchedPostList;
 	}
 
+	public boolean insertNewPost(PostDTO post) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.insertNewPost(post);
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result > 0 ? true : false;
+	}
+
 }

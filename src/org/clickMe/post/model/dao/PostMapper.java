@@ -11,4 +11,6 @@ public interface PostMapper {
 
 	List<PostDTO> selectPostBySearchOption(SearchOption searchOption);
 
+	int insertNewPost(PostDTO post);
+
 }

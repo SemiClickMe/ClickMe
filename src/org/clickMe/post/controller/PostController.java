@@ -1,6 +1,7 @@
 package org.clickMe.post.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.clickMe.common.model.dto.PostDTO;
 import org.clickMe.post.PostUnitTestResultView;
@@ -33,6 +34,21 @@ public class PostController {
 			resultView.printPostList(searchedPostList);
 		} else {
 			resultView.printErrorMessage("selectListWithSearchOption");
+		}
+	}
+
+	public void insertNewPost(Map<String, String> parameter) {
+		PostDTO post = new PostDTO();
+		
+		post.setSellerCode(Integer.valueOf(parameter.get("sellerCode")));
+		post.setTitle(parameter.get("title"));
+		post.setContent(parameter.get("content"));
+		post.setItemPrice(Integer.valueOf(parameter.get("itemPrice")));
+		
+		if (postService.insertNewPost(post)) {
+			resultView.printSuccessMessage("insert");
+		} else {
+			resultView.printErrorMessage("insert");
 		}
 	}
 

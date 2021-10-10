@@ -20,7 +20,8 @@
 		<result property="view" column="POST_VIEW"/>
 	</resultMap>
 	<select id="selectAllPost" resultMap="postDefaultResultMap">
-		SELECT A.POST_CODE
+		SELECT
+			   A.POST_CODE
              , A.SELLER_CODE
              , A.BUYER_CODE
              , A.POST_CAT_CODE
@@ -38,7 +39,8 @@
          ORDER BY A.POST_CODE DESC
 	</select>
 	<select id="selectPostBySearchOption" parameterType="SearchOption" resultMap="postDefaultResultMap">
-		SELECT A.POST_CODE
+		SELECT
+			   A.POST_CODE
              , A.SELLER_CODE
              , A.BUYER_CODE
              , A.POST_CAT_CODE
@@ -65,4 +67,26 @@
 		</if>
          ORDER BY A.POST_CODE DESC
 	</select>
+	<insert id="insertNewPost" parameterType="PostDTO">
+		INSERT
+		  INTO Post A
+		(
+		  A.POST_CODE
+        , A.SELLER_CODE
+        , A.POST_CAT_CODE
+        , A.POST_TITLE
+        , A.POST_CONTENT
+        , A.ITEM_PRICE
+		)
+		VALUES
+		(
+		  SEQ_POST_CODE.NEXTVAL
+		, #{sellerCode}
+		, 1
+		, #{title}
+		, #{content}
+		, #{itemPrice}
+		)
+	</insert>
+	
 </mapper>
