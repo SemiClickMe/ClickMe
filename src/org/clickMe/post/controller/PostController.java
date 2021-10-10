@@ -52,4 +52,14 @@ public class PostController {
 		}
 	}
 
+	public void deletePostByCode(Map<String, String> parameter) {
+		int code = Integer.valueOf(parameter.get("code"));
+		
+		if (postService.deletePostByCode(code)) {
+			resultView.printSuccessMessage("delete");
+		} else {
+			resultView.printErrorMessage("delete");
+		}
+	}
+
 }

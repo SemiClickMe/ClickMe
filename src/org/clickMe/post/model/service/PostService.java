@@ -50,4 +50,19 @@ public class PostService {
 		return result > 0 ? true : false;
 	}
 
+	public boolean deletePostByCode(int code) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.deletePostByCode(code);
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result > 0 ? true : false;
+	}
+
 }

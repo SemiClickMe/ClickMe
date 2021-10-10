@@ -13,4 +13,6 @@ public interface PostMapper {
 
 	int insertNewPost(PostDTO post);
 
+	int deletePostByCode(int code);
+
 }

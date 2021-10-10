@@ -17,7 +17,7 @@ public class PostUnitTestApplication {
 			System.out.println("========== 게시글 단위 테스트 ==========");
 			System.out.println("1. 게시글 전체 조회");
 			System.out.println("2. 게시글 검색 조회");
-			System.out.println("3. 게시글 생성 (개발중)");
+			System.out.println("3. 게시글 생성");
 			System.out.println("4. 게시글 삭제 (개발중)");
 			System.out.println("5. 게시글 수정 (개발중)");
 			System.out.println("9. 게시글 단위 테스트 종료");
@@ -29,7 +29,7 @@ public class PostUnitTestApplication {
 			case 1: postController.selectAllPost(); break;
 			case 2: postController.selectPostBySearchOption(getSearchOption()); break;
 			case 3: postController.insertNewPost(getPostInfo()); break;
-			case 4: break;
+			case 4: postController.deletePostByCode(getPostCode()); break;
 			case 5: break;
 			case 9: System.out.println("게시글 단위 테스트 종료."); return;
 			default: System.out.println("올바르지 않은 번호를 입력하였습니다! : " + num);
@@ -73,6 +73,17 @@ public class PostUnitTestApplication {
 		parameter.put("title", title);
 		parameter.put("content", content);
 		parameter.put("itemPrice", itemPrice);
+		
+		return parameter;
+	}
+	
+	private static Map<String, String> getPostCode() {
+		Scanner sc = new Scanner(System.in);
+		Map<String, String> parameter = new HashMap<>();
+		
+		System.out.print("삭제하고자 하는 게시글의 코드를 입력해 주세요 : ");
+		String code = sc.nextLine();
+		parameter.put("code", code);
 		
 		return parameter;
 	}

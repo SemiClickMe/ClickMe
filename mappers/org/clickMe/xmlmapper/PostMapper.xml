@@ -88,5 +88,10 @@
 		, #{itemPrice}
 		)
 	</insert>
+	<delete id="deletePostByCode" parameterType="_int">
+		DELETE
+		  FROM POST A
+		 WHERE A.POST_CODE = #{code}
+	</delete>
 	
 </mapper>
