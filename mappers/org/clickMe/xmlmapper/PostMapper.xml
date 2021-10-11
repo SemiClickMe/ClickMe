@@ -20,7 +20,8 @@
 		<result property="view" column="POST_VIEW"/>
 	</resultMap>
 	<select id="selectAllPost" resultMap="postDefaultResultMap">
-		SELECT A.POST_CODE
+		SELECT
+			   A.POST_CODE
              , A.SELLER_CODE
              , A.BUYER_CODE
              , A.POST_CAT_CODE
@@ -38,7 +39,8 @@
          ORDER BY A.POST_CODE DESC
 	</select>
 	<select id="selectPostBySearchOption" parameterType="SearchOption" resultMap="postDefaultResultMap">
-		SELECT A.POST_CODE
+		SELECT
+			   A.POST_CODE
              , A.SELLER_CODE
              , A.BUYER_CODE
              , A.POST_CAT_CODE
@@ -65,4 +67,54 @@
 		</if>
          ORDER BY A.POST_CODE DESC
 	</select>
+	<insert id="insertNewPost" parameterType="PostDTO">
+		INSERT
+		  INTO Post A
+		(
+		  A.POST_CODE
+        , A.SELLER_CODE
+        , A.POST_CAT_CODE
+        , A.POST_TITLE
+        , A.POST_CONTENT
+        , A.ITEM_PRICE
+		)
+		VALUES
+		(
+		  SEQ_POST_CODE.NEXTVAL
+		, #{sellerCode}
+		, 1
+		, #{title}
+		, #{content}
+		, #{itemPrice}
+		)
+	</insert>
+	<delete id="deletePostByCode" parameterType="_int">
+		DELETE
+		  FROM POST A
+		 WHERE A.POST_CODE = #{code}
+	</delete>
+	<update id="blindPostByCode" parameterType="_int">
+		UPDATE
+			   POST A
+		   SET A.BLIND_YN = 'Y'
+		 WHERE A.POST_CODE = #{code}
+	</update>
+	<update id="modifyPost" parameterType="hashmap">
+		UPDATE
+			   POST A
+		<set>
+			<if test="title != null and title != ''">
+				A.POST_TITLE = #{title}
+			</if>
+			<if test="content != null and content != ''">
+				A.POST_CONTENT = #{content}
+			</if>
+			<if test="itemPrice != null and itemPrice gt 0">
+				A.ITEM_PRICE = #{itemPrice}
+			</if>
+		</set>
+		<if test="code != null and code gt 0">
+		 WHERE A.POST_CODE = #{code}
+		</if>
+	</update>
 </mapper>

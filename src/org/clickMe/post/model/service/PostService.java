@@ -3,6 +3,7 @@ package org.clickMe.post.model.service;
 import static org.clickMe.common.Template.getSqlSession;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.clickMe.common.model.dto.PostDTO;
@@ -33,6 +34,66 @@ public class PostService {
 		sqlSession.close();
 		
 		return searchedPostList;
+	}
+
+	public boolean insertNewPost(PostDTO post) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.insertNewPost(post);
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result > 0 ? true : false;
+	}
+
+	public boolean deletePostByCode(int code) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.deletePostByCode(code);
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result > 0 ? true : false;
+	}
+
+	public boolean blindPostByCode(int code) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.blindPostByCode(code);
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result > 0 ? true : false;
+	}
+
+	public boolean modifyPost(Map<String, Object> parameter) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.modifyPost(parameter);
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result > 0 ? true : false;
 	}
 
 }
