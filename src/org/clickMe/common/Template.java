@@ -25,12 +25,3 @@ public class Template {
 		return sqlSessionFactory.openSession(false);
 	}
 }
-
-
-
-
-
-
-
-
-

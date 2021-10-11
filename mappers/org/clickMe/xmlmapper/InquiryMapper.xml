@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="org.clickMe.Inquiry.InquiryMapper">
-
+<mapper namespace="org.clickMe.Inquiry.model.dao.InquiryMapper">
 	
 	<resultMap id="inquiryResultMap" type="org.clickMe.common.model.dto.InquiryDTO">
 		<id property="code" column="INQ_CODE"/>
@@ -29,4 +28,18 @@
 		  FROM INQUIRY A
 	</select>
 	
+	<select id="selectAnsweredInquiry" resultMap="inquiryResultMap">
+		SELECT
+		       A.INQ_CODE
+		     , A.INQ_TYPE_CODE
+		     , A.USER_CODE
+		     , A.INQ_TITLE
+		     , A.INQ_CONTENT
+		     , A.INQ_TIME
+		     , A.ANS_CONTENT
+		     , A.ANS_TIME
+		     , A.ANS_YN
+		  FROM INQUIRY A
+		 WHERE A.ANS_YN = 'N'
+	</select>
 </mapper>
