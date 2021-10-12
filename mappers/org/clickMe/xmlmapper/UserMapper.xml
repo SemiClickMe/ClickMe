@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+
+<mapper namespace="org.clickMe.user.mapper.UserMapper">
+
+	
+	<resultMap id="userResultMap" type="org.clickMe.common.model.dto.UserDTO">
+		<id property="code" column="USER_CODE"/>
+		<result property="entCode" column="ENT_CODE"/>
+		<result property="id" column="USER_ID"/>
+		<result property="psw" column="USER_PSW"/>
+		<result property="email" column="USER_EMAIL"/>
+		<result property="phone" column="PHONE"/>
+		<result property="name" column="USER_NAME"/>
+		<result property="date" column="BIRTH_DATE"/>
+		<result property="gender" column="GENDER"/>
+		<result property="authority" column="AUTHORITY"/>
+		<result property="deposit" column="DEPOSIT"/>
+		<result property="profileOrigName" column="PROFILE_ORIG_NAME"/>
+		<result property="profileUuidName" column="PROFILE_UUID_NAME"/>
+		<result property="profileImgPath" column="PROFILE_IMG_PATH"/>
+		<result property="lastLogin" column="LAST_LOGIN"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+	</resultMap>
+	
+	<select id="selectAllUser" resultMap="userResultMap">
+	    SELECT
+			   A.USER_CODE
+			 , A.ENT_CODE
+			 , A.USER_ID
+			 , A.USER_PSW
+			 , A.USER_EMAIL
+			 , A.PHONE
+			 , A.USER_NAME
+			 , A.BIRTH_DATE
+			 , A.GENDER
+			 , A.AUTHORITY
+			 , A.DEPOSIT
+			 , A.PROFILE_ORIG_NAME
+			 , A.PROFILE_UUID_NAME
+			 , A.PROFILE_IMG_PATH
+			 , A.LAST_LOGIN
+			 , A.ENROLL_DATE
+		  FROM "USER" A
+	</select>
+	
+	<insert id="insertUser" parameterType="org.clickMe.common.model.dto.UserDTO">
+	    INSERT
+	      INTO "USER" A
+	    (
+	      A.USER_CODE
+	    , A.USER_ID
+	    , A.USER_PSW
+	    , A.USER_EMAIL
+	    , A.PHONE
+	    , A.USER_NAME
+	    , A.BIRTH_DATE
+	    , A.GENDER
+	    )
+	      VALUES
+	    (
+	      SEQ_USER_CODE.NEXTVAL
+	    , #{ id }
+	    , #{ psw }
+	    , #{ email }
+	    , #{ phone }
+	    , #{ name }
+	    , #{ date }
+	    , #{ gender }
+	    )
+	</insert>
+	
+	 <select id="selectUser" parameterType="_int" resultMap="userResultMap">
+	    SELECT
+			   A.USER_CODE
+			 , A.ENT_CODE
+     		 , A.USER_ID
+     		 , A.USER_PSW
+     		 , A.USER_EMAIL
+     		 , A.PHONE
+     		 , A.USER_NAME
+     		 , A.BIRTH_DATE
+     		 , A.GENDER
+     		 , A.AUTHORITY
+     		 , A.DEPOSIT
+     		 , A.PROFILE_ORIG_NAME
+     		 , A.PROFILE_UUID_NAME
+     		 , A.PROFILE_IMG_PATH
+     		 , A.LAST_LOGIN
+		     , A.ENROLL_DATE
+ 		  FROM "USER" A
+ 		 WHERE A.USER_CODE = #{ code }
+ 	</select>
+ 	
+ 	
+ 	<update id="modifyUserInfor" parameterType="org.clickMe.common.model.dto.UserDTO">
+        UPDATE
+               "USER" A
+           SET A.USER_EMAIL = #{ email }
+             , A.PHONE = #{ phone }
+             , A.USER_NAME = #{ name }
+             , A.BIRTH_DATE = #{ date }
+             , A.GENDER = #{ gender }
+             , A.DEPOSIT = #{ deposit }
+         WHERE A.USER_CODE = #{ code }
+	</update>
+	
+ 	
+</mapper>

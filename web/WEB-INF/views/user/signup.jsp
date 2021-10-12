@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
@@ -74,7 +74,7 @@
                                         <div class="row g-3" id="signup">
                                             <div class="col-6 offset-3">
                                                 <p class="fs-2 fw-bold text-center"> 회원가입 </p>
-                                                <form action="user/signup" method="post">
+                                                <form action="userSignup" method="post">
                                                 <div class="form-floating m-3">
                                                     <input type="text" class="form-control" name="id" id="floatingInput"
                                                         placeholder="id" autofocus>

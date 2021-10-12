@@ -61,12 +61,12 @@
 							<div class="container">
 							  <div class="row">
 							    <div class="col">
-							      	<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/select'">
+							      	<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/userSelect'">
 									사용자 전체 셀렉</button>
 								</form>
 							    </div>
 							    <div class="col">
-							    	<form action="${pageContext.servletContext.contextPath}/user/oneselct">
+							    	<form action="${pageContext.servletContext.contextPath}/userOneselct">
 							    	<input type="text" name="userNum" id="userNum">
 									<button class="btn btn-secondary" type="submit">사용자 1명 선택</button>
 							    </div>
@@ -118,6 +118,7 @@
             </div>
             <hr class="solidLines">
         </footer>
+    </div>
     </div>
 </body>
 </html>
