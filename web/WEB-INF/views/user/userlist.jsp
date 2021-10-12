@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,8 +11,8 @@
 
     <link rel="stylesheet" href="resource/css/board.css">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/checkout/">
-
 <title>Insert title here</title>
+
 </head>
 <body>
 
@@ -134,6 +135,7 @@
             </div>
             <hr class="solidLines">
         </footer>
+    </div>
     </div>
 </body>
 </html>

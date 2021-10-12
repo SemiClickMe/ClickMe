@@ -115,5 +115,6 @@
             <hr class="solidLines">
         </footer>
     </div>
+    </div>
 </body>
 </html>
