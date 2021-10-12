@@ -13,9 +13,7 @@ public class InquiryService {
 	private InquiryMapper mapper;
 	
 	public List<InquiryDTO> selectAllInquiry() {
-		System.out.println("sqlSession전");
 		SqlSession sqlSession = getSqlSession();
-		System.out.println("sqlSession후");
 		mapper = sqlSession.getMapper(InquiryMapper.class);
 		
 		List<InquiryDTO> inquiryList = mapper.selectAllInquiry();
@@ -49,6 +47,23 @@ public class InquiryService {
 		
 		return inquiryList;
 	}	
+	
+	public int insertInquiry(InquiryDTO newInquiry) {
+		SqlSession sqlSession = getSqlSession();
+		mapper = sqlSession.getMapper(InquiryMapper.class);
+		
+		int result = mapper.insertInquiry(newInquiry);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
 }
 
 

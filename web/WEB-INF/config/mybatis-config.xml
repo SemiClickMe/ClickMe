@@ -22,6 +22,7 @@
 	<mappers>
 		<mapper resource="org/clickMe/xmlmapper/InquiryMapper.xml"/>
 		<mapper resource="org/clickMe/xmlmapper/PostMapper.xml"/>
+		<mapper resource="org/clickMe/xmlmapper/UserMapper.xml"/>
 	</mappers>
 </configuration>
 

@@ -17,14 +17,8 @@ public class SelectAllInquiryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1036083370842128523L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("넘어옵니까?");
-		
 		InquiryService inqService = new InquiryService();
 		List<InquiryDTO> inqList = inqService.selectAllInquiry();
-		
-		for (InquiryDTO iq : inqList) {
-			System.out.println(iq);
-		}
 		
 		String path = "";
 		if (inqList != null) {
