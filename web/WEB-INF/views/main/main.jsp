@@ -74,7 +74,7 @@
 								    </tr>
 								    <tr>
 								      <th scope="row">게시글</th>
-								      <td><button class="btn btn-primary" onclick="locatoin.href='${pageContext.servletContext.contextPath}/post/list/allPost'">전체 게시글 조회</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/allPost'">전체 게시글 조회</button></td>
 								    </tr>
 								  </tbody>
 								</table>
