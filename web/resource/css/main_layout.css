@@ -1,0 +1,214 @@
+ /* Layout */
+.layout {
+    min-width : 1200px;
+    margin: 0 auto;
+}
+.layoutMiddle {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    vertical-align: middle;
+}
+header {
+     width:1200px;
+     height:130px;
+     /* background-color:rgb(125,125,250); */
+    }
+
+nav {
+    width: 100%;
+    height: 60px;
+    /* background-color: sienna; */
+    text-align: center;
+
+}
+/* .wrap{
+    height: auto;
+    background-color: tomato;
+} */
+aside {
+    width: 100px;
+    height: 90%;
+    /* background-color: green; */
+    text-align: center;
+    position: absolute;
+    right: 0%
+     
+}
+section {
+    position: relative;
+    display: block;
+    width:1000px;
+    height:500px;
+/*     background-color:rgb(125,250,250); */
+    left:50%;
+    margin-left: -500px;
+    text-align: center;
+    }
+article {
+    position: relative;
+    display: block;
+    width: 850px;
+    height: 450px;
+/*     background-color: lightcoral; */
+    left:50%;
+    margin-left: -425px;
+    text-align: center;
+}
+footer {
+    position: relative;
+    width:1200px;
+    height:180px;
+    /* background-color: rgb(100,100,255);             */
+    font-size: larger;
+    
+}
+hr {
+    clear: both;
+    width: 1200px;
+    border-top: 2px solid #221463; 
+    margin: 10px 0;
+    opacity: 0.7;
+}
+
+
+/* header image */
+.titleImage {
+float: left;
+height: 100%;
+resize: both;
+overflow: hidden;
+}
+
+/*header button*/
+.buttonlist{
+    padding-right: 20px;
+    padding-top: 5px;
+}
+.buttonlist button {
+    background-color: 50.2, 50.2, 50.2, 1%;
+    display: inline-block;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    color: black;
+    font-size: 15px;
+    position: relative;
+    left: 50%;
+}
+
+/*header serch bar*/
+.search-container {
+    display: inline-block;
+    position: relative;
+    left:38%;
+    top: 20%
+}
+.search-container input[type=text] {
+    padding: 6px;
+    margin-top: 8px;
+    font-size: 17px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.search-container button {
+    padding: 4px;
+    margin-left: 5px;
+    background: #ddd;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* menubar nav CSS */
+.navbar {
+overflow: hidden;
+background-color: black;
+}                
+.navbar a {
+    display: inline-block;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
+}
+
+.navbar a.active {
+    background-color: #ddd;
+    color: black;
+    font-weight: bold;
+}
+
+/* vertical nav bar */
+.sidebar {
+    width: 60px;
+    position: sticky;
+    margin: 20px;
+    top: 30px;
+    background-color: #404040;
+    overflow-x: hidden;
+}
+#icon {
+    width: 25px;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+    filter :brightness(0) invert(1);
+    padding: 20px 5px;
+}
+#topbutton {
+    width: 60px;
+    height: 50px;
+    background-color: #404040;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px 0;
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+}
+
+/* bottom bar CSS */
+.bottombar {
+    overflow: hidden;
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    border-top: black;
+    border-bottom: black;
+    }                
+    .bottombar a {
+        display: inline-block;
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        color: black;
+        font-size: 17px;
+    }    
+    .bottombar a.active {
+        background-color: #ddd;
+        color: black;
+        font-weight: bold;
+    }
+
+    .sns{
+        float: right;
+        padding-right: 10px;
+        margin-right: 60px;
+        margin-left: -50px;
+    }
+    #snsicon {
+        width: 30px;
+        height: auto;
+        cursor: pointer;
+        padding: 8px;
+    }
+    .siteintro {
+        background-color: white;
+        height: 300px;
+    }
