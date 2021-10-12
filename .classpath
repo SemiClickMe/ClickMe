@@ -6,6 +6,8 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="web/WEB-INF/lib"/>
+	<classpathentry kind="src" path="web/resource"/>
 	<classpathentry kind="src" path="web/WEB-INF/config"/>
 	<classpathentry kind="src" path="mappers"/>
 	<classpathentry kind="src" path="resources"/>
