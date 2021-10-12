@@ -9,6 +9,7 @@ public class InquiryDTO implements java.io.Serializable {
 	private int code;
 	private int inqTypeCode;
 	private int userCode;
+	private String attchment;
 	private String inqTitle;
 	private String inqContent;
 	private Date inqTime;
@@ -19,11 +20,20 @@ public class InquiryDTO implements java.io.Serializable {
 	public InquiryDTO() {
 	}
 
-	public InquiryDTO(int code, int inqTypeCode, int userCode, String inqTitle, String inqContent, Date inqTime,
-			String ansContent, Date ansTime, String ansYn) {
+	public String getAttchment() {
+		return attchment;
+	}
+
+	public void setAttchment(String attchment) {
+		this.attchment = attchment;
+	}
+
+	public InquiryDTO(int code, int inqTypeCode, int userCode, String attchment, String inqTitle, String inqContent,
+			Date inqTime, String ansContent, Date ansTime, String ansYn) {
 		this.code = code;
 		this.inqTypeCode = inqTypeCode;
 		this.userCode = userCode;
+		this.attchment = attchment;
 		this.inqTitle = inqTitle;
 		this.inqContent = inqContent;
 		this.inqTime = inqTime;
@@ -31,6 +41,8 @@ public class InquiryDTO implements java.io.Serializable {
 		this.ansTime = ansTime;
 		this.ansYn = ansYn;
 	}
+
+
 
 	public int getCode() {
 		return code;
@@ -106,9 +118,9 @@ public class InquiryDTO implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "InquiryDTO [code=" + code + ", inqTypeCode=" + inqTypeCode + ", userCode=" + userCode + ", inqTitle="
-				+ inqTitle + ", inqContent=" + inqContent + ", inqTime=" + inqTime + ", ansContent=" + ansContent
-				+ ", ansTime=" + ansTime + ", ansYn=" + ansYn + "]";
+		return "InquiryDTO [code=" + code + ", inqTypeCode=" + inqTypeCode + ", userCode=" + userCode + ", attchment="
+				+ attchment + ", inqTitle=" + inqTitle + ", inqContent=" + inqContent + ", inqTime=" + inqTime
+				+ ", ansContent=" + ansContent + ", ansTime=" + ansTime + ", ansYn=" + ansYn + "]";
 	}
 	
 	

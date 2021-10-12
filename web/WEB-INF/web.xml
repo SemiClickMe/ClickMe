@@ -27,4 +27,12 @@
      <servlet-name>usertest</servlet-name>                                                        
      <url-pattern>/usertest</url-pattern>
 </servlet-mapping>
+<servlet>
+     <servlet-name>inquiryForm</servlet-name>
+     <jsp-file>/WEB-INF/views/inquiry/insertInquiryForm.jsp</jsp-file>                                       
+</servlet>
+<servlet-mapping>
+     <servlet-name>inquiryForm</servlet-name>                                                        
+     <url-pattern>/inquiryForm</url-pattern>
+</servlet-mapping>
 </web-app>

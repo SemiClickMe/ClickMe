@@ -68,14 +68,9 @@
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/signup'">가입 페이지로 이동</button></td>
 								    </tr>
 								    <tr>
-								      <th scope="row"> 사용자
-								       </th>
-								      <td><h1>${ pageContext.servletContext.contextPath }</h1>
-									   <h2>전체 1:1문의 조회</h2>
-									   <button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">
-									    1:1 문의 조회해보기
-								       </button></td>
-								      <td></td>
+								      <th scope="row"> 관리자</th>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">1:1 문의 조회해보기</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiryForm'">1:1 문의 작성페이지</button></td>
 								    </tr>
 								  </tbody>
 								</table>

@@ -42,4 +42,34 @@
 		  FROM INQUIRY A
 		 WHERE A.ANS_YN = 'N'
 	</select>
+	
+	<insert id="insertInquiry" parameterType="org.clickMe.common.model.dto.InquiryDTO">
+		INSERT
+		  INTO INQUIRY
+		(
+		  INQ_CODE
+		, INQ_TYPE_CODE
+		, USER_CODE
+		, INQ_ATTACHMENT
+		, INQ_TITLE
+		, INQ_CONTENT
+		, INQ_TIME
+		, ANS_CONTENT
+		, ANS_TIME
+		, ANS_YN
+		)
+		VALUES
+		(
+		  SEQ_INQ_CODE.NEXTVAL
+		, 1 <!-- will be changed after implement categoryDTO -->
+		, 2 <!-- will be changed after USER jsp completed -->
+		, NULL <!-- will be change after implement attachment function completed -->
+		, #{ inqTitle }
+		, #{ inqContent }
+		, SYSDATE
+		, NULL
+		, NULL
+		, 'N'
+		)
+	</insert>
 </mapper>
