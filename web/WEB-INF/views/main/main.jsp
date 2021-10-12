@@ -14,5 +14,11 @@
 	<button onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">
 	1:1 문의 조회해보기
 	</button>
+	
+	<br><hr>
+	
+	<h2>게시글 전체 조회 단위테스트 <a href="${pageContext.servletContext.contextPath}/post/list/allPost">forward</a></h2>
+	
+	<br><hr>
 </body>
 </html>
