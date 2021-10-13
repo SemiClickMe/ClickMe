@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,17 +54,16 @@
                 </div>
             </aside>
 
-            <section>
+            <section class="overflow-auto ">
                 <div class="main_field p-3">
-                    
                     <article class="main_cs p-3">
                          <br>
                         <div class="container">
 							<h1 align="center">회원 전체 조회</h1>
-							<table align="center" border="1">
+							<table align="center" border="1" class="table table-striped" style="width: 1200px">
 								<tr>
 									<th>사용자코드</th>
-									<th>탈퇴형태카테고리코드</th>
+									<th>탈퇴형태<br> 카테고리 코드</th>
 									<th>아이디</th>
 									<th>비밀번호</th>
 									<th>이메일</th>
@@ -73,12 +73,13 @@
 									<th>성별</th>
 									<th>관리권한유무</th>
 									<th>예치금</th>
-									<th>프로필사진원본이름</th>
-									<th>프로필UUID이름</th>
-									<th>프로필사진저장경로</th>
-									<th>최종로그인날짜</th>
+									<th>프로필<br> 사진<br> 원본이름</th>
+									<th>프로필<br> UUID이름</th>
+									<th>프로필<br> 사진<br> 저장경로</th>
+									<th>최종<br> 로그인 날짜</th>
 									<th>가입날짜</th>
 								</tr>
+							 	<c:if test="${requestScope.typeNo eq 2}">
 								<c:forEach var="users" items="${ requestScope.userList }">
 									<tr>
 										<td>${ users.code }</td>
@@ -98,7 +99,26 @@
 										<td>${ users.lastLogin }</td>
 										<td>${ users.enrollDate }</td>
 									</tr>
-								</c:forEach>
+								</c:forEach> 
+								</c:if> 
+									<tr>
+										<td>${ requestScope.userList.code }</td>
+										<td>${ requestScope.userList.entCode }</td>
+										<td>${ requestScope.userList.id }</td>
+										<td>${ requestScope.userList.psw }</td>
+										<td>${ requestScope.userList.email }</td>
+										<td>${ requestScope.userList.phone }</td>
+										<td>${ requestScope.userList.name }</td>
+										<td>${ requestScope.userList.date }</td>
+										<td>${ requestScope.userList.gender }</td>
+										<td>${ requestScope.userList.authority }</td>
+										<td>${ requestScope.userList.deposit }</td>
+										<td>${ requestScope.userList.profileOrigName }</td>
+										<td>${ requestScope.userList.profileUuidName }</td>
+										<td>${ requestScope.userList.profileImgPath }</td>
+										<td>${ requestScope.userList.lastLogin }</td>
+										<td>${ requestScope.userList.enrollDate }</td>
+									</tr>
 							</table>
 							</div>
                     </article>

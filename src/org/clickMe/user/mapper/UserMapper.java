@@ -4,6 +4,14 @@ import java.util.List;
 
 import org.clickMe.common.model.dto.UserDTO;
 
+/**   
+	* @packageName : org.clickMe.user.mapper 
+	* @Class : UserMapper
+    * @Comment : UserMapper
+	* @fileName : UserMapper.java 
+	* @author : Hansoo Lee
+    * @History : 2021.10.08 Hansoo Lee 작성함 
+*/
 public interface UserMapper {
 	
 	List<UserDTO> selectAllUser();
@@ -12,9 +20,13 @@ public interface UserMapper {
 	
 	int insertUser(UserDTO user);
 
-	String findUserId();
-
 	int modifyUserInfor(UserDTO user);
+
+	int modifyUserEntCode(UserDTO user);
+
+	List<UserDTO> findId(UserDTO user);
+
+	String findIds(UserDTO user);
 
 
 }

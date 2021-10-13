@@ -11,6 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.service.UserSignupService;
 
+/**   
+	* @packageName : org.clickMe.user.controller 
+	* @Class : UserSignupServlet
+    * @Comment : 회원가입
+	* @fileName : UserSignupServlet.java 
+	* @author : Hansoo Lee
+    * @History : 2021.10.18 Hansoo Lee
+*/
 @WebServlet("/userSignup")
 public class UserSignupServlet extends HttpServlet {
 	UserSignupService userSignupService = new UserSignupService();
@@ -37,14 +45,6 @@ public class UserSignupServlet extends HttpServlet {
 		
 		System.out.println("memberController requestMember : " + signupUser);
 		
-//		if(userSignupService.userSignup(signupUser)) {
-//			System.out.println("입력성공");
-//		} else {
-//			System.out.println("입력실패");
-//		}
-//		
-//		System.out.println("memberController result : " + result);
-//		
 		String page = "";
 		
 		if(userSignupService.userSignup(signupUser)) {
