@@ -21,7 +21,7 @@ public class InsertNewPostServlet extends HttpServlet {
 		PostUnitTestResultView resultView = new PostUnitTestResultView();
 		PostDTO post = new PostDTO();
 		
-		System.out.println(SelectAllPostServlet.class.getName() + " is successfully called.");
+		System.out.println(InsertNewPostServlet.class.getName() + " is successfully called.");
 		
 		request.setCharacterEncoding("UTF-8");
 		

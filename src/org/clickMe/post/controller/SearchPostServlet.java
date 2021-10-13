@@ -24,7 +24,7 @@ public class SearchPostServlet extends HttpServlet {
 		PostUnitTestResultView resultView = new PostUnitTestResultView();
 		SearchOption searchOption = new SearchOption();
 		
-		System.out.println(SelectAllPostServlet.class.getName() + " is successfully called.");
+		System.out.println(SearchPostServlet.class.getName() + " is successfully called.");
 		
 		searchOption.setOption(request.getParameter("searchOption"));
 		searchOption.setValue(request.getParameter("searchValue"));
