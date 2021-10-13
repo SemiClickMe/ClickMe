@@ -26,19 +26,12 @@ public class SearchPostServlet extends HttpServlet {
 		
 		System.out.println(SelectAllPostServlet.class.getName() + " is successfully called.");
 		
-//		String option = request.getParameter("searchOption");
-//		String value = request.getParameter("searchValue");
-		
 		searchOption.setOption(request.getParameter("searchOption"));
 		searchOption.setValue(request.getParameter("searchValue"));
 		
 		System.out.println(searchOption);
 		
 		List<PostDTO> searchedPostList = postService.selectPostBySearchOption(searchOption);
-		
-//		for (PostDTO post : postList) {
-//			System.out.println(post);
-//		}
 		
 		String forwardingPath = "";
 		if (!searchedPostList.isEmpty()) {

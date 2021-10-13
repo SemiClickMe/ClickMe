@@ -9,6 +9,8 @@
 </head>
 <body>
 	<h1 align="center">게시글 검색 조회 단위 테스트</h1>
+	
+	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button>
 
 	<h2>검색 폼</h2>
 	<form action="${pageContext.servletContext.contextPath}/post/list/searchPost" method="get" style="display: inline-block">

@@ -8,6 +8,7 @@
 <title>게시글 단위 테스트 서블릿 페이지</title>
 </head>
 <body>
+	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button>
 	<table border="1">
 		<caption>전체 게시글 목록 조회 결과</caption>
 		<thead>
