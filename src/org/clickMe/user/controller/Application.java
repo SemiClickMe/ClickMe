@@ -7,6 +7,14 @@ import java.util.Scanner;
 
 import org.clickMe.common.model.dto.UserDTO;
 
+/**   
+	* @packageName : org.clickMe.user.controller 
+	* @Class : Application
+    * @Comment : 사용자 단위 테스트 Application
+	* @fileName : Application.java 
+	* @author : Hansoo Lee
+    * @History : 2021.10.08 Hansoo Lee 처음 작성함 
+*/
 public class Application {
 	UserController userController = new UserController();
 	public static void main(String[] args) {
@@ -38,9 +46,9 @@ public class Application {
 				modifyUser();
 				break;
 
-//			case 4:
-//				userController.findUserId(findId());
-//				break;
+			case 4:
+				userController.findUserId(findId());
+				break;
 				
 				case 5:
 				userController.codeSelectUser(codeSelect());
@@ -194,42 +202,128 @@ public class Application {
 
 
 
-
-
-
 	private static void registDeactivateUser() {
+		UserController userController = new UserController();
 		Scanner sc = new Scanner(System.in);
-		System.out.print("코드를 입력하세요 : ");
-		String code = sc.nextLine();
+		UserDTO user = userController.codeSelectUser(codeSelect());
+		System.out.println(user);
+		int entCode = 1;
+		
+		do {
+			System.out.println("========= 코드 선택후 탈퇴 or 휴면상태 수정 단위테스트 =========");
+			System.out.println("1. 이름과 아이디 다시 조회");
+			System.out.println("2. 탈퇴 or 휴면상태 수정 설정");
+			System.out.println("3. 활성회원으로 설정");
+			System.out.println("8. 수정 사항 적용");
+			System.out.println("9. 이전메뉴로");
+			System.out.print("메뉴를 선택하세요 : ");
+			int no = sc.nextInt();
+			sc.nextLine();
+			switch (no) {
+			case 1:
+				System.out.println("아이디 : " + user.getId());
+				System.out.println("이름 : " + user.getName());
+				break;
+
+			case 2:
+				System.out.print("탈퇴 or 휴면상태 수정");
+				System.out.print(" 3 :휴면회원 , 4: 본인탈퇴, 5: 강제탈퇴 ");
+				int entNo = sc.nextInt();
+				
+					switch (entNo) {
+					
+						case 3:
+							System.out.println("3 :휴면회원으로 설정");
+							System.out.println("상태코드 : " + user.getEntCode());
+							user.setEntCode(entNo);
+							break;
+						case 4:
+							System.out.println("4 :본인탈퇴회원으로 설정");
+							System.out.println("상태코드 : " + user.getEntCode());
+							user.setEntCode(entNo);
+							break;
+						case 5:
+							System.out.println("5 :강제탈퇴회원으로 설정");
+							System.out.println("상태코드 : " + user.getEntCode());
+							user.setEntCode(entNo);
+							break;
+							
+						default : System.out.println("번호를 잘못 입력하셨습니다.");
+					}
+				
+				break;
+
+			case 3:
+				entCode = 1;
+				user.setEntCode(entCode);
+				System.out.print("활성회원으로 설정 수정");
+				break;
+				
+			case 8:
+				userController.modifyUserEntCode(user);
+				return;
+
+			case 9 : return;
+			
+			default : System.out.println("번호를 잘못 입력하셨습니다.");
+			}
+		} while (true);
+		
 	}
 
 
 
 	private static void registBlackUser(UserDTO codeSelectUser) {
-		
-	}
-
-
-
-
-
-	private static Map<String, String> modifyUsers() {
-
+		UserController userController = new UserController();
 		Scanner sc = new Scanner(System.in);
-		System.out.print("코드를 입력하세요 : ");
-		String code = sc.nextLine();
+		UserDTO user = codeSelectUser;
+		System.out.println(user);
 		
-		Map<String, String> userCode = new HashMap<>();
-		userCode.put("code", code);
+		int entCode = 1;
 		
-		
-		return userCode;
+		do {
+			System.out.println("========= 코드 선택후 블랙리스트 상태 수정 단위테스트 =========");
+			System.out.println("1. 이름과 아이디 다시 조회");
+			System.out.println("2. 블랙리스트 설정");
+			System.out.println("3. 블랙리스트 해제 (활성회원으로)");
+			System.out.println("8. 수정 사항 적용");
+			System.out.println("9. 이전메뉴로");
+			System.out.print("메뉴를 선택하세요 : ");
+			int no = sc.nextInt();
+			sc.nextLine();
+			switch (no) {
+			case 1:
+				System.out.println("아이디 : " + user.getId());
+				System.out.println("이름 : " + user.getName());
+				break;
+
+			case 2:
+				entCode = 2;
+				user.setEntCode(entCode);
+				System.out.print("블랙리스트로 설정 수정");
+				break;
+
+			case 3:
+				entCode = 1;
+				user.setEntCode(entCode);
+				System.out.print("활성회원으로 설정 수정");
+				break;
+				
+			case 8:
+				userController.modifyUserEntCode(user);
+				return;
+
+			case 9 : return;
+			
+			default : System.out.println("번호를 잘못 입력하셨습니다.");
+			}
+		} while (true);
 	}
-	
-	
-	
-	
-	
+
+	 /**
+	  * @return Map으로 회원 코드 번호를 매개변수로 전달, int를 매개변수로 사용해도 무방하다.
+	  *         여기에선 통일성과 테스트를 목적으로 Map으로 전달 하였다.
+	  */
 	private static Map<String, String> codeSelect() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("코드를 입력하세요 : ");
@@ -243,19 +337,19 @@ public class Application {
 	}
 	
 	
-	
 	private static Map<String, String> findId() {
+		
 		Scanner sc = new Scanner(System.in);
-		System.out.print("이름");
+		System.out.println("이름을 입력하세요.");
 		String name = sc.nextLine();
-		System.out.print("이메일");
+		System.out.println("이메일을 입력하세요.");
 		String email = sc.nextLine();
 		
-		Map<String, String> userParam = new HashMap<>();
+		Map<String, String> findId = new HashMap<>();
 		
-		userParam.put("name", name);
-		userParam.put("email", email);
+		findId.put("name", name);
+		findId.put("email", email);
 		
-		return userParam;
+		return findId;
 	}
 }

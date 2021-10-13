@@ -14,35 +14,34 @@ import org.clickMe.user.service.UserService;
 
 /**   
 	* @packageName : org.clickMe.user.controller 
-	* @Class : UserSelect
-    * @Comment : 사용자 모두 검색
-	* @fileName : UserSelect.java 
+	* @Class : UserOneSelctServlet
+    * @Comment : 사용자 1명만 코드로 검색
+	* @fileName : UserOneSelctServlet.java 
 	* @author : Hansoo Lee
-    * @History : 2021.10.10 Hansoo Lee 작성함 
+    * @History : 2021.10.10 Hansoo Lee 
 */
+@WebServlet("/userOneselct")
+public class UserOneSelctServlet  extends HttpServlet {
 
-
-@WebServlet("/userSelect")
-public class UserSelect  extends HttpServlet {
-	
+	private static final long serialVersionUID = -5703032335912762246L;
 	UserService  userService = new UserService();
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("셀렉트 모두 두겟??");
-		List<UserDTO> userList = userService.selectAllUserList();
-		System.out.println(userList);
-	
-
-		for(UserDTO us : userList) {
-			System.out.println(us);
-		}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("셀렉트 1명 두포스트");
+		request.setCharacterEncoding("UTF-8");
+		int code = Integer.valueOf(request.getParameter("userNum"));
+		System.out.println(code);
+		
+		UserDTO user1= userService.selectUser(code);
+		
 		
 		String page="";
 		
-		if (!userList.isEmpty()) {
+		if (code != 0) {
 			page = "/WEB-INF/views/user/userlist.jsp";
 			System.out.println("조회성공");
-			request.setAttribute("userList", userList);
-			request.setAttribute("typeNo", 2);
+			request.setAttribute("userList", user1);
+			request.setAttribute("typeNo", 1);
+			
 		} else {
 			page = "/WEB-INF/views/user/result.jsp";
 			System.out.println("조회실패");
@@ -50,6 +49,9 @@ public class UserSelect  extends HttpServlet {
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);
+		
+		
+		
 	}
-	
+
 }

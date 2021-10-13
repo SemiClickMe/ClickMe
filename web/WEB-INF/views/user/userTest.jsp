@@ -55,34 +55,33 @@
             <section>
                 <div class="signup_field p-3">
                     
-                    <article class="signup_cs p-3">
+                    <article class="signup_cs p-5">
                         <br>
                         <div class="container">
-							<div class="container">
-							  <div class="row">
+							  <div class="row mb-5">
 							    <div class="col">
 							      	<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/userSelect'">
 									사용자 전체 셀렉</button>
 								</form>
 							    </div>
 							    <div class="col">
-							    	<form action="${pageContext.servletContext.contextPath}/userOneselct">
-							    	<input type="text" name="userNum" id="userNum">
-									<button class="btn btn-secondary" type="submit">사용자 1명 선택</button>
+							    	<form action="userOneselct" method="post">
+							    	    <input type="text" name="userNum" id="userNum">
+									    <button class="btn btn-secondary" type="submit">사용자 1명 선택</button>
+									</form>
 							    </div>
 							  </div>
 							  <div class="row">
 							    <div class="col">
-							  
+							  		<form action="userModify" method="post">
+							    	    <input type="text" name="userNum" id="userNum" class="w-25">
+									    <button class="btn btn-secondary" type="submit">사용자 1명 정보 페이지 </button>
+									</form>
 							    </div>
 							    <div class="col">
-							 
-							    </div>
-							    <div class="col">
-							  
+
 							    </div>
 							  </div>
-							</div>
 							</div>
                     </article>
                 </div>

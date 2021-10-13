@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 
-
-
 <mapper namespace="org.clickMe.user.mapper.UserMapper">
 
-	
 	<resultMap id="userResultMap" type="org.clickMe.common.model.dto.UserDTO">
 		<id property="code" column="USER_CODE"/>
 		<result property="entCode" column="ENT_CODE"/>
@@ -44,6 +41,14 @@
 			 , A.LAST_LOGIN
 			 , A.ENROLL_DATE
 		  FROM "USER" A
+	</select>
+	
+	<select id="findId" resultMap="userResultMap">
+		SELECT 
+			   A.USER_ID	
+ 		  FROM "USER" A
+         WHERE LOWER(A.USER_NAME) = LOWER(#{ name })
+           AND A.USER_EMAIL = #{ email }
 	</select>
 	
 	<insert id="insertUser" parameterType="org.clickMe.common.model.dto.UserDTO">
@@ -94,7 +99,6 @@
  		 WHERE A.USER_CODE = #{ code }
  	</select>
  	
- 	
  	<update id="modifyUserInfor" parameterType="org.clickMe.common.model.dto.UserDTO">
         UPDATE
                "USER" A
@@ -107,5 +111,11 @@
          WHERE A.USER_CODE = #{ code }
 	</update>
 	
+	<update id="modifyUserEntCode" parameterType="org.clickMe.common.model.dto.UserDTO">
+        UPDATE
+               "USER" A
+           SET A.ENT_CODE = #{ entCode }
+         WHERE A.USER_CODE = #{ code }
+	</update>
  	
 </mapper>
