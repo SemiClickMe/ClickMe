@@ -16,8 +16,10 @@ public interface PostMapper {
 
 	int deletePostByCode(int code);
 
-	int blindPostByCode(int code);
+	int blindPostByCode(int code);	// used in level.1 unit test
 
 	int modifyPost(Map<String, Object> parameter);
+
+	int modifyPostBlind(Map<String, Object> postInfo);	// used in level.2 unit test
 
 }

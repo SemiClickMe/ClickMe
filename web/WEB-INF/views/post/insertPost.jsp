@@ -33,7 +33,7 @@
 			<label>4. 제품 금액</label>
 			<input type="number" name="itemPrice" value="0"/>&nbsp;[KRW]
 			<br>
-			<button type="submit" style="display: block">등록</button>
+			<button type="submit">등록</button>
 		</fieldset>
 	</form>
 	
@@ -44,7 +44,7 @@
 		String backgroundColor = "";
 		
 		if (result == null) {
-			result = "아직 등록 버튼을 누르지 않았습니다!";
+			result = "아직 submit 버튼을 누르지 않았습니다!";
 			backgroundColor = "orange";
 		} else if (result == "success") {
 			backgroundColor = "green";

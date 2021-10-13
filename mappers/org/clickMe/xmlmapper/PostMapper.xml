@@ -99,6 +99,12 @@
 		   SET A.BLIND_YN = 'Y'
 		 WHERE A.POST_CODE = #{code}
 	</update>
+	<update id="modifyPostBlind" parameterType="hashmap">
+		UPDATE
+			   POST A
+		   SET A.BLIND_YN = #{blindYn}
+		 WHERE A.POST_CODE = #{code}
+	</update>
 	<update id="modifyPost" parameterType="hashmap">
 		UPDATE
 			   POST A
