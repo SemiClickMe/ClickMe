@@ -73,9 +73,13 @@
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiryForm'">1:1 문의 작성페이지</button></td>
 								    </tr>
 								    <tr>
-								      <th scope="row">게시글</th>
+								      <th scope="row" rowspan="2">게시글</th>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/allPost'">전체 게시글 조회</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/searchPost'">게시글 검색 조회</button></td>
+								    </tr>
+								    <tr>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/postInsertForm'">게시글 작성</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/blind'">게시글 블라인드 처리(개발중)</button></td>
 								    </tr>
 								  </tbody>
 								</table>

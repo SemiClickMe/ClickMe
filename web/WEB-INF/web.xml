@@ -34,4 +34,12 @@
      <servlet-name>inquiryForm</servlet-name>                                                        
      <url-pattern>/inquiryForm</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>postInsertForm</servlet-name>
+	<jsp-file>/WEB-INF/views/post/insertPost.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+	<servlet-name>postInsertForm</servlet-name>
+	<url-pattern>/postInsertForm</url-pattern>
+</servlet-mapping>
 </web-app>
