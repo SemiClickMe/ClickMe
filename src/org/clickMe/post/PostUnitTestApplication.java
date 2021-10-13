@@ -46,9 +46,9 @@ public class PostUnitTestApplication {
 		
 		System.out.println("게시글을 검색할 검색 옵션을 입력해 주세요."
 				+ " 선택 가능한 검색 옵션은 다음과 같습니다.");
-		System.out.println("▷ 작성자");
-		System.out.println("▷ 제목");
-		System.out.println("▷ 내용");
+		System.out.println("▷ 작성자 -> \'sellerCode\' 입력.");
+		System.out.println("▷ 제목 -> \'title\' 입력.");
+		System.out.println("▷ 내용 -> \'content\' 입력.");
 		System.out.print("검색 옵션 : ");
 		searchOption.setOption(sc.nextLine());
 		System.out.print("검색할 게시글의 " + searchOption.getOption() + "을 입력해 주세요 : ");

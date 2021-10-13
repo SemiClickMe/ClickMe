@@ -55,14 +55,14 @@
              , A.ITEM_PRICE
              , A.POST_VIEW
           FROM POST A
-		<if test="option == '작성자'">
+		<if test="option == 'sellerCode'">
 		  JOIN "USER" B ON (A.SELLER_CODE = B.USER_CODE)
 		 WHERE B.USER_ID LIKE '%' || #{value} || '%'
 		</if>
-		<if test="option == '제목'">
+		<if test="option == 'title'">
 		 WHERE A.POST_TITLE LIKE '%' || #{value} || '%'
 		</if>
-		<if test="option == '내용'">
+		<if test="option == 'content'">
 		 WHERE A.POST_CONTENT LIKE '%' || #{value} || '%'
 		</if>
          ORDER BY A.POST_CODE DESC

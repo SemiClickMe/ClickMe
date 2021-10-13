@@ -16,11 +16,10 @@
 			<legend>게시글 검색 필드</legend>
 			<label>검색옵션</label>
 			<select name="searchOption">
-				<%-- <option value="default" ${ !(param.searchOption eq "default") ? "selected" : "" }>옵션선택</option> --%>
 				<option value="default" selected>옵션선택</option>
-				<option value="작성자" ${ (param.searchOption eq "작성자") ? "selected" : "" }>작성자</option>
-				<option value="제목" ${ (param.searchOption eq "제목") ? "selected" : "" }>제목</option>
-				<option value="내용" ${ (param.searchOption eq "내용") ? "selected" : "" }>내용</option>
+				<option value="sellerCode" ${ (param.searchOption eq "sellerCode") ? "selected" : "" }>작성자</option>
+				<option value="title" ${ (param.searchOption eq "title") ? "selected" : "" }>제목</option>
+				<option value="content" ${ (param.searchOption eq "content") ? "selected" : "" }>내용</option>
 			</select>
 			<label>검색값</label>
 			<input type="search" name="searchValue" placeholder="검색할 내용을 입력해 주세요" value="${ param.searchValue }"/>
