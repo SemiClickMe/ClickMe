@@ -103,7 +103,7 @@ public class UserController {
 
 		List<UserDTO> findedUserId = userService.findUserId(findUserId);
 
-		if (findedUserId != null) {
+		if (!findedUserId.isEmpty()) {
 			System.out.println("불러옴");
 			System.out.println("검색된 아이디");
 			for (UserDTO user : findedUserId) {

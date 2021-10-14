@@ -19,12 +19,28 @@
     <url-pattern>/signup</url-pattern>
 </servlet-mapping>
 <servlet>
+	<servlet-name>userStatus</servlet-name>
+    <jsp-file>/WEB-INF/views/user/userStatus.jsp</jsp-file>                                            
+</servlet>
+<servlet-mapping>
+     <servlet-name>userStatus</servlet-name>                                                        
+     <url-pattern>/userStatus</url-pattern>
+</servlet-mapping>
+<servlet>
 	<servlet-name>usertest</servlet-name>
     <jsp-file>/WEB-INF/views/user/userTest.jsp</jsp-file>                                            
 </servlet>
 <servlet-mapping>
      <servlet-name>usertest</servlet-name>                                                        
      <url-pattern>/usertest</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>userIdFind</servlet-name>
+    <jsp-file>/WEB-INF/views/user/userIdFind.jsp</jsp-file>                                            
+</servlet>
+<servlet-mapping>
+     <servlet-name>userIdFind</servlet-name>                                                        
+     <url-pattern>/userIdFindPage</url-pattern>
 </servlet-mapping>
 <servlet>
      <servlet-name>inquiryForm</servlet-name>

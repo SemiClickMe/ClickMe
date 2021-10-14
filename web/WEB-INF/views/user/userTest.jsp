@@ -67,19 +67,30 @@
 							    <div class="col">
 							    	<form action="userOneselct" method="post">
 							    	    <input type="text" name="userNum" id="userNum">
-									    <button class="btn btn-secondary" type="submit">사용자 1명 선택</button>
+									    <button class="btn btn-secondary" type="submit" placeholder="코드를 입력하세요">사용자 1명 선택</button>
 									</form>
 							    </div>
 							  </div>
-							  <div class="row">
+							  <div class="row mb-5">
 							    <div class="col">
-							  		<form action="userModify" method="post">
+							  		<form action="userStatusPage" method="post">
 							    	    <input type="text" name="userNum" id="userNum" class="w-25">
-									    <button class="btn btn-secondary" type="submit">사용자 1명 정보 페이지 </button>
+									    <button class="btn btn-secondary" type="submit" placeholder="코드를 입력하세요">사용자용 본인 스탯 <br> 조회 및 수정 </button>
 									</form>
 							    </div>
 							    <div class="col">
-
+							    	<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/userIdFindPage'">
+							    	아이디 찾기</button>
+							    </div>
+							  </div>
+							  <div class="row mb-5">
+							    <div class="col">
+							  		<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/userStatus'">
+							    	관리자용 사용자 리스트 조회</button>
+							    </div>
+							    <div class="col">
+							    	<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/userStatus'">
+							    	관리자용 사용자 리스트 조회</button>
 							    </div>
 							  </div>
 							</div>
