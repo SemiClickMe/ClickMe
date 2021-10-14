@@ -22,25 +22,67 @@
 		<result property="enrollDate" column="ENROLL_DATE"/>
 	</resultMap>
 	
+	<resultMap id="userListPageResultMap" type="org.clickMe.common.model.dto.UserDTO">
+		<id property="code" column="USER_CODE"/>
+		<result property="entCode" column="ENT_CODE"/>
+		<result property="id" column="USER_ID"/>
+		<result property="email" column="USER_EMAIL"/>
+		<result property="phone" column="PHONE"/>
+		<result property="name" column="USER_NAME"/>
+		<result property="date" column="BIRTH_DATE"/>
+		<result property="gender" column="GENDER"/>
+		<result property="deposit" column="DEPOSIT"/>
+		<result property="lastLogin" column="LAST_LOGIN"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+	</resultMap>
+	
 	<select id="selectAllUser" resultMap="userResultMap">
 	    SELECT
 			   A.USER_CODE
 			 , A.ENT_CODE
 			 , A.USER_ID
-			 , A.USER_PSW
 			 , A.USER_EMAIL
 			 , A.PHONE
 			 , A.USER_NAME
 			 , A.BIRTH_DATE
 			 , A.GENDER
-			 , A.AUTHORITY
 			 , A.DEPOSIT
-			 , A.PROFILE_ORIG_NAME
-			 , A.PROFILE_UUID_NAME
-			 , A.PROFILE_IMG_PATH
 			 , A.LAST_LOGIN
 			 , A.ENROLL_DATE
 		  FROM "USER" A
+	</select>
+	
+	<select id="userListPage" resultMap="userListPageResultMap">
+		SELECT
+		       B.USER_NUM
+		     , B.USER_CODE
+		     , B.ENT_CODE
+		     , B.USER_ID
+		     , B.USER_EMAIL
+		     , B.PHONE
+		     , B.USER_NAME
+		     , B.BIRTH_DATE
+		     , B.GENDER
+		     , B.DEPOSIT
+		     , B.LAST_LOGIN
+		     , B.ENROLL_DATE
+		  FROM (SELECT
+		               ROW_NUMBER() OVER( ORDER BY A.USER_CODE DESC ) AS USER_NUM
+		             , A.USER_CODE
+		             , A.ENT_CODE
+		             , A.USER_ID
+		             , A.USER_EMAIL
+		             , A.PHONE
+		             , A.USER_NAME
+		             , A.BIRTH_DATE
+		             , A.GENDER
+		             , A.DEPOSIT
+		             , A.LAST_LOGIN
+		             , A.ENROLL_DATE
+		          FROM "USER" A) B
+<!-- 		          <![CDATA[
+                  WHERE B.USER_NUM <= #{ endRow }
+                  WHERE B.USER_NUM >= #{ startRow }]]> -->
 	</select>
 	
 	<select id="findId" resultMap="userResultMap">

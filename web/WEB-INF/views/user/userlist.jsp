@@ -13,7 +13,7 @@
 	integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
 	crossorigin="anonymous">
 
-<link rel="stylesheet" href="resource/css/board.css">
+<link rel="stylesheet" href="../resource/css/board.css">
 <link rel="canonical"
 	href="https://getbootstrap.com/docs/5.1/examples/checkout/">
 <title>Insert title here</title>
@@ -25,7 +25,7 @@
 
 		<!-- 헤더 -->
 		<header>
-			<img src="source/image/logo-removebg.png" alt="타이틀 로고"
+			<img src="../source/image/logo-removebg.png" alt="타이틀 로고"
 				class="titleImage">
 			<div class=buttonlist>
 				<button>로그인</button>
@@ -49,10 +49,10 @@
 		<div class="wrap">
 			<aside>
 				<div class="sidebar">
-					<img src="source/icon/user.png" id="icon"> <img
-						src="source/icon/cart.png" id="icon"> <img
-						src="source/icon/heart.png" id="icon"> <img
-						src="source/icon/clock.png" id="icon">
+					<img src="../source/icon/user.png" id="icon"> <img
+						src="../source/icon/cart.png" id="icon"> <img
+						src="../source/icon/heart.png" id="icon"> <img
+						src="../source/icon/clock.png" id="icon">
 					<button onclick="topFunction()" title="top" id="topbutton">Top
 					</button>
 				</div>
@@ -145,10 +145,10 @@
 						id="privacy-statement">개인정보취급방침</a> <a href="#" id="terms-of-use">이용약관</a>
 					<a href="#" id="financial">전자금융거래 이용약관</a> <a href="#" id="sitemap">사이트맵</a>
 					<div class="sns">
-						<img src="source/icon/instagram.png" id="snsicon"> <img
-							src="source/icon/facebook.png" id="snsicon"> <img
-							src="source/icon/kakao-talk.png" id="snsicon"> <img
-							src="source/icon/youtube.png" id="snsicon">
+						<img src="../source/icon/instagram.png" id="snsicon"> <img
+							src="../source/icon/facebook.png" id="snsicon"> <img
+							src="../source/icon/kakao-talk.png" id="snsicon"> <img
+							src="../source/icon/youtube.png" id="snsicon">
 					</div>
 				</div>
 				<hr class="solidLines">

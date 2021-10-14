@@ -18,7 +18,7 @@ import org.clickMe.user.service.UserService;
 	* @author : Hansoo Lee
     * @History : 2021.10.13 Hansoo Lee 처음 작성함 
 */
-@WebServlet("/userStatusModify")
+@WebServlet("/user/statusModify")
 public class UserStatusModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UserService userService = new UserService();

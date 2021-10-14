@@ -20,7 +20,7 @@ import org.clickMe.user.service.UserService;
 	* @author : Hansoo Lee
     * @History : 2021.10.10 Hansoo Lee 
 */
-@WebServlet("/userOneselct")
+@WebServlet("/user/oneSelct")
 public class UserOneSelctServlet  extends HttpServlet {
 
 	private static final long serialVersionUID = -5703032335912762246L;
