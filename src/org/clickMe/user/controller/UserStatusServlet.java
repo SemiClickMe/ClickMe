@@ -20,7 +20,7 @@ import org.clickMe.user.service.UserService;
     * @History : 2021.10.13 작성
     * @see 참고할 class나 외부 url
 */
-@WebServlet("/userStatusPage")
+@WebServlet("/user/statusPage")
 public class UserStatusServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 3927309967423553406L;

@@ -19,7 +19,7 @@ import org.clickMe.user.service.UserSignupService;
 	* @author : Hansoo Lee
     * @History : 2021.10.18 Hansoo Lee
 */
-@WebServlet("/userSignup")
+@WebServlet("/user/signUp")
 public class UserSignupServlet extends HttpServlet {
 	UserSignupService userSignupService = new UserSignupService();
 

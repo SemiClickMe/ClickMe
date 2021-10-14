@@ -28,5 +28,7 @@ public interface UserMapper {
 
 	String findIds(UserDTO user);
 
+	List<UserDTO> userListPage();
+
 
 }
