@@ -33,7 +33,7 @@ public class UserService {
 		/* 세션은 항상 닫아주자!! */
 		return userList;
 	}
-
+	
 	public boolean insertUser(UserDTO user) {
 		
 		SqlSession sqlSession = getSqlSession();
@@ -116,4 +116,16 @@ public class UserService {
 		return findUserId;
 	}
 
+	public List<UserDTO> userListPage() {
+		SqlSession sqlSession = getSqlSession();
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		List<UserDTO> userListOnPage = userMapper.userListPage();
+		/* 매퍼 인터페이스 활용 remix */
+		System.out.println(userListOnPage);
+
+		sqlSession.close();
+		/* 세션은 항상 닫아주자!! */
+		return userListOnPage;
+		
+	}
 }

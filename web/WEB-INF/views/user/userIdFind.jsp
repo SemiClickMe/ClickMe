@@ -14,7 +14,7 @@
 	<div style="height: 200px"></div>
 	    <h1 align="center">아이디 찾기</h1>
 	    <div align="center" class="container justify-content-end">
-		<form action="UserIdFinder" method="POST">
+		<form action="${pageContext.servletContext.contextPath}/user/idFinder" method="POST">
 		   <input type="hidden" name="code" value="${ requestScope.userList.code }">
 			<table class="table table-striped w-50 align-middle text-end">
 				<tbody>

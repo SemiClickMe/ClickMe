@@ -24,7 +24,7 @@
 </servlet>
 <servlet-mapping>
      <servlet-name>userStatus</servlet-name>                                                        
-     <url-pattern>/userStatus</url-pattern>
+     <url-pattern>/user/status</url-pattern>
 </servlet-mapping>
 <servlet>
 	<servlet-name>usertest</servlet-name>
@@ -40,7 +40,7 @@
 </servlet>
 <servlet-mapping>
      <servlet-name>userIdFind</servlet-name>                                                        
-     <url-pattern>/userIdFindPage</url-pattern>
+     <url-pattern>/user/idFindPage</url-pattern>
 </servlet-mapping>
 <servlet>
      <servlet-name>inquiryForm</servlet-name>

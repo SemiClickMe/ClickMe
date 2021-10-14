@@ -30,7 +30,7 @@
 	<div style="height: 200px"></div>
 	<h1 align="center">이름이 '${ requestScope.userList.name }'인 사용자 1명 <br> 스탯 조회 및 수정</h1>
 	<div align="center" class="container justify-content-end">
-		<form action="userStatusModify" method="POST">
+		<form action="user/statusModify" method="POST">
 		   <input type="hidden" name="code" value="${ requestScope.userList.code }">
 			<table class="table table-striped w-50 align-middle text-end">
 				<tbody>

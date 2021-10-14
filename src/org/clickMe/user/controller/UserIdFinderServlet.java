@@ -21,7 +21,7 @@ import org.clickMe.user.service.UserService;
 	* @author : Hansoo Lee
     * @History : 2021.10.14 Hansoo Lee 처음 작성함 
 */
-@WebServlet("/UserIdFinder")
+@WebServlet("/user/idFinder")
 public class UserIdFinderServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UserService  userService = new UserService();

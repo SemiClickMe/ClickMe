@@ -74,7 +74,7 @@
                                         <div class="row g-3" id="signup">
                                             <div class="col-6 offset-3">
                                                 <p class="fs-2 fw-bold text-center"> 회원가입 </p>
-                                                <form action="userSignup" method="post">
+                                                <form action="user/signUp" method="post">
                                                 <div class="form-floating m-3">
                                                     <input type="text" class="form-control" name="id" id="floatingInput"
                                                         placeholder="id" autofocus>
