@@ -50,4 +50,12 @@
 	<servlet-name>modifyPostBlind</servlet-name>
 	<url-pattern>/modifyPostBlind</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>modifyPostForm</servlet-name>
+	<jsp-file>/WEB-INF/views/post/modifyPost.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+	<servlet-name>modifyPostForm</servlet-name>
+	<url-pattern>/modifyPostForm</url-pattern>
+</servlet-mapping>
 </web-app>

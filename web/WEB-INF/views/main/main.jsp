@@ -81,6 +81,9 @@
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/postInsertForm'">게시글 작성</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/modifyPostBlind'">게시글 블라인드 처리</button></td>
 								    </tr>
+								    <tr>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/modifyPostForm'">작성한 게시글 수정</button></td>
+								    </tr>
 								  </tbody>
 								</table>
 							  </div>
