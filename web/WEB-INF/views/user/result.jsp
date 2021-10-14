@@ -10,9 +10,11 @@
 <body>
 <h1 align="center">${ requestScope.message }</h1>
 <h2 align="center">${ requestScope.signupUser }</h2>
-
-
-
+<h2 align="center">${ requestScope.userList }</h2>
+<h2 align="center">아이디 찾기</h2>
+<c:forEach var="users" items="${ requestScope.userList }">
+	<h2 align="center"><br>ID : ${ users.id }<br></h2>
+</c:forEach>
 
 
 

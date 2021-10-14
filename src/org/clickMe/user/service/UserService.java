@@ -19,10 +19,7 @@ import org.clickMe.user.mapper.UserMapper;
 public class UserService {
 
 	 /**
-	  * @param 매개변수명 매개변수에 대한 설명
-	  * @param 매개변수명 매개변수에 대한 설명
 	  * @return 여러명이기 때문에 List로 반환
-	  * @exception 예외 이유에 대한 설명
 	  */
 	public List<UserDTO> selectAllUserList() {
 		
