@@ -8,7 +8,9 @@ public interface InquiryMapper {
 
 	List<InquiryDTO> selectAllInquiry();
 	
-	List<InquiryDTO> selectAnsweredInquiry();
+	List<InquiryDTO> selectNotAnsweredInquiry();
 
 	int insertInquiry(InquiryDTO newInquiry);
+
+	List<InquiryDTO> selectAnsweredInquiry();
 }

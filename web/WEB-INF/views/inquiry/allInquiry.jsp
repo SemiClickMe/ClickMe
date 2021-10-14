@@ -9,6 +9,8 @@
 </head>
 <body>
 	<h1 align="center">1:1문의 전체 조회해보기</h1>
+	<button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list/noreply'">아직 답변되지않은 문의 조회</button>
+	<button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list/answered'">답변이 완료 된 문의 조회</button>
 	<table align="center" border="1">
 		<tr>
 			<th>1:1문의코드</th>
