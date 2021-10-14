@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.clickMe.post.PostUnitTestResultView;
 import org.clickMe.post.model.service.PostService;
 
-@WebServlet("/post/modify/blind")
+@WebServlet("/post/blind")
 public class ModifyPostBlindServlet extends HttpServlet {
 	private static final long serialVersionUID = -2736173940537605744L;
 

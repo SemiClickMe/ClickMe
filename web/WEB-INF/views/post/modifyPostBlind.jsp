@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>게시글 단위 테스트 서블릿 페이지</title>
 </head>
 <body>
 	<h1>게시글 블라인드 처리 단위 테스트</h1>
@@ -16,7 +16,7 @@
 	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button>
 	
 	<h2>게시글 블라인드 처리 폼</h2>
-	<form action="${pageContext.servletContext.contextPath}/post/modify/blind" method="post" style="display: inline-block">
+	<form action="${pageContext.servletContext.contextPath}/post/blind" method="post" style="display: inline-block">
 		<fieldset>
 			<legend>블라인드 처리 필드</legend>
 			<label>1. 게시글 코드</label>
