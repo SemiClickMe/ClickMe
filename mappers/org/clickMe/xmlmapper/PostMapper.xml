@@ -19,6 +19,17 @@
 		<result property="itemPrice" column="ITEM_PRICE"/>
 		<result property="view" column="POST_VIEW"/>
 	</resultMap>
+	<!-- 
+	<resultMap type="PostForAdminDTO" id="postForAdminResultMap">
+		<id property="code" column="POST_CODE"/>
+		<result property="authStatus" column=""/>
+		<result property="title" column=""/>
+		<result property="sellerId" column=""/>
+		<result property="blindYn" column=""/>
+		<result property="time" column=""/>
+	</resultMap>
+	 -->
+	
 	<select id="selectAllPost" resultMap="postDefaultResultMap">
 		SELECT
 			   A.POST_CODE
@@ -67,6 +78,37 @@
 		</if>
          ORDER BY A.POST_CODE DESC
 	</select>
+	<select id="selectPostforAdmin" parameterType="hashmap" resultType="PostForAdminDTO">
+		SELECT
+		       A.POST_CODE AS "code"
+		     , B.AUTH_STATUS AS "authStatus"
+		     , A.POST_TITLE AS "title"
+		     , C.USER_ID AS "sellerId"
+		     , A.BLIND_YN AS "blindYn"
+		     , A.POST_TIME AS "time"
+		  FROM POST A
+		  JOIN AUTHENTIC B ON (A.AUTH_CODE = B.AUTH_CODE)
+		  JOIN "USER" C ON (A.SELLER_CODE = C.USER_CODE)
+		<where>
+			<if test="authCode != null and authCode gt 0">
+				A.AUTH_CODE = #{authCode}
+			</if>
+			<if test="blindYn != null and blindYn != 'both'">
+				AND A.BLIND_YN = #{blindYn}
+			</if>
+			<if test="sellerId != null and sellerId != ''">
+				AND C.USER_ID = #{sellerId}
+			</if>
+			<if test="title != null and title != ''">
+				AND A.POST_TITLE LIKE '%' || #{title} || '%'
+			</if>
+			<if test="content != null and content != ''">
+				AND A.POST_CONTENT LIKE '%' || #{content} || '%'
+			</if>
+		</where>
+		 ORDER BY A.POST_CODE DESC
+	</select>
+	
 	<insert id="insertNewPost" parameterType="PostDTO">
 		INSERT
 		  INTO Post A
@@ -88,11 +130,7 @@
 		, #{itemPrice}
 		)
 	</insert>
-	<delete id="deletePostByCode" parameterType="_int">
-		DELETE
-		  FROM POST A
-		 WHERE A.POST_CODE = #{code}
-	</delete>
+	
 	<update id="blindPostByCode" parameterType="_int">
 		UPDATE
 			   POST A
@@ -123,4 +161,10 @@
 		 WHERE A.POST_CODE = #{code}
 		</if>
 	</update>
+	
+	<delete id="deletePostByCode" parameterType="_int">
+		DELETE
+		  FROM POST A
+		 WHERE A.POST_CODE = #{code}
+	</delete>
 </mapper>

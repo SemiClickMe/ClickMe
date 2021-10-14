@@ -73,7 +73,7 @@
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiryForm'">1:1 문의 작성페이지</button></td>
 								    </tr>
 								    <tr>
-								      <th scope="row" rowspan="3">게시글</th>
+								      <th scope="row" rowspan="4">게시글</th>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/allPost'">전체 게시글 조회</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/searchPost'">게시글 검색 조회</button></td>
 								    </tr>
@@ -84,6 +84,10 @@
 								    <tr>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/modifyPostForm'">작성한 게시글 수정</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/deletePostForm'">DB에서 게시글 삭제</button></td>
+								    </tr>
+								    <tr>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/admin'">게시글 관리(관리자) - 개발중</button></td>
+								      <td><button class="btn btn-primary">게시판(회원) - 개발중</button></td>
 								    </tr>
 								  </tbody>
 								</table>
