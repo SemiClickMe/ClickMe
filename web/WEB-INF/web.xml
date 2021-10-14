@@ -58,4 +58,12 @@
 	<servlet-name>modifyPostForm</servlet-name>
 	<url-pattern>/modifyPostForm</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>deletePostForm</servlet-name>
+	<jsp-file>/WEB-INF/views/post/deletePost.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+	<servlet-name>deletePostForm</servlet-name>
+	<url-pattern>/deletePostForm</url-pattern>
+</servlet-mapping>
 </web-app>

@@ -83,6 +83,7 @@
 								    </tr>
 								    <tr>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/modifyPostForm'">작성한 게시글 수정</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/deletePostForm'">DB에서 게시글 삭제</button></td>
 								    </tr>
 								  </tbody>
 								</table>
