@@ -86,6 +86,23 @@ public class InquiryService {
 		
 		return result;
 	}
+	
+	/* 1:1문의 상세보기용 메소드 */
+	public InquiryDTO selectNoticeDetail(int code) {
+		SqlSession sqlSession = getSqlSession();
+		InquiryDTO inquiryDetail = null;
+		mapper = sqlSession.getMapper(InquiryMapper.class);
+		inquiryDetail = mapper.selectinquiryDetail(code);
+
+		if(inquiryDetail != null) {
+			sqlSession.commit();
+			} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return inquiryDetail;
+	}
+
 }
-
-

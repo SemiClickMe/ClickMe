@@ -87,4 +87,19 @@
 		, 'N'
 		)
 	</insert>
+	
+	<select id="selectinquiryDetail" resultMap="inquiryResultMap">
+		SELECT
+		       A.INQ_CODE
+		     , A.INQ_TYPE_CODE
+		     , A.USER_CODE
+		     , A.INQ_TITLE
+		     , A.INQ_CONTENT
+		     , A.INQ_TIME
+		     , A.ANS_CONTENT
+		     , A.ANS_TIME
+		     , A.ANS_YN
+		  FROM INQUIRY A
+		 WHERE A.INQ_CODE = #{ code }
+	</select>
 </mapper>

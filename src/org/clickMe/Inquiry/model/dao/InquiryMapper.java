@@ -13,4 +13,6 @@ public interface InquiryMapper {
 	int insertInquiry(InquiryDTO newInquiry);
 
 	List<InquiryDTO> selectAnsweredInquiry();
+
+	InquiryDTO selectinquiryDetail(int code);
 }
