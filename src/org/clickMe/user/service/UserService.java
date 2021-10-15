@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.mapper.UserMapper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**   
 	* @packageName : org.clickMe.member.service 
@@ -127,5 +128,23 @@ public class UserService {
 		/* 세션은 항상 닫아주자!! */
 		return userListOnPage;
 		
+	}
+	
+	public UserDTO loginCheck(UserDTO requestMember) {
+		SqlSession session = getSqlSession();
+		UserMapper userMapper = session.getMapper(UserMapper.class);
+		UserDTO loginMember = null;
+		
+		String encPwd = userMapper.selectEncryptedPwd(requestMember);
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		if(passwordEncoder.matches(requestMember.getPsw(), encPwd)) {
+			/* 비밀번호가 일치하는 경우에만 회원 정보를 조회해온다. */
+			loginMember = userMapper.selectLoginMember(requestMember);
+		}
+		
+		session.close();
+		
+		return loginMember;
 	}
 }
