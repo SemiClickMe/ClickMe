@@ -28,51 +28,33 @@ public class SelectPostForAdminServlet extends HttpServlet {
 		System.out.println(SearchPostServlet.class.getName() + " is successfully called.");
 		
 		String sellerId = request.getParameter("sellerId");
-//		System.out.println("sellerId:" + sellerId);
 		String title = request.getParameter("title");
-//		System.out.println("title:" + title);
 		String content = request.getParameter("content");
-//		System.out.println("content:" + content);
 		/* need to avoid NumberFormatException */
 		String authCodeStr = request.getParameter("authCode");
-//		System.out.println("authCode:" + authCodeStr);
 		int authCode = 0;
 		if (null != authCodeStr && !authCodeStr.equals("default")) {
 			authCode = Integer.valueOf(authCodeStr);
 		}
 		String blindYn = request.getParameter("blindYn");
-//		System.out.println("blind:" + blindYn);
-//		String itemPriceMinStr = request.getParameter("itemPriceMin");
-//		int itemPtriceMin = 0;
-//		if (!itemPriceMinStr.isEmpty()) {
-//			itemPtriceMin = Integer.valueOf(itemPriceMinStr);
-//		}
-//		String itemPriceMaxStr = request.getParameter("itemPriceMax");
-//		int itemPtriceMax = 0;
-//		if (!itemPriceMaxStr.isEmpty()) {
-//			itemPtriceMax = Integer.valueOf(itemPriceMaxStr);
-//		}
 		
 		parameter.put("sellerId", sellerId);
 		parameter.put("title", title);
 		parameter.put("content", content);
 		parameter.put("authCode", authCode);
 		parameter.put("blindYn", blindYn);
-//		parameter.put("itemPtriceMin", itemPtriceMin);
-//		parameter.put("itemPtriceMax", itemPtriceMax);
 		
 		System.out.println("parameter=" + parameter);
 		
 		List<PostForAdminDTO> postList = postService.selectPostForAdmin(parameter);
 		
+		/* have to forward to postManagement.jsp anyway whether ResultSet is empty or not. */
 		String forwardingPath = "/WEB-INF/views/post/postManagement.jsp";
 		if (!postList.isEmpty()) {
-//			forwardingPath = "/WEB-INF/views/post/postManagement.jsp";
-//			request.setAttribute("postList", postList);
+			request.setAttribute("postList", postList);
 		} else {
 			resultView.printErrorMessage("selectListWithSearchOption");
 		}
-		request.setAttribute("postList", postList);
 		request.getRequestDispatcher(forwardingPath).forward(request, response);
 	}
 
