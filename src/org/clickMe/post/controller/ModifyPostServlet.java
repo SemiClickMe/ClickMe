@@ -44,6 +44,7 @@ public class ModifyPostServlet extends HttpServlet {
 		postInfo.put("title", title);
 		postInfo.put("content", content);
 		postInfo.put("itemPrice", itemPrice);
+		System.out.println("parameter : " + postInfo);
 		
 		String forwardingPath = "/WEB-INF/views/post/modifyPost.jsp";
 		if (postService.modifyPost(postInfo)) {

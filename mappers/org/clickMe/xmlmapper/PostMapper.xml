@@ -151,10 +151,10 @@
 				A.POST_TITLE = #{title}
 			</if>
 			<if test="content != null and content != ''">
-				A.POST_CONTENT = #{content}
+			  , A.POST_CONTENT = #{content}
 			</if>
 			<if test="itemPrice != null and itemPrice gt 0">
-				A.ITEM_PRICE = #{itemPrice}
+			  , A.ITEM_PRICE = #{itemPrice}
 			</if>
 		</set>
 		<if test="code != null and code gt 0">
