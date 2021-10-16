@@ -29,7 +29,8 @@
 				<legend>관리자가 수정 가능한 속성</legend>
 					<div style="width:200px; float: left;">
 						<label>감정상태</label>
-						<select name="authStatus" disabled="disabled">
+						<select name="authStatus">
+							<!-- 나중에 파라미터로 넘겨줄 때는 int형 코드로 넘기는 것이 편하다. -->
 							<option value="1" ${ (requestScope.detailPost.authStatus eq "감정전") ? "selected" : "" }>감정전</option>
 							<option value="2" ${ (requestScope.detailPost.authStatus eq "감정중") ? "selected" : "" }>감정중</option>
 							<option value="3" ${ (requestScope.detailPost.authStatus eq "감정완료") ? "selected" : "" }>감정완료</option>
@@ -38,10 +39,18 @@
 					</div>
 					<div style="width:200px; float: left;">
 						<label>블라인드</label>
-						<input type="radio" name="blindYn" id="Y" value="Y" ${ (requestScope.detailPost.blindYn eq "Y") ? "checked" : "" } disabled="disabled">
+						<input type="radio" name="blindYn" id="Y" value="Y" ${ (requestScope.detailPost.blindYn eq "Y") ? "checked" : "" }>
 						<label for="Y">Y</label>
-						<input type="radio" name="blindYn" id="N" value="N" ${ (requestScope.detailPost.blindYn eq "N") ? "checked" : "" } disabled="disabled">
+						<input type="radio" name="blindYn" id="N" value="N" ${ (requestScope.detailPost.blindYn eq "N") ? "checked" : "" }>
 						<label for="N">N</label>
+					</div>
+					<div style="width:200px;">
+						<label>카테고리</label>
+						<select name="catName">
+							<!-- 나중에 파라미터로 넘겨줄 때는 int형 코드로 넘기는 것이 편하다. -->
+							<option value="1" ${ (requestScope.detailPost.catName eq "판매") ? "selected" : "" }>판매</option>
+							<option value="2" ${ (requestScope.detailPost.catName eq "자유") ? "selected" : "" }>자유</option>
+						</select>
 					</div>
 			</fieldset>
 			<div>
