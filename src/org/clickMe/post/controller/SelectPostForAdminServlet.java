@@ -49,7 +49,7 @@ public class SelectPostForAdminServlet extends HttpServlet {
 		List<PostForAdminDTO> postList = postService.selectPostForAdmin(parameter);
 		
 		/* have to forward to postManagement.jsp anyway whether ResultSet is empty or not. */
-		String forwardingPath = "/WEB-INF/views/post/postManagement.jsp";
+		String forwardingPath = "/WEB-INF/views/post/postManageMain.jsp";
 		if (!postList.isEmpty()) {
 			request.setAttribute("postList", postList);
 		} else {

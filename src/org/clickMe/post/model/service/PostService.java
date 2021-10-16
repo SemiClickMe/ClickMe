@@ -8,6 +8,7 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 import org.clickMe.common.model.dto.PostDTO;
 import org.clickMe.post.model.dao.PostMapper;
+import org.clickMe.post.model.dto.DetailPostDTO;
 import org.clickMe.post.model.dto.PostForAdminDTO;
 import org.clickMe.post.model.dto.SearchOption;
 
@@ -47,6 +48,18 @@ public class PostService {
 		sqlSession.close();
 		
 		return postList;
+	}
+	
+	public DetailPostDTO selectSinglePost(int code) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		DetailPostDTO post = postMapper.selectSinglePost(code);
+		
+		sqlSession.close();
+		
+		return post;
 	}
 	
 	public boolean insertNewPost(PostDTO post) {

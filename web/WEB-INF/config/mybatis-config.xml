@@ -6,6 +6,7 @@
 		<typeAlias type="org.clickMe.common.model.dto.PostDTO" alias="PostDTO"/>
 		<typeAlias type="org.clickMe.post.model.dto.SearchOption" alias="SearchOption"/>
 		<typeAlias type="org.clickMe.post.model.dto.PostForAdminDTO" alias="PostForAdminDTO"/>
+		<typeAlias type="org.clickMe.post.model.dto.DetailPostDTO" alias="DetailPostDTO"/>
 	</typeAliases>
 	
 	<environments default="dev">

@@ -92,5 +92,30 @@
 			</tbody>
 		</table>
 	</div>
+	<script>
+		if(document.getElementsByTagName("td")) {
+			const $singleRow = document.getElementsByTagName("td");
+			for(let i = 0; i < $singleRow.length; i++) {
+				
+				$singleRow[i].onmouseenter = function() {
+					this.parentNode.style.backgroundColor = "orangered";
+					this.parentNode.style.cursor = "pointer";
+				}
+				
+				$singleRow[i].onmouseout = function() {
+					this.parentNode.style.backgroundColor = "white";
+				}
+				
+				$singleRow[i].onclick = function() {
+					const code = this.parentNode.children[0].innerText;
+					location.href = "${ pageContext.servletContext.contextPath }/post/list/detail?code=" + code;
+				}
+				
+			}
+			
+		}
+	</script>
+	
+	<h2>Paging 영역 입니다.</h2>
 </body>
 </html>

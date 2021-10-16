@@ -19,16 +19,6 @@
 		<result property="itemPrice" column="ITEM_PRICE"/>
 		<result property="view" column="POST_VIEW"/>
 	</resultMap>
-	<!-- 
-	<resultMap type="PostForAdminDTO" id="postForAdminResultMap">
-		<id property="code" column="POST_CODE"/>
-		<result property="authStatus" column=""/>
-		<result property="title" column=""/>
-		<result property="sellerId" column=""/>
-		<result property="blindYn" column=""/>
-		<result property="time" column=""/>
-	</resultMap>
-	 -->
 	
 	<select id="selectAllPost" resultMap="postDefaultResultMap">
 		SELECT
@@ -107,6 +97,29 @@
 			</if>
 		</where>
 		 ORDER BY A.POST_CODE DESC
+	</select>
+	<select id="selectSinglePost" parameterType="_int" resultType="DetailPostDTO">
+		SELECT
+			   A.POST_CODE AS "code"
+             , C.USER_ID AS "sellerId"
+             <!-- , D.USER_ID AS "buyerId" -->
+             , E.POST_CAT_NAME AS "catName"
+             , B.AUTH_STATUS AS "authStatus"
+             , A.POST_TITLE AS "title"
+             , A.POST_CONTENT AS "content"
+             , A.LIKE_COUNT AS "likeCount"
+             , A.POST_TIME AS "time"
+             , A.SOLD_YN AS "soldYn"
+             , A.REPORT_COUNT AS "reportCount"
+             , A.BLIND_YN AS "blindYn"
+             , A.ITEM_PRICE AS "itemPrice"
+             , A.POST_VIEW AS "view"
+          FROM POST A
+          JOIN AUTHENTIC B ON (A.AUTH_CODE = B.AUTH_CODE)
+          JOIN "USER" C ON (A.SELLER_CODE = C.USER_CODE)
+          <!-- JOIN "USER" D ON (A.BUYER_CODE = D.USER_CODE) -->
+          JOIN POST_CAT E ON (A.POST_CAT_CODE = E.POST_CAT_CODE)
+         WHERE A.POST_CODE = #{code}
 	</select>
 	
 	<insert id="insertNewPost" parameterType="PostDTO">
