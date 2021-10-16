@@ -3,6 +3,7 @@ package org.clickMe.Inquiry.model.service;
 import static org.clickMe.common.Template.getSqlSession;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.clickMe.Inquiry.model.dao.InquiryMapper;
@@ -103,6 +104,24 @@ public class InquiryService {
 		sqlSession.close();
 		
 		return inquiryDetail;
+	}
+	
+	/* 1:1문의 답변 작성 */
+	public int updateInquiry(Map<String, Object> answer) {
+		SqlSession sqlSession = getSqlSession();
+		mapper = sqlSession.getMapper(InquiryMapper.class);
+		
+		int result = mapper.updateInquiry(answer);
+		
+		if(result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
 	}
 
 }

@@ -34,16 +34,6 @@
 					</td>
 				</tr>
 			</table>
-	<h2>1:1문의 답변 폼</h2>
-	<form action="${pageContext.servletContext.contextPath}/inquiry/update?code=${ requestScope.inquiry.code }" method="post" style="display: inline-block">
-		<fieldset>
-			<legend>1:1문의 답변 필드</legend>
-			<label>답변 내용</label>
-			<textarea name="ansContent" rows="10" cols="50" placeholder="답변할 내용을 작성해 주세요." style="resize: vertical;"></textarea><br>
-			<br>
-			<button type="submit">수정</button>
-		</fieldset>
-	</form>
 			<button onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">돌아가기</button>
 			<br>
 		</div>
