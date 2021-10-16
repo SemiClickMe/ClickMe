@@ -159,5 +159,36 @@
            SET A.ENT_CODE = #{ entCode }
          WHERE A.USER_CODE = #{ code }
 	</update>
+	
+	<select id="selectEncryptedPwd" resultType="java.lang.String">
+        SELECT
+               A.USER_PSW
+          FROM "USER" A
+         WHERE A.ENT_CODE = '1'
+           AND A.USER_ID = #{ id }
+	</select>
+	
+	<select id="selectLoginMember" resultMap="userResultMap">
+	    SELECT
+			   A.USER_CODE
+			 , A.ENT_CODE
+     		 , A.USER_ID
+     		 , A.USER_PSW
+     		 , A.USER_EMAIL
+     		 , A.PHONE
+     		 , A.USER_NAME
+     		 , A.BIRTH_DATE
+     		 , A.GENDER
+     		 , A.AUTHORITY
+     		 , A.DEPOSIT
+     		 , A.PROFILE_ORIG_NAME
+     		 , A.PROFILE_UUID_NAME
+     		 , A.PROFILE_IMG_PATH
+     		 , A.LAST_LOGIN
+		     , A.ENROLL_DATE
+ 		  FROM "USER" A
+		WHERE  A.ENT_CODE = '1'
+		  AND  A.USER_ID = #{ id }
+	</select>
  	
 </mapper>

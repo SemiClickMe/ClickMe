@@ -21,7 +21,7 @@
         <header>
             <img src="source/image/logo-removebg.png" alt="타이틀 로고" class="titleImage">
             <div class=buttonlist>
-                <button>로그인</button>
+                <button onclick="location.href='${pageContext.servletContext.contextPath}/logIn'">로그인</button>
                 <button>회원가입</button>
             </div>
             <div class="search-container">

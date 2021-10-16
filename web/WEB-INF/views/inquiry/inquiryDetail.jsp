@@ -28,6 +28,7 @@
 					</td>
 				</tr>
 			</table>
+			<button onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">돌아가기</button>
 			<br>
 		</div>
 </body>
