@@ -28,4 +28,6 @@ public interface PostMapper {
 
 	DetailPostDTO selectSinglePost(int code);
 
+	int modifyPostAdmin(Map<String, Object> parameter);
+
 }

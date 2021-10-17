@@ -174,6 +174,22 @@
 		 WHERE A.POST_CODE = #{code}
 		</if>
 	</update>
+	<update id="modifyPostAdmin" parameterType="hashmap">
+		UPDATE
+			   POST A
+		<set>
+			<if test="authCode != null and authCode gt 0">
+				A.AUTH_CODE = #{authCode}
+			</if>
+			<if test="blindYn != null and blindYn != ''">
+			  , A.BLIND_YN = #{blindYn}
+			</if>
+			<if test="catCode != null and catCode gt 0">
+			  , A.POST_CAT_CODE = #{catCode}
+			</if>
+		</set>
+		 WHERE A.POST_CODE = #{code}
+	</update>
 	
 	<delete id="deletePostByCode" parameterType="_int">
 		DELETE

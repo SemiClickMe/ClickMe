@@ -14,12 +14,12 @@
 	<br><hr>
 	
 	<h2>게시글 상세 내용</h2>
-	<form action="" style="display: inline-block;">
+	<form action="${pageContext.servletContext.contextPath}/post/modify/admin" id="detailedPostForm" method="post" style="display: inline-block;">
 		<fieldset>
 			<legend>게시글 상세 내용</legend>
 			<div>
 				<label>게시글번호</label>
-				<input type="number" value="${ requestScope.detailPost.code }" readonly="readonly">
+				<input type="number" name="code" value="${ requestScope.detailPost.code }" readonly="readonly">
 			</div>
 			<div>
 				<label>글 제목</label>
@@ -39,7 +39,7 @@
 					</div>
 					<div style="width:200px; float: left;">
 						<label>블라인드</label>
-						<input type="radio" name="blindYn" id="Y" value="Y" ${ (requestScope.detailPost.blindYn eq "Y") ? "checked" : "" }>
+						<input type="radio" name="blindYn" id="blindY" value="Y" ${ (requestScope.detailPost.blindYn eq "Y") ? "checked" : "" }>
 						<label for="Y">Y</label>
 						<input type="radio" name="blindYn" id="N" value="N" ${ (requestScope.detailPost.blindYn eq "N") ? "checked" : "" }>
 						<label for="N">N</label>
@@ -91,10 +91,9 @@
 		</fieldset>
 		<br>
 		<div>
-			<button type="submit" onclick="">적용</button>
+			<button type="submit" onclick="detailedPostForm">적용</button>
 			<button type="button" onclick="history.back()">목록으로</button>
 		</div>
 	</form>
-	
 </body>
 </html>

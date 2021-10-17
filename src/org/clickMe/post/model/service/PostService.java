@@ -137,4 +137,19 @@ public class PostService {
 		return result > 0 ? true : false;
 	}
 
+	public boolean modifyPostAdmin(Map<String, Object> parameter) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.modifyPostAdmin(parameter);
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result > 0 ? true : false;
+	}
+
 }
