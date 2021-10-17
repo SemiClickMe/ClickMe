@@ -21,6 +21,7 @@ public class PostUnitTestResultView {
 		case "update": successMessage = "[Success] 기존 게시글 수정을 성공했습니다."; break;
 		case "delete": successMessage = "[Success] 기존 게시글 삭제를 성공했습니다."; break;
 		case "blind": successMessage = "[Success] 게시글 블라인드 처리를 성공했습니다."; break;
+		case "openSinglePost": successMessage = "[Success] 게시글 상세 내용을 성공적으로 가져왔습니다.";
 		}
 		
 		System.out.println(successMessage);
@@ -32,8 +33,10 @@ public class PostUnitTestResultView {
 		switch (errorCode) {
 		case "selectList": errorMessage = "[Error] 전체 게시글 목록 조회에 실패했습니다."; break;
 		case "selectListWithSearchOption": errorMessage = "[Error] 게시글 목록 검색에 실패했습니다."; break;
-		case "delete": errorMessage = "[Error] 게시글 삭제에 실패했습니다."; break;
+		case "update": errorMessage = "[Error] 기존 게시글 수정을 실패했습니다."; break;
+		case "delete": errorMessage = "[Error] 기존 게시글 삭제에 실패했습니다."; break;
 		case "blind": errorMessage = "[Error] 게시글 블라인드 처리에 실패했습니다."; break;
+		case "openSinglePost": errorMessage = "[Error] 게시글 상세 내용을 가져오지 못했습니다."; break;
 		}
 		
 		System.out.println(errorMessage);

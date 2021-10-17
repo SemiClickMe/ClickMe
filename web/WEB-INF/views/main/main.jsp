@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,8 +22,16 @@
         <header>
             <img src="source/image/logo-removebg.png" alt="타이틀 로고" class="titleImage">
             <div class=buttonlist>
-                <button>로그인</button>
+            <c:if test="${ empty sessionScope.loginUser }">
+                <button onclick="location.href='${pageContext.servletContext.contextPath}/logIn'">로그인</button>
                 <button>회원가입</button>
+            </c:if>
+            <c:if test="${ !empty sessionScope.loginUser }">   
+             	<div class=buttonlist>
+             	<button onclick="location.href='${ pageContext.servletContext.contextPath }/user/logout'">로그아웃</button>
+             	<button>정보수정</button>
+             	</div>
+             </c:if>      
             </div>
             <div class="search-container">
                 <input type="text" name="search">
@@ -73,7 +82,7 @@
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiryForm'">1:1 문의 작성페이지</button></td>
 								    </tr>
 								    <tr>
-								      <th scope="row" rowspan="3">게시글</th>
+								      <th scope="row" rowspan="4">게시글</th>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/allPost'">전체 게시글 조회</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/searchPost'">게시글 검색 조회</button></td>
 								    </tr>
@@ -84,6 +93,10 @@
 								    <tr>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/modifyPostForm'">작성한 게시글 수정</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/deletePostForm'">DB에서 게시글 삭제</button></td>
+								    </tr>
+								    <tr>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/admin'">게시글 관리(관리자) - 개발중</button></td>
+								      <td><button class="btn btn-primary">게시판(회원) - 개발중</button></td>
 								    </tr>
 								    <tr>
 								      <th scope="row" rowspan="2">댓글</th>

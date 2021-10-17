@@ -102,4 +102,13 @@
 		  FROM INQUIRY A
 		 WHERE A.INQ_CODE = #{ code }
 	</select>
+	
+	<update id="updateInquiry" parameterType="hashmap">
+		UPDATE
+		       INQUIRY A
+		   SET A.ANS_YN = 'Y'
+		     , A.ANS_TIME = SYSDATE
+		     , A.ANS_CONTENT = #{ ansContent }
+		 WHERE INQ_CODE = #{ code }
+	</update>
 </mapper>

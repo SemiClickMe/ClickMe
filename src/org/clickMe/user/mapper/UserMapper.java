@@ -30,5 +30,9 @@ public interface UserMapper {
 
 	List<UserDTO> userListPage();
 
+	String selectEncryptedPwd(UserDTO requestMember);
+
+	UserDTO selectLoginMember(UserDTO requestMember);
+
 
 }

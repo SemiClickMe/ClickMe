@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.clickMe.common.model.dto.PostDTO;
+import org.clickMe.post.model.dto.DetailPostDTO;
+import org.clickMe.post.model.dto.PostForAdminDTO;
 import org.clickMe.post.model.dto.SearchOption;
 
 public interface PostMapper {
@@ -21,5 +23,11 @@ public interface PostMapper {
 	int modifyPost(Map<String, Object> parameter);
 
 	int modifyPostBlind(Map<String, Object> postInfo);	// used in level.2 unit test
+
+	List<PostForAdminDTO> selectPostforAdmin(Map<String, Object> parameter);
+
+	DetailPostDTO selectSinglePost(int code);
+
+	int modifyPostAdmin(Map<String, Object> parameter);
 
 }

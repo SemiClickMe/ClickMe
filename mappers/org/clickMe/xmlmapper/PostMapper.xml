@@ -19,6 +19,7 @@
 		<result property="itemPrice" column="ITEM_PRICE"/>
 		<result property="view" column="POST_VIEW"/>
 	</resultMap>
+	
 	<select id="selectAllPost" resultMap="postDefaultResultMap">
 		SELECT
 			   A.POST_CODE
@@ -67,6 +68,60 @@
 		</if>
          ORDER BY A.POST_CODE DESC
 	</select>
+	<select id="selectPostforAdmin" parameterType="hashmap" resultType="PostForAdminDTO">
+		SELECT
+		       A.POST_CODE AS "code"
+		     , B.AUTH_STATUS AS "authStatus"
+		     , A.POST_TITLE AS "title"
+		     , C.USER_ID AS "sellerId"
+		     , A.BLIND_YN AS "blindYn"
+		     , A.POST_TIME AS "time"
+		  FROM POST A
+		  JOIN AUTHENTIC B ON (A.AUTH_CODE = B.AUTH_CODE)
+		  JOIN "USER" C ON (A.SELLER_CODE = C.USER_CODE)
+		<where>
+			<if test="authCode != null and authCode gt 0">
+				A.AUTH_CODE = #{authCode}
+			</if>
+			<if test="blindYn != null and blindYn != 'both'">
+				AND A.BLIND_YN = #{blindYn}
+			</if>
+			<if test="sellerId != null and sellerId != ''">
+				AND C.USER_ID = #{sellerId}
+			</if>
+			<if test="title != null and title != ''">
+				AND A.POST_TITLE LIKE '%' || #{title} || '%'
+			</if>
+			<if test="content != null and content != ''">
+				AND A.POST_CONTENT LIKE '%' || #{content} || '%'
+			</if>
+		</where>
+		 ORDER BY A.POST_CODE DESC
+	</select>
+	<select id="selectSinglePost" parameterType="_int" resultType="DetailPostDTO">
+		SELECT
+			   A.POST_CODE AS "code"
+             , C.USER_ID AS "sellerId"
+             <!-- , D.USER_ID AS "buyerId" -->
+             , E.POST_CAT_NAME AS "catName"
+             , B.AUTH_STATUS AS "authStatus"
+             , A.POST_TITLE AS "title"
+             , A.POST_CONTENT AS "content"
+             , A.LIKE_COUNT AS "likeCount"
+             , A.POST_TIME AS "time"
+             , A.SOLD_YN AS "soldYn"
+             , A.REPORT_COUNT AS "reportCount"
+             , A.BLIND_YN AS "blindYn"
+             , A.ITEM_PRICE AS "itemPrice"
+             , A.POST_VIEW AS "view"
+          FROM POST A
+          JOIN AUTHENTIC B ON (A.AUTH_CODE = B.AUTH_CODE)
+          JOIN "USER" C ON (A.SELLER_CODE = C.USER_CODE)
+          <!-- JOIN "USER" D ON (A.BUYER_CODE = D.USER_CODE) -->
+          JOIN POST_CAT E ON (A.POST_CAT_CODE = E.POST_CAT_CODE)
+         WHERE A.POST_CODE = #{code}
+	</select>
+	
 	<insert id="insertNewPost" parameterType="PostDTO">
 		INSERT
 		  INTO Post A
@@ -88,11 +143,7 @@
 		, #{itemPrice}
 		)
 	</insert>
-	<delete id="deletePostByCode" parameterType="_int">
-		DELETE
-		  FROM POST A
-		 WHERE A.POST_CODE = #{code}
-	</delete>
+	
 	<update id="blindPostByCode" parameterType="_int">
 		UPDATE
 			   POST A
@@ -113,14 +164,36 @@
 				A.POST_TITLE = #{title}
 			</if>
 			<if test="content != null and content != ''">
-				A.POST_CONTENT = #{content}
+			  , A.POST_CONTENT = #{content}
 			</if>
 			<if test="itemPrice != null and itemPrice gt 0">
-				A.ITEM_PRICE = #{itemPrice}
+			  , A.ITEM_PRICE = #{itemPrice}
 			</if>
 		</set>
 		<if test="code != null and code gt 0">
 		 WHERE A.POST_CODE = #{code}
 		</if>
 	</update>
+	<update id="modifyPostAdmin" parameterType="hashmap">
+		UPDATE
+			   POST A
+		<set>
+			<if test="authCode != null and authCode gt 0">
+				A.AUTH_CODE = #{authCode}
+			</if>
+			<if test="blindYn != null and blindYn != ''">
+			  , A.BLIND_YN = #{blindYn}
+			</if>
+			<if test="catCode != null and catCode gt 0">
+			  , A.POST_CAT_CODE = #{catCode}
+			</if>
+		</set>
+		 WHERE A.POST_CODE = #{code}
+	</update>
+	
+	<delete id="deletePostByCode" parameterType="_int">
+		DELETE
+		  FROM POST A
+		 WHERE A.POST_CODE = #{code}
+	</delete>
 </mapper>

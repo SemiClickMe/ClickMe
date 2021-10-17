@@ -3,8 +3,6 @@ package org.clickMe.common.model.dto;
 import java.io.Serializable;
 import java.sql.Date;
 
-import oracle.sql.NUMBER;
-
 public class PostDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
 
