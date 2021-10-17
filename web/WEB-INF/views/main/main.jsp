@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,8 +22,16 @@
         <header>
             <img src="source/image/logo-removebg.png" alt="타이틀 로고" class="titleImage">
             <div class=buttonlist>
+            <c:if test="${ empty sessionScope.loginUser }">
                 <button onclick="location.href='${pageContext.servletContext.contextPath}/logIn'">로그인</button>
                 <button>회원가입</button>
+            </c:if>
+            <c:if test="${ !empty sessionScope.loginUser }">   
+             	<div class=buttonlist>
+             	<button onclick="location.href='${ pageContext.servletContext.contextPath }/user/logout'">로그아웃</button>
+             	<button>정보수정</button>
+             	</div>
+             </c:if>      
             </div>
             <div class="search-container">
                 <input type="text" name="search">
