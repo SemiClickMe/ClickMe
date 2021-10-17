@@ -58,8 +58,6 @@ public class Application {
 		} while (true);
 	}
 
-
-
 	private static UserDTO signup() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("아이디");
