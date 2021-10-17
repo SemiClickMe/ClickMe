@@ -85,6 +85,14 @@
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/modifyPostForm'">작성한 게시글 수정</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/deletePostForm'">DB에서 게시글 삭제</button></td>
 								    </tr>
+								    <tr>
+								      <th scope="row" rowspan="2">댓글</th>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/list'">전체 댓글 조회</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/insert'">댓글 작성</button></td>
+								    </tr>
+								    <tr>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/blind'">댓글 삭제/블라인드</button></td>
+								    </tr>
 								  </tbody>
 								</table>
 							  </div>
