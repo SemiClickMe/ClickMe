@@ -3,11 +3,14 @@
  */
 package org.clickMe.user.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.service.UserService;
+import org.clickMe.user.userPaging.UserPageCriteria;
+import org.clickMe.user.userPaging.UserPaging;
 
 /**
  * @packageName : org.clickMe.member.controller
@@ -115,5 +118,55 @@ public class UserController {
 		}
 		return findedUserId;
 	}
+
+	public List<UserDTO> userListPaging(int pageNo) {
+		UserPageCriteria userPageCriteria = null;
+
+		int inputPageNo = pageNo;
+		Map<String, String> searchMap = new HashMap<>();
+		
+		int totalUserCount = userService.selectTotalUserCount(searchMap);
+		
+		System.out.println(totalUserCount);
+		
+		int limitUserNum = 10;		
+		int buttonAmount = 5;
+		
+		String searchUserCondition = "id";    // 검색 조건
+		String searchUserValue = "1";        // 검색어
+		String userListEntCondition = null;
+		
+//		userPageCriteria = UserPaging.getSelectCriteria(inputPageNo, totalUserCount, limitUserNum, buttonAmount);
+		userPageCriteria = UserPaging.getSelectCriteria(inputPageNo, totalUserCount, limitUserNum, buttonAmount, searchUserCondition, searchUserValue, userListEntCondition);
+		
+		List<UserDTO> userListPage = userService.selectUserListPage(userPageCriteria);
+		
+		for(UserDTO us : userListPage) {
+			System.out.println(us);
+		}
+		
+		return userListPage;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }

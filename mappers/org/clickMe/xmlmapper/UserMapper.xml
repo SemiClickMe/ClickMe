@@ -52,6 +52,109 @@
 		  FROM "USER" A
 	</select>
 	
+	<select id="userTotalCount" parameterType="hashmap" resultType="_int">
+        SELECT 
+               COUNT(*)
+          FROM "USER" A
+	    <where>
+			<if test="searchUserCondition == 'code'">
+		           A.USER_CODE = #{ searchUserValue }
+			</if>
+			<if test="searchUserCondition == 'id'">
+		       AND A.USER_ID LIKE '%' || #{ searchUserValue } || '%'	
+			</if>
+			<if test="searchUserCondition == 'name'">
+		       AND A.USER_NAME LIKE '%' || #{ searchUserValue } || '%' 	
+			</if>
+			<if test="userListEntCondition == 'active'">
+		       AND A.ENT_CODE = 1
+			</if>
+			<if test="userListEntCondition == 'blacked'">
+		       AND A.ENT_CODE = 2
+			</if>
+			<if test="userListEntCondition == 'inactive'">
+		       AND A.ENT_CODE = 3
+			</if>
+			<if test="userListEntCondition == 'withdraw'">
+		       AND A.ENT_CODE >= 4
+			</if>
+    </where>
+	</select>
+	
+	<select id="selectUserListPage" resultMap="userListPageResultMap">
+	
+		SELECT
+	       C.USER_NUMSEL
+	     , C.USER_NUM
+	     , C.USER_CODE
+	     , C.ENT_CODE
+	     , C.USER_ID
+	     , C.USER_EMAIL
+	     , C.PHONE
+	     , C.USER_NAME
+	     , C.BIRTH_DATE
+	     , C.GENDER
+	     , C.DEPOSIT
+	     , C.LAST_LOGIN
+	     , C.ENROLL_DATE
+	  FROM ( SELECT
+	               ROW_NUMBER() OVER( ORDER BY B.USER_NUM ) AS USER_NUMSEL
+			     , B.USER_NUM
+			     , B.USER_CODE
+			     , B.ENT_CODE
+			     , B.USER_ID
+			     , B.USER_EMAIL
+			     , B.PHONE
+			     , B.USER_NAME
+			     , B.BIRTH_DATE
+			     , B.GENDER
+			     , B.DEPOSIT
+			     , B.LAST_LOGIN
+			     , B.ENROLL_DATE
+			  FROM (SELECT
+			               ROW_NUMBER() OVER( ORDER BY A.USER_CODE DESC ) AS USER_NUM
+			             , A.USER_CODE
+			             , A.ENT_CODE
+			             , A.USER_ID
+			             , A.USER_EMAIL
+			             , A.PHONE
+			             , A.USER_NAME
+			             , A.BIRTH_DATE
+			             , A.GENDER
+			             , A.DEPOSIT
+			             , A.LAST_LOGIN
+			             , A.ENROLL_DATE
+			          FROM "USER" A ) B 
+			      <where>
+					<if test="userListEntCondition == 'active'">
+			          AND B.ENT_CODE = 1
+					</if>
+					<if test="userListEntCondition == 'blacked'">
+			          AND B.ENT_CODE = 2
+					</if>
+					<if test="userListEntCondition == 'inactive'">
+			          AND B.ENT_CODE = 3
+					</if>
+					<if test="userListEntCondition == 'withdraw'">
+			          AND B.ENT_CODE >= 4
+					</if>
+					<if test="searchUserCondition == 'code'">
+			          AND B.USER_CODE = #{ searchUserValue }
+					</if>
+					<if test="searchUserCondition == 'id'">
+			          AND B.USER_ID LIKE '%' || #{ searchUserValue } || '%'	
+					</if>
+					<if test="searchUserCondition == 'name'">
+			          AND B.USER_NAME LIKE '%' || #{ searchUserValue } || '%' 	
+					</if>
+				  </where>
+			        ) C 
+			       <where>
+			    <![CDATA[ USER_NUMSEL <= #{ endRow } ]]>
+	                  AND USER_NUMSEL >= #{ startRow }
+	              </where>
+	</select>
+	
 	<select id="userListPage" resultMap="userListPageResultMap">
 		SELECT
 		       B.USER_NUM

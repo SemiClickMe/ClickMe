@@ -30,6 +30,7 @@ public class Application {
 			System.out.println("4. 아이디 찾기");
 			System.out.println("5. 코드로 회원정보 조회");
 			System.out.println("6. 비밀번호 초기화 (마지막에)");
+			System.out.println("7. 페이징 처리");
 			System.out.print("메뉴를 선택하세요 : ");
 			int no = sc.nextInt();
 
@@ -50,13 +51,34 @@ public class Application {
 				userController.findUserId(findId());
 				break;
 				
-				case 5:
+			case 5:
 				userController.codeSelectUser(codeSelect());
+				break;
+				
+			case 6:
+				break;
+				
+			case 7:
+				userController.userListPaging(pageNo());
 				break;
 
 			}
 		} while (true);
 	}
+
+
+
+	private static int pageNo() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("페이지 넘버 : ");
+		int pageNo = sc.nextInt();
+		
+		System.out.println(pageNo + "번 페이지 조회시 나오는 Row");
+		
+		return pageNo;
+	}
+
+
 
 	private static UserDTO signup() {
 		Scanner sc = new Scanner(System.in);

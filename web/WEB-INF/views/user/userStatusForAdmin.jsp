@@ -44,18 +44,18 @@
 						<td class="col-1">핸드폰번호</td>
 						<td class="col-4"><input class="form-control" name="phoneNum" type="text" value="${ requestScope.userList.phone }" aria-label="UserPhone"></td>
 						<td class="col-1">이름</td>
-						<td class="col-4"><input class="form-control" name="name" type="text" value="${ requestScope.userList.name }" aria-label="UserName" readonly></td>
+						<td class="col-4"><input class="form-control" name="name" type="text" value="${ requestScope.userList.name }" aria-label="UserName"></td>
 					</tr>
 					<tr>
 						<td class="col-2">생년월일</td>
-						<td class="col-2"><input class="form-control" name="bdate" type="date" value="${ requestScope.userList.date }" aria-label="Userbdate" readonly></td>
+						<td class="col-2"><input class="form-control" name="bdate" type="date" value="${ requestScope.userList.date }" aria-label="Userbdate"></td>
 						<td class="col-1">성별</td>
 						<td class="col-4"><input class="form-control" name="gender" type="hidden" value="${ requestScope.userList.gender }" aria-label="UserGender" readonly>
 						<input class="form-control" name="gender1" type="text" value="${genderKor}" aria-label="UserGender" readonly></td>
 					</tr>
 					<tr>
 						<td class="col-2">예치금</td>
-						<td class="col-2"><input class="form-control" name="deposit" type="text" value="${ requestScope.userList.deposit }" aria-label="UserDeposit" readonly></td>
+						<td class="col-2"><input class="form-control" name="deposit" type="text" value="${ requestScope.userList.deposit }" aria-label="UserDeposit"></td>
 						<td class="col-2">가입날짜</td>
 						<td class="col-4"><input class="form-control" type="date" value="${ requestScope.userList.enrollDate }" aria-label="UserEnrollDate" disabled readonly></td>
 					</tr>

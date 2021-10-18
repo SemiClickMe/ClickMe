@@ -3,10 +3,12 @@ package org.clickMe.user.service;
 import static org.clickMe.common.Template.getSqlSession;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.mapper.UserMapper;
+import org.clickMe.user.userPaging.UserPageCriteria;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**   
@@ -147,4 +149,58 @@ public class UserService {
 		
 		return loginMember;
 	}
+	
+
+	public int selectTotalUserCount(Map<String, String> searchMap) {
+		SqlSession sqlSession = getSqlSession();
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		int userTotalCount = userMapper.userTotalCount(searchMap);
+		
+		sqlSession.close();
+		
+		return userTotalCount;
+	}
+
+	public List<UserDTO> selectUserListPage(UserPageCriteria userPageDTO) {
+
+		SqlSession sqlSession = getSqlSession();
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		List<UserDTO> selectUserList = userMapper.selectUserListPage(userPageDTO);
+		
+		sqlSession.close();
+		
+		return selectUserList;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
