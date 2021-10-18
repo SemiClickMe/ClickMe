@@ -2,6 +2,7 @@ package org.clickMe.common.model.dto;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 public class PostDTO implements Serializable{
 	private static final long serialVersionUID = 1L;
@@ -21,11 +22,14 @@ public class PostDTO implements Serializable{
 	private int itemPrice;
 	private int view;
 	
+	private List<ImgFileDTO> imgFileList;
+
 	public PostDTO() {
 	}
 
 	public PostDTO(int code, int sellerCode, int buyerCode, int catCode, int authCode, String title, String content,
-			int likeCount, Date time, String soldYn, int reportCount, String blindYn, int itemPrice, int view) {
+			int likeCount, Date time, String soldYn, int reportCount, String blindYn, int itemPrice, int view,
+			List<ImgFileDTO> imgFileList) {
 		this.code = code;
 		this.sellerCode = sellerCode;
 		this.buyerCode = buyerCode;
@@ -40,6 +44,7 @@ public class PostDTO implements Serializable{
 		this.blindYn = blindYn;
 		this.itemPrice = itemPrice;
 		this.view = view;
+		this.imgFileList = imgFileList;
 	}
 
 	public int getCode() {
@@ -154,12 +159,21 @@ public class PostDTO implements Serializable{
 		this.view = view;
 	}
 
+	public List<ImgFileDTO> getImgFileList() {
+		return imgFileList;
+	}
+
+	public void setImgFileList(List<ImgFileDTO> imgFileList) {
+		this.imgFileList = imgFileList;
+	}
+
 	@Override
 	public String toString() {
 		return "PostDTO [code=" + code + ", sellerCode=" + sellerCode + ", buyerCode=" + buyerCode + ", catCode="
 				+ catCode + ", authCode=" + authCode + ", title=" + title + ", content=" + content + ", likeCount="
 				+ likeCount + ", time=" + time + ", soldYn=" + soldYn + ", reportCount=" + reportCount + ", blindYn="
-				+ blindYn + ", itemPrice=" + itemPrice + ", view=" + view + "]";
+				+ blindYn + ", itemPrice=" + itemPrice + ", view=" + view + ", imgFileList=" + imgFileList + "]";
 	}
+	
 	
 }
