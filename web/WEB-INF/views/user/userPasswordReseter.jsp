@@ -18,7 +18,7 @@
 <body>
 	<div></div>
 	<div align="center" class="container rounded-3 border border-3 border-info" id="user_pwd_container">
-		<h1 align="center"> 비밀 번호 찾기</h1>
+		<h1 align="center"> 비밀 번호 초기화</h1>
 		<div align="left">
 		</div>
 		<div align="Center" id="userpwd_innercontainer">
