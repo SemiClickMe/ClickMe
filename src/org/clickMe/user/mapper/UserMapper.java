@@ -40,4 +40,6 @@ public interface UserMapper {
 
 	List<UserDTO> selectUserListPage(UserPageCriteria userPageDTO);
 
+	int userPasswordReset(UserDTO userPwdReseter);
+
 }

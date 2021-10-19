@@ -293,5 +293,12 @@
 		WHERE  A.ENT_CODE = '1'
 		  AND  A.USER_ID = #{ id }
 	</select>
- 	
+ 	<update id="userPasswordReset" parameterType="org.clickMe.common.model.dto.UserDTO">
+        UPDATE
+               "USER" A
+           SET A.USER_PSW = #{ psw }
+         WHERE A.USER_ID = #{ id }
+           AND A.USER_NAME = #{ name }
+           AND A.USER_EMAIL = #{ email }
+	</update>
 </mapper>

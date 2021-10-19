@@ -30,7 +30,6 @@ public class UserOneSelctServlet  extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int code = Integer.valueOf(request.getParameter("userNum"));
 		System.out.println(code);
-		System.out.println(request.getParameterNames());
 		UserDTO user1= userService.selectUser(code);
 		
 		

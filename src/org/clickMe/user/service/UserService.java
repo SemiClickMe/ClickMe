@@ -171,8 +171,25 @@ public class UserService {
 		
 		return selectUserList;
 	}
-	
-	
+
+	public boolean userPasswordReseter(UserDTO userPWReseter) {
+		
+		SqlSession sqlSession = getSqlSession();
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		int result = userMapper.userPasswordReset(userPWReseter);
+		
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result > 0 ? true : false;
+	}
+
+
 	
 	
 	

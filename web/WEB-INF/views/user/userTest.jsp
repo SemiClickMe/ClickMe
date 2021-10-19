@@ -91,6 +91,14 @@
 									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/listPage'" type="button">관리자용 사용자 리스트 조회<br>페이지 작업</button>
 							    </div>
 							  </div>
+							   <div class="row mb-5">
+							    <div class="col">
+									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/userpwdPage'" type="button">비밀번호 초기화</button>
+							    </div>
+							    <div class="col">
+									<button class="btn btn-secondary" onclick="#" type="button"> 뭘 추가해볼까 ? </button>
+							    </div>
+							  </div>
 							</div>
                     </article>
                 </div>
