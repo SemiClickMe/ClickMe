@@ -2,3 +2,10 @@
 src/org/clickMe/user/controller/Application.java
 
 src/org/clickMe/user/controller/UserController.java
+
+# web > resource > upload 이하의 디렉토리는 추적하지 않는다.
+web/resource/upload/
+
+# 단, 기본 더미 이미지인 kakao_1.jpg 파일은 추적한다.
+# 따라서 업로드된 개별 이미지 파일은 추적하지 않는다.
+!web/resource/upload/**/kakao_1.jpg
