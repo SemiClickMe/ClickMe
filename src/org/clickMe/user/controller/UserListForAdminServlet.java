@@ -16,7 +16,7 @@ import org.clickMe.user.service.UserService;
 /**   
 	* @packageName : org.clickMe.user.controller 
 	* @Class : UserListForAdminServlet
-    * @Comment : 관리자용 회원 관리 페이지
+    * @Comment : 관리자용 회원 관리 페이지, 전체 회원을 한페이지에 보여주느 페이지, 이제 거의 쓸일은 없어보인다.
 	* @fileName : UserListForAdminServlet.java 
 	* @author : Hansoo Lee
     * @History : 2021.10.14 Hansoo Lee 처음 작성함 

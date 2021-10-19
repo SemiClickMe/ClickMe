@@ -46,8 +46,8 @@
 			</div>
 		</nav>
 
-		<div class="wrap">
-			<aside>
+		<div class="wrap" style="display: table">
+			<aside style="display: table">
 				<div class="sidebar">
 					<img src="../source/icon/user.png" id="icon"> <img
 						src="../source/icon/cart.png" id="icon"> <img
@@ -58,7 +58,7 @@
 				</div>
 			</aside>
 
-			<section class="overflow-auto ">
+			<section class="overflow-auto " style="display: table" >
 				<div class="main_field p-3">
 					<article class="main_cs p-3">
 						<br>

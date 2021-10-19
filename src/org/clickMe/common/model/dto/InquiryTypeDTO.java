@@ -1,16 +1,16 @@
 package org.clickMe.common.model.dto;
 
-public class InquiryType implements java.io.Serializable {
+public class InquiryTypeDTO implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1974348914846639079L;
 
 	private int code;
 	private String inqType;
 	
-	public InquiryType() {
+	public InquiryTypeDTO() {
 	}
 
-	public InquiryType(int code, String inqType) {
+	public InquiryTypeDTO(int code, String inqType) {
 		this.code = code;
 		this.inqType = inqType;
 	}

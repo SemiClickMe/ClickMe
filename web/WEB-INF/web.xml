@@ -43,6 +43,14 @@
      <url-pattern>/user/idFindPage</url-pattern>
 </servlet-mapping>
 <servlet>
+	<servlet-name>userPasswordReseter</servlet-name>
+    <jsp-file>/WEB-INF/views/user/userPasswordReseter.jsp</jsp-file>                                            
+</servlet>
+<servlet-mapping>
+     <servlet-name>userPasswordReseter</servlet-name>                                                        
+     <url-pattern>/user/userpwdPage</url-pattern>
+</servlet-mapping>
+<servlet>
      <servlet-name>inquiryForm</servlet-name>
      <jsp-file>/WEB-INF/views/inquiry/insertInquiryForm.jsp</jsp-file>                                       
 </servlet>

@@ -30,7 +30,7 @@
 				<tr>
 					<td>답변내용 :</td>
 					<td colspan="3">
-						<textarea name="ansContent" style="resize:none; width:90%; height:200px;"><c:out value="${ requestScope.inquiry.ansContent }"/></textarea>
+						<textarea name="ansContent" style="resize:none; width:90%; height:200px;" readonly><c:out value="${ requestScope.inquiry.ansContent }"/></textarea>
 					</td>
 				</tr>
 			</table>

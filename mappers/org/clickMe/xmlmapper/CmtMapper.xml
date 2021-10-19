@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.clickMe.cmt.model.dao.CmtMapper">
+
+	<resultMap type="org.clickMe.common.model.dto.CmtDTO" id="cmtResultMap">
+		<id property="code" column="CMT_CODE"/>
+		<result property="postCode" column="POST_CODE"/>
+		<result property="content" column="CMT_CONTENT"/>
+		<result property="time" column="CMT_TIME"/>
+		<result property="Yn" column="CMT_YN"/>
+	</resultMap> 
+	
+	<select id="selectAllCode" resultMap="cmtResultMap">
+		SELECT
+		       A.CMT_CODE
+		     , A.POST_CODE
+		     , A.CMT_CONTENT
+		     , A.CMT_TIME
+		     , A.CMT_YN
+		  FROM CMT A
+	</select>
+
+	<insert parameterType="org.clickMe.common.model.dto.CmtDTO" id="insertCmt">
+		INSERT
+		 INTO CMT A
+		(
+		  A.CMT_CODE
+		, A.POST_CODE
+		, A.CMT_CONTENT
+		, A.CMT_TIME
+		, A.CMT_YN
+		)
+		VALUES
+		(
+		  SEQ_CMT_CODE.NEXTVAL
+		, 1
+		, #{content}
+		, SYSDATE
+		, 'Y'
+		)
+	</insert>
+	
+	<update parameterType="hashmap" id="blindCmt">
+		UPDATE
+			   CMT A
+		   SET A.CMT_YN = 'N'
+		 WHERE A.CMT_CODE = #{code}
+	</update>
+</mapper>

@@ -1,8 +1,10 @@
 package org.clickMe.user.mapper;
 
 import java.util.List;
+import java.util.Map;
 
 import org.clickMe.common.model.dto.UserDTO;
+import org.clickMe.user.userPaging.UserPageCriteria;
 
 /**   
 	* @packageName : org.clickMe.user.mapper 
@@ -33,6 +35,11 @@ public interface UserMapper {
 	String selectEncryptedPwd(UserDTO requestMember);
 
 	UserDTO selectLoginMember(UserDTO requestMember);
+	
+	int userTotalCount(Map<String, String> searchMap);
 
+	List<UserDTO> selectUserListPage(UserPageCriteria userPageDTO);
+
+	int userPasswordReset(UserDTO userPwdReseter);
 
 }

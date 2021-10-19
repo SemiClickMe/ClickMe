@@ -76,8 +76,8 @@
 		VALUES
 		(
 		  SEQ_INQ_CODE.NEXTVAL
-		, 1 <!-- will be changed after implement categoryDTO -->
-		, 2 <!-- will be changed after USER jsp completed -->
+		, #{ inqTypeCode }
+		, #{ userCode }
 		, NULL <!-- will be change after implement attachment function completed -->
 		, #{ inqTitle }
 		, #{ inqContent }

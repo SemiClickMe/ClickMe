@@ -11,13 +11,21 @@
 <h1 align="center">${ requestScope.message }</h1>
 <h2 align="center">${ requestScope.signupUser }</h2>
 <h2 align="center">${ requestScope.userList }</h2>
+<h2 align="center">${ requestScope.userCount }</h2>
 <h2 align="center">아이디 찾기</h2>
-<c:forEach var="users" items="${ requestScope.userList }">
+
+<c:forEach var="users" items="${ requestScope.userLists }">
 	<h2 align="center"><br>ID : ${ users.id }<br></h2>
 </c:forEach>
 
+<div align="center" >
+<button class="btn btn-danger" style="font-size: 200%;" onclick="location.href='${pageContext.servletContext.contextPath}/usertest'" type="button">메인으로</button>
+</div>
 
 
+
+
+<script>
 
 <!-- 	<script>
 		window.onload = function() {
@@ -27,6 +35,10 @@
 			alert(message);
 /* 			location.href = '${pageContext.servletContext.contextPath}'; */
 		}
-	</script> -->
+-->
+
+</script>
+	
+	
 </body>
 </html>

@@ -98,6 +98,14 @@
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/admin'">게시글 관리<br>(관리자) - 개발중</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/insert'">게시판 등록<br>(사진포함)</button></td>
 								    </tr>
+								    <tr>
+								      <th scope="row" rowspan="2">댓글</th>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/list'">전체 댓글 조회</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/insert'">댓글 작성</button></td>
+								    </tr>
+								    <tr>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/blind'">댓글 삭제/블라인드</button></td>
+								    </tr>
 								  </tbody>
 								</table>
 							  </div>
