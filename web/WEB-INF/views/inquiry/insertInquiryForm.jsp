@@ -7,10 +7,34 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="${pageContext.servletContext.contextPath}/inquiry/insert" method="post">
-		1:1문의 제목 : <input type="text" name="inqTitle"><br>
-		1:1문의 내용 : <input type="text" name="inqContent"><br>
-	<button type="submit">등록하기</button>
+	<form action="${pageContext.servletContext.contextPath}/inquiry/insert"
+		method="post">
+		<table>
+			<tr>
+				<td>문의 타입</td>
+				<td><select name="type">
+						<option value="1">홈페이지 사용문의</option>
+						<option value="2">거래문의</option>
+						<option value="3">계정문의</option>
+						<option value="3">기타</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>1:1문의 제목</td>
+				<td colspan="3"><input type="text" name="inqTitle"
+					style="width: 400px;"></td>
+			</tr>
+			<tr>
+				<td>1:1문의 내용</td>
+				<td colspan="3"><textarea name="inqContent" cols="60"
+						style="resize: none;"></textarea></td>
+			</tr>
+		</table>
+		<br>
+		<div align="center">
+			<button type="reset">취소하기</button>
+			<button type="submit">등록하기</button>
+		</div>
 	</form>
 </body>
 </html>
