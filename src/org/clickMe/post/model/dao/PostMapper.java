@@ -3,6 +3,7 @@ package org.clickMe.post.model.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.clickMe.common.model.dto.ImgFileDTO;
 import org.clickMe.common.model.dto.PostDTO;
 import org.clickMe.post.model.dto.DetailPostDTO;
 import org.clickMe.post.model.dto.PostForAdminDTO;
@@ -29,5 +30,9 @@ public interface PostMapper {
 	DetailPostDTO selectSinglePost(int code);
 
 	int modifyPostAdmin(Map<String, Object> parameter);
+
+	int insertPost(PostDTO post);
+
+	int insertImgFile(ImgFileDTO imgFileDTO);
 
 }

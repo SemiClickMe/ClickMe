@@ -143,6 +143,58 @@
 		, #{itemPrice}
 		)
 	</insert>
+	<insert id="insertPost" parameterType="PostDTO">
+		INSERT
+		  INTO POST A
+		(
+		  A.POST_CODE
+		, A.SELLER_CODE
+		, A.POST_CAT_CODE
+		, A.AUTH_CODE
+		, A.POST_TITLE
+		, A.POST_CONTENT
+		, A.ITEM_PRICE
+		)
+		VALUES
+		(
+		  SEQ_POST_CODE.NEXTVAL,
+		  #{sellerCode},
+		  #{catCode},
+		  #{authCode},
+		  #{title},
+		  #{content},
+		  #{itemPrice}
+		)
+	</insert>
+	<insert id="insertImgFile" parameterType="ImgFileDTO">
+		<selectKey keyProperty="postCode" resultType="_int" order="BEFORE">
+			SELECT MAX(A.POST_CODE)
+			  FROM POST A
+		</selectKey>
+		INSERT
+		  INTO IMG_FILE A
+		(
+		  IMG_CODE
+		, IMG_CAT_CODE
+		, POST_CODE
+		, ORIG_NAME
+		, UUID_NAME
+		, IMG_TYPE
+		, ORIG_PATH
+		, THUMB_PATH
+		)
+		VALUES
+		(
+		  SEQ_IMG_CODE.NEXTVAL,
+		  2,
+		  #{postCode},
+		  #{origName},
+		  #{uuidName},
+		  #{imgType},
+		  #{origPath},
+		  #{thumbPath}
+		)
+	</insert>
 	
 	<update id="blindPostByCode" parameterType="_int">
 		UPDATE
