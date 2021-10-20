@@ -20,6 +20,9 @@
 				case "insertPost" : 
 					errorMessage = "게시판 등록에 실패하셨습니다!";
 					break;
+				case "listPostForUser" : 
+					errorMessage = "게시글을 불러오지 못했습니다!";
+					break;
 				/* 아래꺼 복사해서 쓰세요. */
 				/* case "string" : 
 					errorMessage = "실패멘트";

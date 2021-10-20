@@ -11,7 +11,9 @@ import org.clickMe.common.model.dto.PostDTO;
 import org.clickMe.post.model.dao.PostMapper;
 import org.clickMe.post.model.dto.DetailPostDTO;
 import org.clickMe.post.model.dto.PostForAdminDTO;
+import org.clickMe.post.model.dto.PostForUserDTO;
 import org.clickMe.post.model.dto.SearchOption;
+import org.clickMe.post.paging.PostPageCriteria;
 
 public class PostService {
 
@@ -49,6 +51,18 @@ public class PostService {
 		sqlSession.close();
 		
 		return postList;
+	}
+
+	public int selectTotalPostCount(Map<String, Object> searchOption) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int totalPostCount = postMapper.selectTotalPostCount(searchOption);
+		
+		sqlSession.close();
+		
+		return totalPostCount;
 	}
 	
 	public DetailPostDTO selectSinglePost(int code) {
@@ -186,6 +200,18 @@ public class PostService {
 		}
 			
 		return result > 0 ? true : false;
+	}
+
+	public List<PostForUserDTO> selectPostForUser(PostPageCriteria postPageCriteria) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		List<PostForUserDTO> postList = postMapper.selectPostForUser(postPageCriteria);
+		
+		sqlSession.close();
+		
+		return postList;
 	}
 
 }
