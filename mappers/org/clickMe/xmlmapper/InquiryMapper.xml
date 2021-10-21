@@ -60,25 +60,25 @@
 	
 	<insert id="insertInquiry" parameterType="org.clickMe.common.model.dto.InquiryDTO">
 		INSERT
-		  INTO INQUIRY
+		  INTO INQUIRY A
 		(
-		  INQ_CODE
-		, INQ_TYPE_CODE
-		, USER_CODE
-		, INQ_ATTACHMENT
-		, INQ_TITLE
-		, INQ_CONTENT
-		, INQ_TIME
-		, ANS_CONTENT
-		, ANS_TIME
-		, ANS_YN
+		  A.INQ_CODE
+		, A.INQ_TYPE_CODE
+		, A.USER_CODE
+		, A.INQ_ATTACHMENT
+		, A.INQ_TITLE
+		, A.INQ_CONTENT
+		, A.INQ_TIME
+		, A.ANS_CONTENT
+		, A.ANS_TIME
+		, A.ANS_YN
 		)
 		VALUES
 		(
 		  SEQ_INQ_CODE.NEXTVAL
-		, 1 <!-- will be changed after implement categoryDTO -->
-		, 2 <!-- will be changed after USER jsp completed -->
-		, NULL <!-- will be change after implement attachment function completed -->
+		, #{ inqTypeCode }
+		, #{ userCode }
+		, NULL
 		, #{ inqTitle }
 		, #{ inqContent }
 		, SYSDATE
@@ -111,4 +111,58 @@
 		     , A.ANS_CONTENT = #{ ansContent }
 		 WHERE INQ_CODE = #{ code }
 	</update>
+	
+	<select id="selectInquiryBySearchOption" resultMap="inquiryResultMap">
+		SELECT
+		       A.INQ_CODE
+		     , A.INQ_TYPE_CODE
+		     , A.USER_CODE
+		     , A.INQ_TITLE
+		     , A.INQ_CONTENT
+		     , A.INQ_TIME
+		     , A.ANS_CONTENT
+		     , A.ANS_TIME
+		     , A.ANS_YN
+		  FROM INQUIRY A
+		<if test="option == 'userCode'">
+		 WHERE A.USER_CODE LIKE '%' || #{value} || '%'
+		</if>
+		<if test="option == 'inqTitle'">
+		 WHERE A.INQ_TITLE LIKE '%' || #{value} || '%'
+		</if>
+		<if test="option == 'inqTypeCode'">
+		 WHERE A.INQ_TYPE_CODE LIKE '%' || #{value} || '%'
+		</if>
+         ORDER BY A.INQ_CODE DESC
+	</select>
+	
+	<select id="selectInquiryUserCode" resultMap="inquiryResultMap">
+		SELECT
+		       A.INQ_CODE
+		     , A.INQ_TYPE_CODE
+		     , A.USER_CODE
+		     , A.INQ_TITLE
+		     , A.INQ_CONTENT
+		     , A.INQ_TIME
+		     , A.ANS_CONTENT
+		     , A.ANS_TIME
+		     , A.ANS_YN
+		  FROM INQUIRY A
+		 WHERE A.USER_CODE = #{ code }
+	</select>
+	
+	<select id="selectNoticeDetailForUser" resultMap="inquiryResultMap">
+		SELECT
+		       A.INQ_CODE
+		     , A.INQ_TYPE_CODE
+		     , A.USER_CODE
+		     , A.INQ_TITLE
+		     , A.INQ_CONTENT
+		     , A.INQ_TIME
+		     , A.ANS_CONTENT
+		     , A.ANS_TIME
+		     , A.ANS_YN
+		  FROM INQUIRY A
+		 WHERE A.INQ_CODE = #{ code }
+	</select>
 </mapper>

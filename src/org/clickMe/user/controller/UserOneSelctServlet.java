@@ -20,7 +20,7 @@ import org.clickMe.user.service.UserService;
 	* @author : Hansoo Lee
     * @History : 2021.10.10 Hansoo Lee 
 */
-@WebServlet("/user/oneSelct")
+@WebServlet("/user/oneSelect")
 public class UserOneSelctServlet  extends HttpServlet {
 
 	private static final long serialVersionUID = -5703032335912762246L;
@@ -30,7 +30,6 @@ public class UserOneSelctServlet  extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		int code = Integer.valueOf(request.getParameter("userNum"));
 		System.out.println(code);
-		
 		UserDTO user1= userService.selectUser(code);
 		
 		

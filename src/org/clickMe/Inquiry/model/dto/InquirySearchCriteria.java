@@ -1,18 +1,17 @@
-package org.clickMe.user.model.dto;
+package org.clickMe.Inquiry.model.dto;
 
 import java.io.Serializable;
 
-public class UserSearchOption implements Serializable {
-
-	private static final long serialVersionUID = -5544577773867652572L;
+public class InquirySearchCriteria implements Serializable {
+	private static final long serialVersionUID = 3454420298937423130L;
 	
 	private String option;
 	private String value;
 	
-	public UserSearchOption() {
+	public InquirySearchCriteria() {
 	}
 
-	public UserSearchOption(String option, String value) {
+	public InquirySearchCriteria(String option, String value) {
 		this.option = option;
 		this.value = value;
 	}

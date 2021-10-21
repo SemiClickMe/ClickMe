@@ -29,6 +29,7 @@ public class UserSignupServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("password");
 		String email = request.getParameter("email");
+		/*사용자가 '-'기호를 이용하여 전화번호를 입력하는 경우 통일시키기 위해서 replace 이용함 */
 		String phone = request.getParameter("phoneNum").replace("-", "");
 		String name = request.getParameter("name");
 		java.sql.Date bdate = java.sql.Date.valueOf(request.getParameter("bdate"));

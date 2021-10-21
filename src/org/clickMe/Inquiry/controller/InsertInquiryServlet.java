@@ -10,20 +10,34 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.clickMe.Inquiry.model.service.InquiryService;
 import org.clickMe.common.model.dto.InquiryDTO;
+import org.clickMe.common.model.dto.UserDTO;
 
 @WebServlet("/inquiry/insert")
 public class InsertInquiryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		String path = "/WEB-INF/views/inquiry/insertInquiryForm.jsp";
+
+		request.getRequestDispatcher(path).forward(request, response);
+		
+	}
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("UTF-8");
+		int inqTypeCode = Integer.parseInt(request.getParameter("type"));
 		String title = request.getParameter("inqTitle");
 		String content = request.getParameter("inqContent");
+		int writerUserNo = ((UserDTO) request.getSession().getAttribute("loginUser")).getCode();
+		System.out.println("지금 입력하는 회원의 코드 번호 : " + writerUserNo);
 		
 		InquiryDTO inquiry = new InquiryDTO();
+		inquiry.setInqTypeCode(inqTypeCode);
 		inquiry.setInqTitle(title);
 		inquiry.setInqContent(content);
+		inquiry.setUserCode(writerUserNo);
 
 		InquiryService inquiryService = new InquiryService();
 		int result = inquiryService.insertInquiry(inquiry);

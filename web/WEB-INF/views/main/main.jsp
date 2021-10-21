@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<input type="hidden" name="code" id="code" value="'${ sessionScope.loginUser.code }'" >
     <div class="layoutMiddle">
 
         <!-- 헤더 -->
@@ -80,9 +80,10 @@
 								      <th scope="row"> 관리자</th>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">1:1 문의 조회해보기</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiryForm'">1:1 문의 작성페이지</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/select/user'">1:1 문의 조회 for 회원</button></td>
 								    </tr>
 								    <tr>
-								      <th scope="row" rowspan="4">게시글</th>
+								      <th scope="row" rowspan="5">게시글</th>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/allPost'">전체 게시글 조회</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/searchPost'">게시글 검색 조회</button></td>
 								    </tr>
@@ -95,8 +96,11 @@
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/deletePostForm'">DB에서 게시글 삭제</button></td>
 								    </tr>
 								    <tr>
-								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/admin'">게시글 관리(관리자) - 개발중</button></td>
-								      <td><button class="btn btn-primary">게시판(회원) - 개발중</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/admin'">게시글 관리<br>(관리자) - 개발중</button></td>
+								    </tr>
+								    <tr>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/insert'">게시판 등록<br>(사진포함)</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list'">게시판 메인<br>(사진포함)</button></td>
 								    </tr>
 								    <tr>
 								      <th scope="row" rowspan="2">댓글</th>

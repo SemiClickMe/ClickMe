@@ -1,6 +1,9 @@
 package org.clickMe.Inquiry.model.dto;
 
 import java.sql.Date;
+import java.util.List;
+
+import org.clickMe.common.model.dto.ImgFileDTO;
 
 public class InquiryDTO implements java.io.Serializable {
 
@@ -9,120 +12,107 @@ public class InquiryDTO implements java.io.Serializable {
 	private int code;
 	private int inqTypeCode;
 	private int userCode;
-	private String attchment;
+	private String attachment;
 	private String inqTitle;
 	private String inqContent;
 	private Date inqTime;
 	private String ansContent;
 	private Date ansTime;
 	private String ansYn;
+	private List<ImgFileDTO> imgFileList;
 	
 	public InquiryDTO() {
 	}
-
-	public String getAttchment() {
-		return attchment;
-	}
-
-	public void setAttchment(String attchment) {
-		this.attchment = attchment;
-	}
-
-	public InquiryDTO(int code, int inqTypeCode, int userCode, String attchment, String inqTitle, String inqContent,
-			Date inqTime, String ansContent, Date ansTime, String ansYn) {
+	
+	public InquiryDTO(int code, int inqTypeCode, int userCode, String attachment, String inqTitle, String inqContent,
+			Date inqTime, String ansContent, Date ansTime, String ansYn, List<ImgFileDTO> imgFileList) {
 		this.code = code;
 		this.inqTypeCode = inqTypeCode;
 		this.userCode = userCode;
-		this.attchment = attchment;
+		this.attachment = attachment;
 		this.inqTitle = inqTitle;
 		this.inqContent = inqContent;
 		this.inqTime = inqTime;
 		this.ansContent = ansContent;
 		this.ansTime = ansTime;
 		this.ansYn = ansYn;
+		this.imgFileList = imgFileList;
 	}
-
-
-
+	
 	public int getCode() {
 		return code;
 	}
-
 	public void setCode(int code) {
 		this.code = code;
 	}
-
 	public int getInqTypeCode() {
 		return inqTypeCode;
 	}
-
 	public void setInqTypeCode(int inqTypeCode) {
 		this.inqTypeCode = inqTypeCode;
 	}
-
 	public int getUserCode() {
 		return userCode;
 	}
-
 	public void setUserCode(int userCode) {
 		this.userCode = userCode;
 	}
-
+	public String getAttachment() {
+		return attachment;
+	}
+	public void setAttachment(String attachment) {
+		this.attachment = attachment;
+	}
 	public String getInqTitle() {
 		return inqTitle;
 	}
-
 	public void setInqTitle(String inqTitle) {
 		this.inqTitle = inqTitle;
 	}
-
 	public String getInqContent() {
 		return inqContent;
 	}
-
 	public void setInqContent(String inqContent) {
 		this.inqContent = inqContent;
 	}
-
 	public Date getInqTime() {
 		return inqTime;
 	}
-
 	public void setInqTime(Date inqTime) {
 		this.inqTime = inqTime;
 	}
-
 	public String getAnsContent() {
 		return ansContent;
 	}
-
 	public void setAnsContent(String ansContent) {
 		this.ansContent = ansContent;
 	}
-
 	public Date getAnsTime() {
 		return ansTime;
 	}
-
 	public void setAnsTime(Date ansTime) {
 		this.ansTime = ansTime;
 	}
-
 	public String getAnsYn() {
 		return ansYn;
 	}
-
 	public void setAnsYn(String ansYn) {
 		this.ansYn = ansYn;
 	}
-
-	@Override
-	public String toString() {
-		return "InquiryDTO [code=" + code + ", inqTypeCode=" + inqTypeCode + ", userCode=" + userCode + ", attchment="
-				+ attchment + ", inqTitle=" + inqTitle + ", inqContent=" + inqContent + ", inqTime=" + inqTime
-				+ ", ansContent=" + ansContent + ", ansTime=" + ansTime + ", ansYn=" + ansYn + "]";
+	public List<ImgFileDTO> getImgFileList() {
+		return imgFileList;
+	}
+	public void setImgFileList(List<ImgFileDTO> imgFileList) {
+		this.imgFileList = imgFileList;
 	}
 	
+	@Override
+	public String toString() {
+		return "InquiryDTO [code=" + code + ", inqTypeCode=" + inqTypeCode + ", userCode=" + userCode + ", attachment="
+				+ attachment + ", inqTitle=" + inqTitle + ", inqContent=" + inqContent + ", inqTime=" + inqTime
+				+ ", ansContent=" + ansContent + ", ansTime=" + ansTime + ", ansYn=" + ansYn + ", imgFileList="
+				+ imgFileList + "]";
+	}
 	
 	
 }

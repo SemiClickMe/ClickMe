@@ -16,7 +16,7 @@
 	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button>
 	
 	<h2>게시글 등록 폼</h2>
-	<form action="${pageContext.servletContext.contextPath}/post/insert" method="post" style="display: inline-block">
+	<form action="${pageContext.servletContext.contextPath}/post/insertTest" method="post" style="display: inline-block">
 		<fieldset>
 			<legend>게시글 등록 필드</legend>
 			<label>1. 판매자 코드</label>

@@ -57,7 +57,7 @@
                     
                     <article class="signup_cs p-5">
                         <br>
-                        <div class="container">
+                        <div class="container" style="background-color: tomato;">
 							  <div class="row mb-5">
 							    <div class="col">
 							      	<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/select'">
@@ -65,7 +65,7 @@
 								</form>
 							    </div>
 							    <div class="col">
-							    	<form action="user/oneSelct" method="post">
+							    	<form action="${pageContext.servletContext.contextPath}/user/oneSelect" method="post">
 							    	    <input type="text" name="userNum" id="userNum">
 									    <button class="btn btn-secondary" type="submit" placeholder="코드를 입력하세요">사용자 1명 선택</button>
 									</form>
@@ -85,11 +85,18 @@
 							  </div>
 							  <div class="row mb-5">
 							    <div class="col">
-									    <button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/listForAdmin'" type="button">관리자용 사용자 리스트 조회</button>
+									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/listForAdmin'" type="button">관리자용 사용자 리스트 전체 조회</button>
 							    </div>
 							    <div class="col">
-							    	<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/status'">
-							    	관리자용 사용자 리스트 조회</button>
+									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/listPage'" type="button">관리자용 사용자 리스트 조회<br>페이지 작업</button>
+							    </div>
+							  </div>
+							   <div class="row mb-5">
+							    <div class="col">
+									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/userpwdPage'" type="button">비밀번호 초기화</button>
+							    </div>
+							    <div class="col">
+									<button class="btn btn-secondary" onclick="#" type="button"> 뭘 추가해볼까 ? </button>
 							    </div>
 							  </div>
 							</div>

@@ -4,9 +4,12 @@
 	<properties resource="connection-info.properties"></properties>
 	<typeAliases>
 		<typeAlias type="org.clickMe.common.model.dto.PostDTO" alias="PostDTO"/>
+		<typeAlias type="org.clickMe.common.model.dto.ImgFileDTO" alias="ImgFileDTO"/>
 		<typeAlias type="org.clickMe.post.model.dto.SearchOption" alias="SearchOption"/>
 		<typeAlias type="org.clickMe.post.model.dto.PostForAdminDTO" alias="PostForAdminDTO"/>
 		<typeAlias type="org.clickMe.post.model.dto.DetailPostDTO" alias="DetailPostDTO"/>
+		<typeAlias type="org.clickMe.post.model.dto.PostForUserDTO" alias="PostForUserDTO"/>
+		<typeAlias type="org.clickMe.post.paging.PostPageCriteria" alias="PostPageCriteria"/>
 	</typeAliases>
 	
 	<environments default="dev">
@@ -26,7 +29,7 @@
 		<mapper resource="org/clickMe/xmlmapper/PostMapper.xml"/>
 		<mapper resource="org/clickMe/xmlmapper/UserMapper.xml"/>
 		<mapper resource="org/clickMe/xmlmapper/CmtMapper.xml"/>
-		<mapper resource="org/clickMe/xmlmapper/RecommentMapper.xml"/>
+<!-- 		<mapper resource="org/clickMe/xmlmapper/RecommentMapper.xml"/> -->
 	</mappers>
 </configuration>
 

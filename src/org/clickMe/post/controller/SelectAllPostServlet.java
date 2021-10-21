@@ -32,7 +32,7 @@ public class SelectAllPostServlet extends HttpServlet {
 		
 		String forwardingPath = "";
 		if (!postList.isEmpty()) {
-			forwardingPath = "/WEB-INF/views/post/postList.jsp";
+			forwardingPath = "/WEB-INF/views/post/postListTest.jsp";
 			request.setAttribute("postList", postList);
 		} else {
 			resultView.printErrorMessage("selectList");

@@ -48,14 +48,14 @@ public class UserStatusModifyServlet extends HttpServlet {
 
 			page = "/WEB-INF/views/user/result.jsp";
 			System.out.println("입력성공");
-			request.setAttribute("message", "등록 성공");
+			request.setAttribute("message", "수정 성공");
 			request.setAttribute("signupUser", statusModifyUser);
 
 		} else {
 
 			page = "/WEB-INF/views/user/result.jsp";
 			System.out.println("입력실패");
-			request.setAttribute("message", "회원 가입 실패!");
+			request.setAttribute("message", "수정 실패!");
 		}
 
 		request.getRequestDispatcher(page).forward(request, response);

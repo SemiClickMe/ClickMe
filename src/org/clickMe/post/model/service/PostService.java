@@ -6,11 +6,14 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.clickMe.common.model.dto.ImgFileDTO;
 import org.clickMe.common.model.dto.PostDTO;
 import org.clickMe.post.model.dao.PostMapper;
 import org.clickMe.post.model.dto.DetailPostDTO;
 import org.clickMe.post.model.dto.PostForAdminDTO;
+import org.clickMe.post.model.dto.PostForUserDTO;
 import org.clickMe.post.model.dto.SearchOption;
+import org.clickMe.post.paging.PostPageCriteria;
 
 public class PostService {
 
@@ -48,6 +51,18 @@ public class PostService {
 		sqlSession.close();
 		
 		return postList;
+	}
+
+	public int selectTotalPostCount(Map<String, Object> searchOption) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int totalPostCount = postMapper.selectTotalPostCount(searchOption);
+		
+		sqlSession.close();
+		
+		return totalPostCount;
 	}
 	
 	public DetailPostDTO selectSinglePost(int code) {
@@ -150,6 +165,80 @@ public class PostService {
 		}
 		
 		return result > 0 ? true : false;
+	}
+
+	public boolean insertPost(PostDTO post) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = 0;	// 두 DML 작업이 모두 성공될 때 1이 되는 결과값
+		
+		/* 1. PostDTO 내의 게시글 정보부터 INSERT */
+		int postResult = postMapper.insertPost(post);
+		
+		System.out.println("POST table INSERT result : " + postResult);
+		
+		/* 2. 다음은 PostDTO 내의 이미지 파일 리스트 INSERT */
+		List<ImgFileDTO> imgFileList = post.getImgFileList();
+		
+		/* 이미지 파일이 종속되어 있는 게시글의 번호는 Mapper에서 <selectKey> 요소를 사용해 구한다. */
+		
+		int imgFileResult = 0;
+		for (int i = 0; i < imgFileList.size(); i++) {	// 이미지 파일 갯수만큼 loop
+			imgFileResult += postMapper.insertImgFile(imgFileList.get(i));
+		}
+		
+		System.out.println("The number of files : " + imgFileList.size());
+		System.out.println("IMG_FILE table INSERT result : " + imgFileResult);
+		
+		if (postResult > 0 && imgFileResult == imgFileList.size()) {
+			sqlSession.commit();
+			result = 1;
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result > 0 ? true : false;
+	}
+
+	public List<PostForUserDTO> selectPostForUser(PostPageCriteria postPageCriteria) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		List<PostForUserDTO> postList = postMapper.selectPostForUser(postPageCriteria);
+		
+		sqlSession.close();
+		
+		return postList;
+	}
+
+	public DetailPostDTO selectDetailPostForUser(int code) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.increasePostViews(code);
+		
+		DetailPostDTO detailPost = null;
+		if (result > 0) {
+			detailPost = postMapper.selectDetailPostForUser(code);
+			
+			if (detailPost != null) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return detailPost;
 	}
 
 }

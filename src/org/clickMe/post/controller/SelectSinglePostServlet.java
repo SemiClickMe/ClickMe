@@ -12,7 +12,7 @@ import org.clickMe.post.PostUnitTestResultView;
 import org.clickMe.post.model.dto.DetailPostDTO;
 import org.clickMe.post.model.service.PostService;
 
-@WebServlet("/post/list/detail")
+@WebServlet("/post/list/detailTest")
 public class SelectSinglePostServlet extends HttpServlet {
 	private static final long serialVersionUID = -6870548463362924569L;
 

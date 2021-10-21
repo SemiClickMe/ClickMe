@@ -11,7 +11,7 @@ import org.clickMe.common.model.dto.PostDTO;
 import org.clickMe.post.PostUnitTestResultView;
 import org.clickMe.post.model.service.PostService;
 
-@WebServlet("/post/insert")
+@WebServlet("/post/insertTest")
 public class InsertNewPostServlet extends HttpServlet {
 	private static final long serialVersionUID = -8778735518639133878L;
 
