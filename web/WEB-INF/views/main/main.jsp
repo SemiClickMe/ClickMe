@@ -77,7 +77,7 @@
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/signup'">가입 페이지로 이동</button></td>
 								    </tr>
 								    <tr>
-								      <th scope="row"> 1:1문의</th>
+								      <th scope="row"> 관리자</th>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">1:1 문의 조회해보기</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiryForm'">1:1 문의 작성페이지</button></td>
 								    </tr>
@@ -96,10 +96,13 @@
 								    </tr>
 								    <tr>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list/admin'">게시글 관리<br>(관리자) - 개발중</button></td>
-								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/insert'">게시판 등록<br>(사진포함)</button></td>
 								    </tr>
 								    <tr>
-								      <th scope="row">댓글</th>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/insert'">게시판 등록<br>(사진포함)</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/list'">게시판 메인<br>(사진포함)</button></td>
+								    </tr>
+								    <tr>
+								      <th scope="row" rowspan="2">댓글</th>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/list'">전체 댓글 조회</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/insert'">댓글 작성</button></td>
 								    </tr>

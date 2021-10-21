@@ -138,7 +138,7 @@
 			}
 		}
 		
-		function inputFileValidityCheck(obj, num) {
+		function fileValidityCheck(obj, num) {
 			var pathPoint = obj.value.lastIndexOf('.');
 			var filePoint = obj.value.substring(pathPoint + 1, obj.length);
 			var fileType = filePoint.toLowerCase();

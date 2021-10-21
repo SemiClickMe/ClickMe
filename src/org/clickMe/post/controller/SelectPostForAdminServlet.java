@@ -33,7 +33,7 @@ public class SelectPostForAdminServlet extends HttpServlet {
 		/* need to avoid NumberFormatException */
 		String authCodeStr = request.getParameter("authCode");
 		int authCode = 0;
-		if (null != authCodeStr && !authCodeStr.equals("default")) {
+		if (null != authCodeStr && !"default".equals(authCodeStr)) {
 			authCode = Integer.valueOf(authCodeStr);
 		}
 		String blindYn = request.getParameter("blindYn");

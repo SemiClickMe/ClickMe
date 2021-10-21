@@ -8,6 +8,8 @@
 		<typeAlias type="org.clickMe.post.model.dto.SearchOption" alias="SearchOption"/>
 		<typeAlias type="org.clickMe.post.model.dto.PostForAdminDTO" alias="PostForAdminDTO"/>
 		<typeAlias type="org.clickMe.post.model.dto.DetailPostDTO" alias="DetailPostDTO"/>
+		<typeAlias type="org.clickMe.post.model.dto.PostForUserDTO" alias="PostForUserDTO"/>
+		<typeAlias type="org.clickMe.post.paging.PostPageCriteria" alias="PostPageCriteria"/>
 	</typeAliases>
 	
 	<environments default="dev">

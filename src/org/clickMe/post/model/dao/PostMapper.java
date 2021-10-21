@@ -7,7 +7,9 @@ import org.clickMe.common.model.dto.ImgFileDTO;
 import org.clickMe.common.model.dto.PostDTO;
 import org.clickMe.post.model.dto.DetailPostDTO;
 import org.clickMe.post.model.dto.PostForAdminDTO;
+import org.clickMe.post.model.dto.PostForUserDTO;
 import org.clickMe.post.model.dto.SearchOption;
+import org.clickMe.post.paging.PostPageCriteria;
 
 public interface PostMapper {
 
@@ -34,5 +36,9 @@ public interface PostMapper {
 	int insertPost(PostDTO post);
 
 	int insertImgFile(ImgFileDTO imgFileDTO);
+
+	int selectTotalPostCount(Map<String, Object> searchOption);
+
+	List<PostForUserDTO> selectPostForUser(PostPageCriteria postPageCriteria);
 
 }

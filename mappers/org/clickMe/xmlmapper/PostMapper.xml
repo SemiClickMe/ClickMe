@@ -98,6 +98,73 @@
 		</where>
 		 ORDER BY A.POST_CODE DESC
 	</select>
+	<select id="selectTotalPostCount" parameterType="hashmap" resultType="_int">
+		SELECT
+			   COUNT(*)
+		  FROM POST A
+		<where>
+			<if test="title != null and !title.equals('')">
+				A.POST_TITLE LIKE '%' || #{title} || '%'
+			</if>
+			<if test="content != null and content != ''">
+			AND A.POST_CONTENT LIKE '%' || #{content} || '%'
+			</if>
+			<if test="authCode != null and authCode gt 0">
+			AND A.AUTH_CODE = #{authCode}
+			</if>
+			<if test="(itemPriceRangeMin != null and itemPriceRangeMin gte 0) and (itemPriceRangeMax != null and itemPriceRangeMax gte 0)">
+			AND A.ITEM_PRICE BETWEEN #{itemPriceRangeMin} AND #{itemPriceRangeMax}
+			</if>
+		</where>
+	</select>
+	<select id="selectPostForUser" parameterType="PostPageCriteria" resultType="PostForUserDTO">
+		SELECT
+		       E.RNUM
+		     , E.POST_CODE AS "code"
+		     , E.POST_TITLE AS "title"
+		     , E.ITEM_PRICE AS "itemPrice"
+		     , E.AUTH_STATUS AS "authStatus"
+		     , E.LIKE_COUNT AS "likes"
+		     , E.POST_VIEW AS "views"
+		     , E.THUMB_PATH AS "thumbPath"
+		  FROM (SELECT ROWNUM RNUM
+		             , D.POST_CODE
+		             , D.POST_TITLE
+		             , D.ITEM_PRICE
+		             , D.AUTH_STATUS
+		             , D.LIKE_COUNT
+		             , D.POST_VIEW
+		             , D.THUMB_PATH
+		          FROM (SELECT A.POST_CODE
+		                     , A.POST_TITLE
+		                     , A.ITEM_PRICE
+		                     , B.AUTH_STATUS
+		                     , A.LIKE_COUNT
+		                     , A.POST_VIEW
+		                     , C.THUMB_PATH
+		                  FROM POST A
+		                  JOIN AUTHENTIC B ON (A.AUTH_CODE = B.AUTH_CODE)
+		                  JOIN IMG_FILE C ON (A.POST_CODE = C.POST_CODE)
+		                 WHERE A.BLIND_YN = 'N'
+						<if test="title != null and !title.equals('')">
+						   AND A.POST_TITLE LIKE '%' || #{title} || '%'
+						</if>
+						<if test="content != null and content != ''">
+						   AND A.POST_CONTENT LIKE '%' || #{content} || '%'
+						</if>
+						<if test="authCode != null and authCode gt 0">
+						   AND A.AUTH_CODE = #{authCode}
+						</if>
+						<if test="(itemPriceRangeMin != null and itemPriceRangeMin gte 0) and (itemPriceRangeMax != null and itemPriceRangeMax gte 0)">
+						   AND A.ITEM_PRICE BETWEEN #{itemPriceRangeMin} AND #{itemPriceRangeMax}
+						</if>
+		                   AND C.IMG_TYPE = 'REPRESENTATIVE'
+		                 ORDER BY A.POST_CODE DESC) D
+		         <![CDATA[
+		         WHERE ROWNUM <= #{endRow}) E
+		         ]]>
+		 WHERE E.RNUM >= #{startRow}
+	</select>
 	<select id="selectSinglePost" parameterType="_int" resultType="DetailPostDTO">
 		SELECT
 			   A.POST_CODE AS "code"
