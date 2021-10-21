@@ -119,7 +119,7 @@ public class InsertPostServlet extends HttpServlet {
 							
 							/* 2. 저장하고자 하는 경로에 파일 저장 */
 							/* 2.1. 앞에서 생성한 저장 경로와 랜덤 이름으로 파일 인스턴스를 생성 */
-							File storeFile = new File(fileUploadDirectoryPath + "/" + randomFileName);
+							File storeFile = new File(fileUploadDirectoryPath + "/" + "original_" + randomFileName);
 							
 							/* 2.2. 파일 저장 */
 							item.write(storeFile);	// 최상위 예외인 Exception을 예외 처리
@@ -129,7 +129,7 @@ public class InsertPostServlet extends HttpServlet {
 							fileMap.put("fieldName", fieldName);
 							fileMap.put("origName", originalFileName);
 							fileMap.put("uuidName", randomFileName);
-							fileMap.put("origPath", fileUploadDirectoryPath);
+							fileMap.put("origPath", originalSavePath + "original_" + randomFileName);
 							
 							/* 4. 썸네일 이미지 생성 */
 							/* 4.1. 대표 이미지와 일반 이미지를 구별하여 썸네일 이미지로 변환할 크기를 지정한다. */
@@ -148,7 +148,7 @@ public class InsertPostServlet extends HttpServlet {
 							/* 4.2. 썸네일 변환 후 저장 */
 							Thumbnails.of(fileUploadDirectoryPath + randomFileName)			// 파일 이름과
 							.size(width, height)											// 사이즈로
-							.toFile(thumbnailDirectoryPath + "thumbnail_" + randomFileName);	// 썸네일 저장
+							.toFile(thumbnailDirectoryPath + "thumbnail_" + randomFileName);// 썸네일 저장
 							
 							/* 4.3. 게시판 목록에서 대표 이미지를 썸네일로 보기 위해 썸네일 이미지의 저장 경로도 함께 저장  */
 							fileMap.put("thumbPath", thumbnailSavePath + "thumbnail_" + randomFileName);
