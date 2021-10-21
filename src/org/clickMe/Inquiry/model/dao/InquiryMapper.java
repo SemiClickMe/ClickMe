@@ -26,4 +26,10 @@ public interface InquiryMapper {
 	int insertAttachment(ImgFileDTO imgFileDTO);
 
 	List<InquiryDTO> selectInquiryBySearchOption(InquirySearchCriteria searchCriteria);
+
+	List<InquiryDTO> selectInquiryUserCode(int code);
+
+	InquiryDTO selectNoticeDetailForUser(int code);
+
+
 }

@@ -135,4 +135,34 @@
 		</if>
          ORDER BY A.INQ_CODE DESC
 	</select>
+	
+	<select id="selectInquiryUserCode" resultMap="inquiryResultMap">
+		SELECT
+		       A.INQ_CODE
+		     , A.INQ_TYPE_CODE
+		     , A.USER_CODE
+		     , A.INQ_TITLE
+		     , A.INQ_CONTENT
+		     , A.INQ_TIME
+		     , A.ANS_CONTENT
+		     , A.ANS_TIME
+		     , A.ANS_YN
+		  FROM INQUIRY A
+		 WHERE A.USER_CODE = #{ code }
+	</select>
+	
+	<select id="selectNoticeDetailForUser" resultMap="inquiryResultMap">
+		SELECT
+		       A.INQ_CODE
+		     , A.INQ_TYPE_CODE
+		     , A.USER_CODE
+		     , A.INQ_TITLE
+		     , A.INQ_CONTENT
+		     , A.INQ_TIME
+		     , A.ANS_CONTENT
+		     , A.ANS_TIME
+		     , A.ANS_YN
+		  FROM INQUIRY A
+		 WHERE A.INQ_CODE = #{ code }
+	</select>
 </mapper>

@@ -15,7 +15,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<input type="hidden" name="code" id="code" value="'${ sessionScope.loginUser.code }'" >
     <div class="layoutMiddle">
 
         <!-- 헤더 -->
@@ -80,6 +80,7 @@
 								      <th scope="row"> 관리자</th>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">1:1 문의 조회해보기</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiryForm'">1:1 문의 작성페이지</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/select/user'">1:1 문의 조회 for 회원</button></td>
 								    </tr>
 								    <tr>
 								      <th scope="row" rowspan="5">게시글</th>

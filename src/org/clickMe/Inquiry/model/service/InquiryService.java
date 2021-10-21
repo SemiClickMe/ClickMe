@@ -10,9 +10,6 @@ import org.clickMe.Inquiry.model.dao.InquiryMapper;
 import org.clickMe.Inquiry.model.dto.InquirySearchCriteria;
 import org.clickMe.common.model.dto.ImgFileDTO;
 import org.clickMe.common.model.dto.InquiryDTO;
-import org.clickMe.common.model.dto.PostDTO;
-import org.clickMe.post.model.dao.PostMapper;
-import org.clickMe.post.model.dto.SearchOption;
 
 public class InquiryService {
 
@@ -170,6 +167,41 @@ public class InquiryService {
 		sqlSession.close();
 		
 		return result;
+	}
+	
+	public List<InquiryDTO> selectInquiryUserCode(int code) {
+		SqlSession sqlSession = getSqlSession();
+		mapper = sqlSession.getMapper(InquiryMapper.class);
+		
+		List<InquiryDTO> inquiryList = mapper.selectInquiryUserCode(code);
+		
+		if (!inquiryList.isEmpty()) {
+			for (InquiryDTO inquiry : inquiryList) {
+				System.out.println(inquiry);
+			}
+		} else {
+			System.out.println("검색 결과가 존재하지 않습니다.");
+		}
+		sqlSession.close();
+		
+		return inquiryList;
+	}
+	
+	public InquiryDTO selectNoticeDetailForUser(int code) {
+		SqlSession sqlSession = getSqlSession();
+		InquiryDTO inquiryDetail = null;
+		mapper = sqlSession.getMapper(InquiryMapper.class);
+		inquiryDetail = mapper.selectNoticeDetailForUser(code);
+
+		if(inquiryDetail != null) {
+			sqlSession.commit();
+			} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return inquiryDetail;
 	}
 
 
