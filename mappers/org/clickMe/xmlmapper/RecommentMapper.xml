@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.clickMe.recomment.model.dao.RecommentMapper">
+
+	<resultMap type="org.clickMe.common.model.dto.RecommentDTO" id="recommentResultMap">
+		<id property="code" column="RE_COMMENT_CODE"/>
+		<result property="cmtCode" column="CMT_CODE"/>
+		<result property="reCommentContent" column="RE_COMMENT_CONTENT"/>
+		<result property="reCommentTime" column="RE_COMMENT_TIME"/>
+		<result property="reCommentYn" column="RE_COIMMENT_YN"/>
+	</resultMap> 
+	<insert parameterType="org.clickMe.common.model.dto.RecommentDTO" id="insertRecomment">
+		INSERT
+		 INTO RE_COMMENT A
+		(
+		  A.RE_COMMENT_CODE
+		, A.CMT_CODE
+		, A.RE_COMMENT_CONTENT
+		, A.RE_COMMENT_TIME
+		, A.RE_COMMENT_YN
+		)
+		VALUES
+		(
+		  SEQ_RE_COMMENT_CODE.NEXTVAL
+		, 1
+		, #{reCommentContent}
+		, SYSDATE
+		, 'Y'
+		)
+	</insert>
+	<update parameterType="hashmap" id="blindRecomment">
+		UPDATE
+			   RE_COMMENT A
+		   SET A.RE_COMMENT_YN = 'N'
+		 WHERE A.RE_COMMENT_CODE = #{code}
+	</update>
+
+</mapper>

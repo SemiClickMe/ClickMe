@@ -23,6 +23,9 @@ public class RecommentDTO implements Serializable {
 		this.reCommentYn = reCommentYn;
 	}
 
+	public RecommentDTO() {
+	}
+
 	public int getCode() {
 		return code;
 	}

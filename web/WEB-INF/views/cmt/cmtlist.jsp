@@ -9,10 +9,12 @@
 </head>
 <body>
 	<h1 align="center">댓글 조회</h1>
+	<%-- 메인 홈으로 가는 버튼 --%>
 	<button
-		onclick="location.href='${pageContext.servletContext.contextPath}'"
-		name="backToHome">홈으로</button>
-	<table align="center" border="1">
+		onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button>
+		
+	<%-- Comment, Recomment 전체값 조회 테이블 --%>
+ 	<table id ="cmtlistTable" border="1" >
 		<thead>
 			<tr>
 				<th width="150px">댓글코드</th>
@@ -22,24 +24,26 @@
 				<th width="150px">댓글 활성화 여부</th>
 				<th width="150px">댓글 삭제하기</th>
 				<th width="150px">대댓글 작성하기</th>
+				<th width="150px">대댓글 내용</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="cmt" items="${requestScope.cmtList}">
 				<tr>
-					<th>${cmt.code}</th>
-					<th>${cmt.postCode}</th>
-					<th>${cmt.content}</th>
-					<th>${cmt.time}</th>
-					<th>${cmt.yn}</th>
-					<th><a href="#" onclick="blindcmt(${cmt.code})">블라인드하기</a></th>
-					<th><a href="#"><button onclick="location.href='${pageContext.servletContext.contextPath}/recomment/insert'"	name="backToHome">
-						대댓글작성하기</button></a></th>
+					<td>${cmt.code}</td>
+					<td>${cmt.postCode}</td>
+					<td>${cmt.content}</td>
+					<td>${cmt.time}</td>
+					<td>${cmt.yn}</td>
+					<td><input type=submit id="${cmt.code}" value="버튼${cmt.code}" 
+						onClick="location.href='${pageContext.servletContext.contextPath}/cmt/blind'"></td>
+					
+					<td><a href="#"><button
+								onclick="location.href='${pageContext.servletContext.contextPath}/recomment/insert'"
+								name="insertRecomment">대댓글작성하기</button></a></td>
 				</tr>
 			</c:forEach>
-		</table>
-		<br><br><br><br><br>
-		
+	</table>
+
 </body>
 </html>
-

@@ -105,6 +105,7 @@
 								    </tr>
 								    <tr>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/blind'">댓글 삭제/블라인드</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/recomment/blind'">대댓글 삭제/블라인드</button></td>
 								    </tr>
 								  </tbody>
 								</table>

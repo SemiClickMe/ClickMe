@@ -13,6 +13,4 @@ public interface CmtMapper {
 
 	int blindCmt(Map<String, Object> param);
 
-	
-	
 }
