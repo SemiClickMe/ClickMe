@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.clickMe.payment.model.dao.PaymentMapper">
+
+	<resultMap type="org.clickMe.common.model.dto.PaymentDTO" id="paymentResultMap">
+		<id property="code" column="PAYMENT_CODE"/>
+		<result property="postCode" column="POST_CODE"/>
+		<result property="method" column="PAYMENT_METHOD"/>
+		<result property="paymentTime" column="PAYMENT_TIME"/>
+	</resultMap> 
+
+	<insert parameterType="org.clickMe.common.model.dto.PaymentDTO" id="addPayment">
+			INSERT
+		 INTO PAYMENT A
+		(
+		  A.PAYMENT_CODE
+		, A.POST_CODE
+		, A.PAYMENT_METHOD
+		, A.PAYMENT_TIME
+		)
+		VALUES
+		(
+		  SEQ_PAYMENT_CODE.NEXTVAL
+		, #{postCode}
+		, #{method}
+		, SYSDATE
+		)
+	</insert>
+</mapper>

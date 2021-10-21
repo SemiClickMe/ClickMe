@@ -29,7 +29,8 @@
 		<mapper resource="org/clickMe/xmlmapper/PostMapper.xml"/>
 		<mapper resource="org/clickMe/xmlmapper/UserMapper.xml"/>
 		<mapper resource="org/clickMe/xmlmapper/CmtMapper.xml"/>
-<!-- 		<mapper resource="org/clickMe/xmlmapper/RecommentMapper.xml"/> -->
+ 		<mapper resource="org/clickMe/xmlmapper/RecommentMapper.xml"/>
+		<mapper resource="org/clickMe/xmlmapper/PaymentMapper.xml"/>
 	</mappers>
 </configuration>
 

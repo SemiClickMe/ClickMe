@@ -111,6 +111,10 @@
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/blind'">댓글 삭제/블라인드</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/recomment/blind'">대댓글 삭제/블라인드</button></td>
 								    </tr>
+								    <tr>
+								      <th scope="row" >결제 정보 추가</th>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/payment/add'">결제</button></td>
+								    </tr>
 								  </tbody>
 								</table>
 							  </div>
