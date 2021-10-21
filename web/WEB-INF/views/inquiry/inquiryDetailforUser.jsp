@@ -21,7 +21,7 @@
 			<tr>
 				<td>작성자 :</td>
 				<td><p>
-						<c:out value="${ requestScope.inquiry.userCode }" />
+						<c:out value="${ sessionScope.loginUser.id }" />
 					</p></td>
 				<td>작성일 :</td>
 				<td><p>
@@ -41,20 +41,6 @@
 							value="${ requestScope.inquiry.ansContent }" /></textarea></td>
 			</tr>
 		</table>
-		<h2>1:1문의 답변 폼</h2>
-		<form
-			action="${pageContext.servletContext.contextPath}/inquiry/update?code=${ requestScope.inquiry.code }"
-			method="post">
-			<div class="form-group">
-				<label for="exampleInputEmail1">답변 내용 적기</label> 
-				<input type="text" class="form-control" id="ansContent" name="ansContent"
-					placeholder="언제나 서비스가 최우선 입니다."> 
-			</div>
-			<button type="submit" class="btn btn-primary">답변하기</button>
-		</form>
-		<br><br><br><br><br>
-		<button class="btn btn-info"
-			onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">돌아가기</button>
-	</div>
+		<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/select/user'">취소하기</button>
 </body>
 </html>

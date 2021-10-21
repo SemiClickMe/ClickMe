@@ -1,6 +1,7 @@
 package org.clickMe.common.model.dto;
 
 import java.sql.Date;
+import java.util.List;
 
 public class InquiryDTO implements java.io.Serializable {
 
@@ -16,20 +17,13 @@ public class InquiryDTO implements java.io.Serializable {
 	private String ansContent;
 	private Date ansTime;
 	private String ansYn;
+	private List<ImgFileDTO> imgFileList;
 	
 	public InquiryDTO() {
 	}
 
-	public String getAttchment() {
-		return attchment;
-	}
-
-	public void setAttchment(String attchment) {
-		this.attchment = attchment;
-	}
-
 	public InquiryDTO(int code, int inqTypeCode, int userCode, String attchment, String inqTitle, String inqContent,
-			Date inqTime, String ansContent, Date ansTime, String ansYn) {
+			Date inqTime, String ansContent, Date ansTime, String ansYn, List<ImgFileDTO> imgFileList) {
 		this.code = code;
 		this.inqTypeCode = inqTypeCode;
 		this.userCode = userCode;
@@ -40,9 +34,8 @@ public class InquiryDTO implements java.io.Serializable {
 		this.ansContent = ansContent;
 		this.ansTime = ansTime;
 		this.ansYn = ansYn;
+		this.imgFileList = imgFileList;
 	}
-
-
 
 	public int getCode() {
 		return code;
@@ -66,6 +59,14 @@ public class InquiryDTO implements java.io.Serializable {
 
 	public void setUserCode(int userCode) {
 		this.userCode = userCode;
+	}
+
+	public String getAttchment() {
+		return attchment;
+	}
+
+	public void setAttchment(String attchment) {
+		this.attchment = attchment;
 	}
 
 	public String getInqTitle() {
@@ -116,13 +117,19 @@ public class InquiryDTO implements java.io.Serializable {
 		this.ansYn = ansYn;
 	}
 
+	public List<ImgFileDTO> getImgFileList() {
+		return imgFileList;
+	}
+
+	public void setImgFileList(List<ImgFileDTO> imgFileList) {
+		this.imgFileList = imgFileList;
+	}
+
 	@Override
 	public String toString() {
 		return "InquiryDTO [code=" + code + ", inqTypeCode=" + inqTypeCode + ", userCode=" + userCode + ", attchment="
 				+ attchment + ", inqTitle=" + inqTitle + ", inqContent=" + inqContent + ", inqTime=" + inqTime
-				+ ", ansContent=" + ansContent + ", ansTime=" + ansTime + ", ansYn=" + ansYn + "]";
+				+ ", ansContent=" + ansContent + ", ansTime=" + ansTime + ", ansYn=" + ansYn + ", imgFileList="
+				+ imgFileList + "]";
 	}
-	
-	
-	
 }
