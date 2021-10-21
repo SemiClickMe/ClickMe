@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>1:1문의 작성 페이지</title>
 </head>
 <body>
 	<form action="${pageContext.servletContext.contextPath}/inquiry/insert"

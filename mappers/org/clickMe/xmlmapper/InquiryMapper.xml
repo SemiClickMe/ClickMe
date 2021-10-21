@@ -60,25 +60,25 @@
 	
 	<insert id="insertInquiry" parameterType="org.clickMe.common.model.dto.InquiryDTO">
 		INSERT
-		  INTO INQUIRY
+		  INTO INQUIRY A
 		(
-		  INQ_CODE
-		, INQ_TYPE_CODE
-		, USER_CODE
-		, INQ_ATTACHMENT
-		, INQ_TITLE
-		, INQ_CONTENT
-		, INQ_TIME
-		, ANS_CONTENT
-		, ANS_TIME
-		, ANS_YN
+		  A.INQ_CODE
+		, A.INQ_TYPE_CODE
+		, A.USER_CODE
+		, A.INQ_ATTACHMENT
+		, A.INQ_TITLE
+		, A.INQ_CONTENT
+		, A.INQ_TIME
+		, A.ANS_CONTENT
+		, A.ANS_TIME
+		, A.ANS_YN
 		)
 		VALUES
 		(
 		  SEQ_INQ_CODE.NEXTVAL
 		, #{ inqTypeCode }
 		, #{ userCode }
-		, NULL <!-- will be change after implement attachment function completed -->
+		, NULL
 		, #{ inqTitle }
 		, #{ inqContent }
 		, SYSDATE
@@ -111,4 +111,5 @@
 		     , A.ANS_CONTENT = #{ ansContent }
 		 WHERE INQ_CODE = #{ code }
 	</update>
+	
 </mapper>

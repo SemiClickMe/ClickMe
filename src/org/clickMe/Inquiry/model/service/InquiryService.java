@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.clickMe.Inquiry.model.dao.InquiryMapper;
+import org.clickMe.common.model.dto.ImgFileDTO;
 import org.clickMe.common.model.dto.InquiryDTO;
 
 public class InquiryService {
@@ -115,6 +116,38 @@ public class InquiryService {
 		
 		if(result > 0) {
 			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result;
+	}
+	
+	public int insertInqwithImage(InquiryDTO image) {
+		SqlSession sqlSession = getSqlSession();
+		mapper = sqlSession.getMapper(InquiryMapper.class);
+		
+		int result = 0;
+		int inqResult = mapper.insertInqwithImage(image);
+		
+		System.out.println("inquiryResult : " + inqResult);
+		
+		List<ImgFileDTO> fileList = image.getImgFileList();
+		
+		for(int i = 0; i < fileList.size(); i++) {
+			fileList.get(i).setInqCode(image.getCode());
+		}
+		
+		int attachmentResult = 0;
+		for(int i = 0; i < fileList.size(); i++) {
+			attachmentResult += mapper.insertAttachment(fileList.get(i));
+		}
+		
+		if(inqResult > 0 && attachmentResult == fileList.size()) {
+			sqlSession.commit();
+			result = 1;
 		} else {
 			sqlSession.rollback();
 		}
