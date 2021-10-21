@@ -20,6 +20,38 @@
 		<result property="view" column="POST_VIEW"/>
 	</resultMap>
 	
+	<resultMap type="org.clickMe.post.model.dto.DetailPostDTO" id="detailPostResultMap">
+		<id property="code" column="POST_CODE"/>
+		<result property="sellerId" column="SELLER_ID"/>
+		<result property="buyerId" column="BUYER_ID"/>
+		<result property="catName" column="POST_CAT_NAME"/>
+		<result property="authStatus" column="AUTH_STATUS"/>
+		<result property="title" column="POST_TITLE"/>
+		<result property="content" column="POST_CONTENT"/>
+		<result property="likeCount" column="LIKE_COUNT"/>
+		<result property="time" column="POST_TIME"/>
+		<result property="soldYn" column="SOLD_YN"/>
+		<result property="reportCount" column="REPORT_COUNT"/>
+		<result property="blindYn" column="BLIND_YN"/>
+		<result property="itemPrice" column="ITEM_PRICE"/>
+		<result property="view" column="POST_VIEW"/>
+		
+		<collection property="imgFileList" resultMap="imgFileResultMap"/>
+	</resultMap>
+	
+	<resultMap type="org.clickMe.common.model.dto.ImgFileDTO" id="imgFileResultMap">
+		<id property="code" column="IMG_CODE"/>
+		<result property="imgCatCode" column="IMG_CAT_CODE"/>
+		<result property="inqCode" column="INQ_CODE"/>
+		<result property="postCode" column="POST_CODE"/>
+		<result property="reviewCode" column="REVIEW_CODE"/>
+		<result property="origName" column="ORIG_NAME"/>
+		<result property="uuidName" column="UUID_NAME"/>
+		<result property="imgType" column="IMG_TYPE"/>
+		<result property="origPath" column="ORIG_PATH"/>
+		<result property="thumbPath" column="THUMB_PATH"/>
+	</resultMap>
+	
 	<select id="selectAllPost" resultMap="postDefaultResultMap">
 		SELECT
 			   A.POST_CODE
@@ -188,6 +220,42 @@
           JOIN POST_CAT E ON (A.POST_CAT_CODE = E.POST_CAT_CODE)
          WHERE A.POST_CODE = #{code}
 	</select>
+	<select id="selectDetailPostForUser" resultMap="detailPostResultMap">
+		SELECT
+		       A.POST_CODE
+		     , C.USER_ID AS "SELLER_ID"
+		     , (SELECT G.USER_ID
+		          FROM POST F
+		          JOIN "USER" G ON (F.BUYER_CODE = G.USER_CODE)
+		       ) AS "BUYER_ID"
+		     , D.POST_CAT_NAME
+		     , B.AUTH_STATUS
+		     , A.POST_TITLE
+		     , A.POST_CONTENT
+		     , A.LIKE_COUNT
+		     , A.POST_TIME
+		     , A.SOLD_YN
+		     , A.REPORT_COUNT
+		     , A.BLIND_YN
+		     , A.ITEM_PRICE
+		     , A.POST_VIEW
+		     , E.IMG_CODE
+		     , E.IMG_CAT_CODE
+		     , E.INQ_CODE
+		     , E.POST_CODE
+		     , E.REVIEW_CODE
+		     , E.ORIG_NAME
+		     , E.UUID_NAME
+		     , E.IMG_TYPE
+		     , E.ORIG_PATH
+		     , E.THUMB_PATH
+		  FROM POST A
+		  JOIN AUTHENTIC B ON (A.AUTH_CODE = B.AUTH_CODE)
+		  JOIN "USER" C ON (A.SELLER_CODE = C.USER_CODE)
+		  JOIN POST_CAT D ON (A.POST_CAT_CODE = D.POST_CAT_CODE)
+		  JOIN IMG_FILE E ON (E.POST_CODE = A.POST_CODE)
+		 WHERE A.POST_CODE = #{code}
+	</select>
 	
 	<insert id="insertNewPost" parameterType="PostDTO">
 		INSERT
@@ -307,6 +375,14 @@
 			  , A.POST_CAT_CODE = #{catCode}
 			</if>
 		</set>
+		 WHERE A.POST_CODE = #{code}
+	</update>
+	<update id="increasePostViews">
+		UPDATE
+		       POST A
+		   SET A.POST_VIEW = (SELECT B.POST_VIEW
+		                        FROM POST B
+		                       WHERE B.POST_CODE = #{code}) + 1
 		 WHERE A.POST_CODE = #{code}
 	</update>
 	

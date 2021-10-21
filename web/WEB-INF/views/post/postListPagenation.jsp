@@ -14,12 +14,6 @@
 <c:if test="${ (!empty requestScope.postPageCriteria.title) || (!empty requestScope.postPageCriteria.content) || (!empty requestScope.postPageCriteria.authCode) || (!empty requestScope.postPageCriteria.itemPriceRangeMin) || (!empty requestScope.postPageCriteria.itemPriceRangeMax) }">
 	<c:set var="pageUrl">${ pageContext.servletContext.contextPath }/post/list?title=${ requestScope.postPageCriteria.title }&content=${ requestScope.postPageCriteria.content }&authCode=${ requestScope.postPageCriteria.authCode }&itemPriceRangeMin=${ requestScope.postPageCriteria.itemPriceRangeMin }&itemPriceRangeMax=${ requestScope.postPageCriteria.itemPriceRangeMax }&currentPage=</c:set>
 </c:if>
-<%-- <c:if test="${ empty requestScope.postPageCriteria.title }">
-	<c:set var="pageUrl">${ pageContext.servletContext.contextPath }/post/list?currentPage=</c:set>
-</c:if>
-<c:if test="${ !empty requestScope.postPageCriteria.title }">
-	<c:set var="pageUrl">${ pageContext.servletContext.contextPath }/post/list?title=${ requestScope.postPageCriteria.title }&content=${ requestScope.postPageCriteria.content }&authCode=${ requestScope.postPageCriteria.authCode }&itemPriceRangeMin=${ requestScope.postPageCriteria.itemPriceRangeMin }&itemPriceRangeMax=${ requestScope.postPageCriteria.itemPriceRangeMax }&currentPage=</c:set>
-</c:if> --%>
 <title>타이틀 넣어요</title>
 </head>
 	<body>

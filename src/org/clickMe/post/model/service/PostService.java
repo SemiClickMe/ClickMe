@@ -198,7 +198,9 @@ public class PostService {
 		} else {
 			sqlSession.rollback();
 		}
-			
+		
+		sqlSession.close();
+		
 		return result > 0 ? true : false;
 	}
 
@@ -212,6 +214,31 @@ public class PostService {
 		sqlSession.close();
 		
 		return postList;
+	}
+
+	public DetailPostDTO selectDetailPostForUser(int code) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.increasePostViews(code);
+		
+		DetailPostDTO detailPost = null;
+		if (result > 0) {
+			detailPost = postMapper.selectDetailPostForUser(code);
+			
+			if (detailPost != null) {
+				sqlSession.commit();
+			} else {
+				sqlSession.rollback();
+			}
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return detailPost;
 	}
 
 }

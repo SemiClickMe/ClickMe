@@ -16,7 +16,7 @@
 	<main>
 		<!-- 검색 영역 -->
 		<div class="post-search-form-div" align="center">
-			<form action="${pageContext.servletContext.contextPath}/post/list" id="post-search-form" method="get" style="display: inline-block">
+			<form class="form-control" action="${pageContext.servletContext.contextPath}/post/list" id="post-search-form" method="get" style="display: inline-block">
 				<fieldset>
 					<legend align="center">게시글 검색 옵션</legend>
 					<!-- <div class="seller-id">
@@ -44,9 +44,9 @@
 					</div>
 					<div class="price-range">
 						<label>가격</label>
-						<input type="number" name="itemPriceRangeMin" value="${ param.itemPriceRangeMin }" placeholder="min">
+						<input type="number" name="itemPriceRangeMin" value="${ (param.itemPriceRangeMin eq '-1') ? '' : param.itemPriceRangeMin }" placeholder="min">
 						~
-						<input type="number" name="itemPriceRangeMax" value="${ param.itemPriceRangeMax }" placeholder="max">
+						<input type="number" name="itemPriceRangeMax" value="${ (param.itemPriceRangeMax eq '-1') ? '' : param.itemPriceRangeMax }" placeholder="max">
 					</div>
 					<div class="submit-button">
 						<button type="submit">검색</button>
@@ -59,25 +59,26 @@
 		</div>
 		
 		<!-- 게시글 앨범 리스트 영역 -->
-		<div class="album py-5 bg-light">
+		<div class="album bg-light">
 			<div class="container">
 				<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3"  id="postArea">
 					<c:forEach var="post" items="${ requestScope.postList }">
-					<div class="col" id="singlePost">
-						<div class="card h-100 shadow-sm">
-							<img src="${ pageContext.servletContext.contextPath }${ post.thumbPath }" class="card-img-top img-thumbnail" alt="representative thumbnail image of the post">
+					<div class="col">
+						<div class="card h-100 shadow-sm"  id="singlePost">
+							<img src="${ pageContext.servletContext.contextPath }${ post.thumbPath }" class="card-img-top img-thumbnail" id="card-img" alt="representative thumbnail image of the post">
 							<div class="card-img-overlay">
-								<span class="badge bg-info text-dark"><c:out value="${ post.authStatus }"/></span>
+								<h4><span class="badge rounded-pill bg-info text-dark"><c:out value="${ post.authStatus }"/></span></h4>
 							</div>
-							<div class="card-body">
+							<div class="card-body" id="card-body">
 								<label style="display: none;"><c:out value="${ post.code }"/></label>
 								<p class="card-text"><c:out value="${ post.title }"/></p>
 								<h5 class="card-text" align="right"><c:out value="${ post.itemPrice }"/> 원</h5>
+							<%-- <a href="${ pageContext.servletContext.contextPath }/post/list" class="stretched-link">a태그</a> --%>
 							</div>
 							<div class="card-footer">
-								<button type="button" class="btn btn-primary"> ♡ <span class="badge bg-secondary"><c:out value="${ post.likes }"/></span>
+								<button type="button" class="btn btn-primary float-start"> ♡ likes <span class="badge bg-secondary"><c:out value="${ post.likes }"/></span>
 								</button>
-								<span class="badge bg-light text-dark">views <c:out value="${ post.views }"/></span>
+								<h4><span class="badge bg-light text-dark float-end">views <c:out value="${ post.views }"/></span></h4>
 							</div>
 						</div>
 					</div>
@@ -89,6 +90,13 @@
 		<!-- 페이징 영역 -->
 		<jsp:include page="/WEB-INF/views/post/postListPagenation.jsp"/>
 	</main>
+	<script>
+		$("#singlePost*").click(function() {
+			var code = $(this).find("label").text();
+			console.log(code);
+			location.href = "${ pageContext.servletContext.contextPath }/post/list/detail?code=" + code;
+		});
+	</script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

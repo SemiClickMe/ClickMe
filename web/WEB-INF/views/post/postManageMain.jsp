@@ -108,7 +108,7 @@
 				
 				$singleRow[i].onclick = function() {
 					const code = this.parentNode.children[0].innerText;
-					location.href = "${ pageContext.servletContext.contextPath }/post/list/detail?code=" + code;
+					location.href = "${ pageContext.servletContext.contextPath }/post/list/detailTest?code=" + code;
 				}
 				
 			}

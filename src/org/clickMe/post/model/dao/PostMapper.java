@@ -41,4 +41,8 @@ public interface PostMapper {
 
 	List<PostForUserDTO> selectPostForUser(PostPageCriteria postPageCriteria);
 
+	int increasePostViews(int code);
+
+	DetailPostDTO selectDetailPostForUser(int code);
+
 }
