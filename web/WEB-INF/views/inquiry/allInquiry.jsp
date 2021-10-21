@@ -13,6 +13,7 @@
 	<button class="btn btn-danger" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list/noreply'">아직 답변되지않은 문의 조회</button>
 	<button class="btn btn-success" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list/answered'">답변이 완료 된 문의 조회</button>
 	<button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">전체 문의 조회</button>
+	<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.servletContext.contextPath}'">돌아가기</button>
 	<br>
 	<div class="input-group justify-content-center" align="center">
 			<form id="searchInput" action="${ pageContext.servletContext.contextPath }//inquiry/list/option" method="get" style="display:inline-block">

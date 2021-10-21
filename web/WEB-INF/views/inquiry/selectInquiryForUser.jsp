@@ -14,7 +14,7 @@
           <tr>
             <th scope="col">1:1문의코드</th>
             <th scope="col">문의유형코드</th>
-            <th scope="col">사용자코드</th>
+            <th scope="col">아이디</th>
             <th scope="col">문의제목</th>
             <th scope="col">문의내용</th>
             <th scope="col">문의날짜</th>
@@ -27,7 +27,7 @@
 			<tr>
 				<td>${ inq.code }</td>
 				<td>${ inq.inqTypeCode }</td>
-				<td>${ inq.userCode }</td>
+				<td><c:out value="${ sessionScope.loginUser.id }" /></td>
 				<td>${ inq.inqTitle }</td>
 				<td>${ inq.inqContent }</td>
 				<td>${ inq.inqTime }</td>
@@ -37,7 +37,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	
+	<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.servletContext.contextPath}'">돌아가기</button>
 	
  	<script>
 		if(document.getElementsByTagName("td")) {

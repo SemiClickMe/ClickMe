@@ -21,7 +21,7 @@
 			<tr>
 				<td>작성자 :</td>
 				<td><p>
-						<c:out value="${ requestScope.inquiry.userCode }" />
+						<c:out value="${ sessionScope.loginUser.id }" />
 					</p></td>
 				<td>작성일 :</td>
 				<td><p>
@@ -41,5 +41,6 @@
 							value="${ requestScope.inquiry.ansContent }" /></textarea></td>
 			</tr>
 		</table>
+		<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/select/user'">취소하기</button>
 </body>
 </html>
