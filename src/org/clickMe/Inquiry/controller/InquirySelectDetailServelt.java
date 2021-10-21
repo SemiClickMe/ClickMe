@@ -17,7 +17,7 @@ public class InquirySelectDetailServelt extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int no = Integer.parseInt(request.getParameter("code"));
-		System.out.println(no);
+		System.out.println("문의코드 : " + no);
 		InquiryService inquiryService = new InquiryService();
 		InquiryDTO inquiryDetail = inquiryService.selectNoticeDetail(no);
 		
