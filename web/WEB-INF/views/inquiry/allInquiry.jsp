@@ -42,6 +42,22 @@
 		</c:forEach>
 	</table>
 	
+	<div class="input-group justify-content-center" align="center">
+			<form id="searchInput" action="${ pageContext.servletContext.contextPath }//inquiry/list/option" method="get" style="display:inline-block">
+			<div class="input-group mb-3" align="center">		
+			    <select id="searchOption" class="form-select" name="searchOption" style="width:110px;">
+					<option value="default" selected>카테고리</option>
+					<option value="userCode" ${ (param.searchOption eq "userCode") ? "selected" : "" }>작성자</option>
+					<option value="inqTitle" ${ (param.searchOption eq "inqTitle") ? "selected" : "" }>제목</option>
+					<option value="inqTypeCode" ${ (param.searchOption eq "inqTypeCode") ? "selected" : "" }>분류코드</option>
+				</select>	
+		        <input type="search" id="searchValue" class="form-control w-50" name="searchValue" value="${ param.searchValue }"/>
+
+				<button class="btn btn-dark" type="submit">검색하기</button>
+				</div>
+			</form>
+		</div>
+	
 	<script>
 		if(document.getElementsByTagName("td")) {
 			const $tds = document.getElementsByTagName("td");

@@ -7,8 +7,12 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.clickMe.Inquiry.model.dao.InquiryMapper;
+import org.clickMe.Inquiry.model.dto.InquirySearchCriteria;
 import org.clickMe.common.model.dto.ImgFileDTO;
 import org.clickMe.common.model.dto.InquiryDTO;
+import org.clickMe.common.model.dto.PostDTO;
+import org.clickMe.post.model.dao.PostMapper;
+import org.clickMe.post.model.dto.SearchOption;
 
 public class InquiryService {
 
@@ -125,6 +129,17 @@ public class InquiryService {
 		return result;
 	}
 	
+	public List<InquiryDTO> selectInquiryBySearchOption(InquirySearchCriteria searchCriteria) {
+		SqlSession sqlSession = getSqlSession();
+		mapper = sqlSession.getMapper(InquiryMapper.class);
+		
+		List<InquiryDTO> searchedInquiryList = mapper.selectInquiryBySearchOption(searchCriteria);
+		
+		sqlSession.close();
+		
+		return searchedInquiryList;
+	}
+	
 	public int insertInqwithImage(InquiryDTO image) {
 		SqlSession sqlSession = getSqlSession();
 		mapper = sqlSession.getMapper(InquiryMapper.class);
@@ -156,5 +171,6 @@ public class InquiryService {
 		
 		return result;
 	}
+
 
 }

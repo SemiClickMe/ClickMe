@@ -112,4 +112,27 @@
 		 WHERE INQ_CODE = #{ code }
 	</update>
 	
+	<select id="selectInquiryBySearchOption" resultMap="inquiryResultMap">
+		SELECT
+		       A.INQ_CODE
+		     , A.INQ_TYPE_CODE
+		     , A.USER_CODE
+		     , A.INQ_TITLE
+		     , A.INQ_CONTENT
+		     , A.INQ_TIME
+		     , A.ANS_CONTENT
+		     , A.ANS_TIME
+		     , A.ANS_YN
+		  FROM INQUIRY A
+		<if test="option == 'userCode'">
+		 WHERE A.USER_CODE LIKE '%' || #{value} || '%'
+		</if>
+		<if test="option == 'inqTitle'">
+		 WHERE A.INQ_TITLE LIKE '%' || #{value} || '%'
+		</if>
+		<if test="option == 'inqTypeCode'">
+		 WHERE A.INQ_TYPE_CODE LIKE '%' || #{value} || '%'
+		</if>
+         ORDER BY A.INQ_CODE DESC
+	</select>
 </mapper>
