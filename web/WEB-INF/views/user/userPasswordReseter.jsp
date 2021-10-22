@@ -23,7 +23,7 @@
 		</div>
 		<div align="Center" id="userpwd_innercontainer">
 			<form class="form-floating" action="${pageContext.servletContext.contextPath}/user/pswReset" method="POST">
-				<div class="form-floating col-5 mb-3"">
+				<div class="form-floating col-5 mb-3">
 				  <input type="text" class="form-control" id="floatingId" placeholder="ID" name="id">
 				  <label for="floatingId">아이디</label>
 				</div>

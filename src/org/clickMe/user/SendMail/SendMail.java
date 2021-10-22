@@ -12,8 +12,8 @@ import javax.mail.internet.MimeMessage;
 
 /**   
 	* @packageName : org.clickMe.user.SendMail 
-	* @Class : 클래스의 이름
-    * @Comment : 클래스에 대한 설명
+	* @Class : SendMail
+    * @Comment : 이메일 전송 클래스, 너무 보내기 연습해서 연습용 이메일이 스팸처리가 된듯 ㅠㅠ
 	* @fileName : SendMail.java 
 	* @author : Hansoo Lee
     * @History : 2021.10.19 Hansoo Lee 처음 작성함 

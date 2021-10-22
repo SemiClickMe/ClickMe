@@ -42,4 +42,16 @@ public interface UserMapper {
 
 	int userPasswordReset(UserDTO userPwdReseter);
 
+	int profilePicUpload(UserDTO userProfilePicUpload);
+
+	UserDTO selectUserPic(int code);
+
+	int idCheck(String getIdInput);
+
+	int userSignUp(UserDTO userSignUpData);
+
+	int modifyUserInforPic(UserDTO user);
+
+	int modifyUserInforPicAdmin(UserDTO statusModifyUser);
+
 }

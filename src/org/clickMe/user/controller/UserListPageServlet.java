@@ -24,7 +24,7 @@ import org.clickMe.user.userPaging.UserPaging;
 	* @fileName : UserListPageServlet.java 
 	* @author : Hansoo Lee
     * @History : 2021.10.15 Hansoo Lee 처음 작성함 
-    * @see 참고할 class나 외부 url
+    * @see : 관리자용 회원정보 수정 페이지에서 사용
 */
 @WebServlet("/user/listPage")
 public class UserListPageServlet extends HttpServlet {

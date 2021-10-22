@@ -14,7 +14,7 @@ import org.clickMe.user.service.UserService;
 /**   
 	* @packageName : org.clickMe.user.controller 
 	* @Class : UserModifyServlet
-    * @Comment :유저 수정 페이지 서블렛 jsp
+    * @Comment :유저 정보 페이지 서블렛 jsp
 	* @fileName : UserModifyServlet.java 
 	* @author : Hansoo Lee
     * @History : 2021.10.13 작성

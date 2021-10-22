@@ -30,7 +30,7 @@
 		  <label class="btn btn-outline-primary" for="btnradio2">👨‍🦲 활동회원</label>
 		
 		  <input type="radio" class="btn-check" name="userListEntCondition" id="btnradio3" autocomplete="off" value="blacked">
-		  <label class="btn btn-outline-primary" for="btnradio3" value="blacked">😈블랙리스트</label>
+		  <label class="btn btn-outline-primary" for="btnradio3">😈블랙리스트</label>
 		  
 		  <input type="radio" class="btn-check" name="userListEntCondition" id="btnradio4" autocomplete="off" value="inactive">
 		  <label class="btn btn-outline-primary" for="btnradio4">💤 휴면회원</label>
@@ -112,34 +112,28 @@
 				</div>
 			</form>
 		</div>
-		
 	</div>
 </body>
 <script>
+
 let userListMenu = document.getElementsByName('userListEntCondition');
+let searchCon = "${ userPageList.searchUserCondition }";
 
 function goPostForm() {
-    var entCodeForm = document.createElement('form');
-    entCodeForm.name = 'newForm';
-    entCodeForm.method = 'get';
-    entCodeForm.action = '${pageContext.servletContext.contextPath}/user/listPage';
+	if (!searchCon || this.value != "all" )
+		{
+		location.href="listPage?userListEntCondition="+ this.value +"&searchUserCondition=${ requestScope.userPageList.searchUserCondition}&searchUserValue=${ requestScope.userPageList.searchUserValue}&currentPage=1";
+		} else {
+			location.href= "listPage?userListEntCondition="+ this.value +"&currentPage=1"
+		}
 
-	var entCodeinput = document.createElement('input');
-	entCodeinput.setAttribute("type", "hidden");
-	entCodeinput.setAttribute("name", "userListEntCondition");
-	entCodeinput.setAttribute("value", this.value);
+	}
 
-	// append input (to form)
-	entCodeForm.appendChild(entCodeinput);
+// 선택한 요소에 click 이벤트 리스너를 등록함.
 
-	// append form (to body)
-	document.body.appendChild(entCodeForm);
-	
-	// submit form
-	entCodeForm.submit();
-}
+	userListMenu[0].addEventListener("click", goPostForm);
 
-for(let i = 0 ; i < userListMenu.length; i ++ ){
+for(let i = 1 ; i < userListMenu.length; i ++ ){
 	userListMenu[i].addEventListener("click", goPostForm);
 }
 
@@ -150,7 +144,6 @@ for ( let i = 0 ; i < userListMenu.length; i ++ ){
 		userListMenu[i].checked = true;
 		}
 }
-
 
 function entCheckbox_check(entCodeNum) {
 	
@@ -180,14 +173,8 @@ function entCheckbox_check(entCodeNum) {
         
 }
 
-
 let userIdBar = document.getElementsByClassName('userId');
-
 let userCodes = document.getElementsByName("userNum");
-
-
-console.log(userCodes[0].value);
-
 
 for ( let i = 0 ; i < userIdBar.length ; i++ ){
 	
@@ -195,7 +182,6 @@ for ( let i = 0 ; i < userIdBar.length ; i++ ){
 	
 	userIdBar[i].style.cursor = "pointer";
 	userIdBar[i].addEventListener('click', function (){viewUserInfor(userCodes[i].value)});
-	
 	
 } 
 
@@ -224,13 +210,9 @@ function viewUserInfor(num) {
 	viewUserInforForm.submit();
 }
 
-
-
-
 window.onload = function () {
 
 	let userEntCodeList = document.getElementsByClassName('userEntCode');
-	
 	
 	let j = 0;
 	
