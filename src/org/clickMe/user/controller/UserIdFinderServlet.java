@@ -16,7 +16,7 @@ import org.clickMe.user.service.UserService;
 /**   
 	* @packageName : org.clickMe.user.controller 
 	* @Class : UserIdFinderServlet
-    * @Comment : 아이디 찾기, 보안을 위해서는 이메일로 아이디를 보내주는것도 고려해볼것
+    * @Comment : 아이디 찾기
 	* @fileName : UserIdFinderServlet.java 
 	* @author : Hansoo Lee
     * @History : 2021.10.14 Hansoo Lee 처음 작성함 

@@ -21,9 +21,20 @@
 <div align="center" >
 <button class="btn btn-danger" style="font-size: 200%;" onclick="location.href='${pageContext.servletContext.contextPath}/usertest'" type="button">메인으로</button>
 </div>
+<br>
+<%-- ${ requestScope.user1Pic }	
+<br>
+${ requestScope.user1Pic.profileImgPath } --%>
+<br>
+${ requestScope.user1Pic.profileImgPath }				
+<br>
 
 
 
+
+<div class="detailImgArea">
+	<img id="detailImg3" class="detailImg" width="250" height="180" src="${ pageContext.servletContext.contextPath }${ requestScope.user1Pic.profileImgPath }"/>
+</div>
 
 <script>
 

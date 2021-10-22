@@ -73,7 +73,7 @@ public class UserService {
 		
 		SqlSession sqlSession = getSqlSession();
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-		int result = userMapper.modifyUserInfor(user);
+		int result = userMapper.modifyUserInforPic(user);
 		System.out.println("회원정보 수정 service");   // 서비스가 잘싱행되는지 확인 출력
 		
 		if (result > 0) {
@@ -177,6 +177,80 @@ public class UserService {
 		SqlSession sqlSession = getSqlSession();
 		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
 		int result = userMapper.userPasswordReset(userPWReseter);
+		
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result > 0 ? true : false;
+	}
+
+	public boolean userProfilePicUp(UserDTO userProfilePicUpload) {
+		
+		SqlSession sqlSession = getSqlSession();
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		int result = userMapper.profilePicUpload(userProfilePicUpload);
+		
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result > 0 ? true : false;
+	}
+
+	public UserDTO selectUserPic(int code) {
+		
+		
+		SqlSession sqlSession = getSqlSession();
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		UserDTO user1 = userMapper.selectUserPic(code);
+		
+		sqlSession.close();
+		
+		return user1;
+	}
+
+	public int idChecker(String getIdInput) {
+
+		SqlSession sqlSession = getSqlSession();
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		int idCheck = userMapper.idCheck(getIdInput);
+		
+		sqlSession.close();
+		return idCheck;
+	}
+
+	public boolean userSignUp(UserDTO userSignUpData) {
+		SqlSession sqlSession = getSqlSession();
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		int result = userMapper.userSignUp(userSignUpData);
+		System.out.println("회원정보 수정 service");   // 서비스가 잘싱행되는지 확인 출력
+		
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		sqlSession.close();
+		
+		return result > 0 ? true : false;
+	}
+
+	public boolean modifyUserInforPicAdmin(UserDTO statusModifyUser) {
+
+		SqlSession sqlSession = getSqlSession();
+		UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+		int result = userMapper.modifyUserInforPicAdmin(statusModifyUser);
+		System.out.println("회원정보 수정 service");   // 서비스가 잘싱행되는지 확인 출력
 		
 		if (result > 0) {
 			sqlSession.commit();

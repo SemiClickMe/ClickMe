@@ -51,6 +51,22 @@
      <url-pattern>/user/userpwdPage</url-pattern>
 </servlet-mapping>
 <servlet>
+	<servlet-name>idChecker</servlet-name>
+    <jsp-file>/WEB-INF/views/user/idChecker.jsp</jsp-file>                                            
+</servlet>
+<servlet-mapping>
+     <servlet-name>idChecker</servlet-name>                                                        
+     <url-pattern>/user/idcece</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>userProfilePic</servlet-name>
+    <jsp-file>/WEB-INF/views/user/userProfilePic.jsp</jsp-file>                                            
+</servlet>
+<servlet-mapping>
+     <servlet-name>userProfilePic</servlet-name>                                                        
+     <url-pattern>/user/profilePicTest</url-pattern>
+</servlet-mapping>
+<servlet>
      <servlet-name>inquiryForm</servlet-name>
      <jsp-file>/WEB-INF/views/inquiry/insertInquiryForm.jsp</jsp-file>                                       
 </servlet>

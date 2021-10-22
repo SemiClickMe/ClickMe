@@ -18,7 +18,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 /**   
 	* @packageName : org.clickMe.user.controller 
 	* @Class : UserPswResetServlet
-    * @Comment : 비밀번호 초기화, 메일보내는게 관건, 다른건 수월하다.
+    * @Comment : 비밀번호 초기화, 메일보냄, 다른건 수월하다.
 	* @fileName : UserPswResetServlet.java 
 	* @author : Hansoo Lee
     * @History : 2021.10.18 Hansoo Lee 처음 작성함 
