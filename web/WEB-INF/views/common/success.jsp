@@ -16,8 +16,12 @@
 			
 			switch(successCode){
 				case "insertPost" : 
-					successMessage = "게시판 등록에 성공하셨습니다!";
+					successMessage = "게시글 등록에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/post/list";
+					break;
+				case "modifyPost" : 
+					successMessage = "게시글 수정에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/post/list/detail?code=${ code }";
 					break;
 				/* 아래꺼 복사해서 쓰세요. */
 				/* case "string" : 
