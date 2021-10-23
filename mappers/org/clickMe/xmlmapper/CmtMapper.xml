@@ -33,7 +33,7 @@
 		VALUES
 		(
 		  SEQ_CMT_CODE.NEXTVAL
-		, 1
+		, #{postCode}
 		, #{content}
 		, SYSDATE
 		, 'Y'

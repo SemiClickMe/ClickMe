@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,16 +9,18 @@
 </head>
 	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button><br><br>
 <body>
-	<form action="${pageContext.servletContext.contextPath}/cmt/blind" method="post">
+	<form action="${pageContext.servletContext.contextPath}/cmt/blind" id="blindCmt" method="post">
 		<fieldset>
 			<legend>댓글 블라인드</legend>
 			<label>comment code</label>
-			<input type="textfield" name="code">
+			<%-- <input type="number" name="code" value="${ requestScope.cmtCode }" readonly="readonly"> --%>
+
 			<br>
 			<label>comment blind update</label>
 			<button type="submit">수정</button>
 		</fieldset>
 	</form>
+
 	<br>
 		<%
 		String result = (String) request.getAttribute("isDMLSuccess");

@@ -17,7 +17,7 @@ public class InsertCmtServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		String path = "/WEB-INF/views/cmt/cmtForm.jsp";
+		String path = "/WEB-INF/views/cmt/list.jsp";
 
 		request.getRequestDispatcher(path).forward(request, response);
 	}
@@ -25,18 +25,20 @@ public class InsertCmtServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		int postCode = Integer.valueOf(request.getParameter("postCode"));
 		String content = request.getParameter("content");
 		
 		CmtDTO newCmt = new CmtDTO();
 		newCmt.setContent(content);
+		newCmt.setPostCode(postCode);
 		
 		CmtService cmtService = new CmtService();		
 		int result = cmtService.insertCmt(newCmt);
 
 
-		String path = "";
+		String path = "/WEB-INF/views/cmt/cmtlist.jsp";
 		if (result > 0) {
-			path = "/WEB-INF/views/cmt/cmtlist.jsp";
+			
 			System.out.println("Insert Success");
 			request.setAttribute("isDMLSuccess", "success");
 		} else {

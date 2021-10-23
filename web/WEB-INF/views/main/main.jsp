@@ -105,9 +105,6 @@
 								    <tr>
 								      <th scope="row" rowspan="2">댓글</th>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/list'">전체 댓글 조회</button></td>
-								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/insert'">댓글 작성</button></td>
-								    </tr>
-								    <tr>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/cmt/blind'">댓글 삭제/블라인드</button></td>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/recomment/blind'">대댓글 삭제/블라인드</button></td>
 								    </tr>
