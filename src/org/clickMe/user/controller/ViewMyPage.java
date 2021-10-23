@@ -6,31 +6,39 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.reflection.SystemMetaObject;
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.service.UserService;
 
-
-/**   
-	* @packageName : org.clickMe.user.controller 
-	* @Class : UserModifyServlet
-    * @Comment :유저 정보 페이지 서블렛 jsp
-	* @fileName : UserModifyServlet.java 
-	* @author : Hansoo Lee
-    * @History : 2021.10.13 작성
-    * @see 참고할 class나 외부 url
-*/
-@WebServlet("/user/statusPage")
-public class UserStatusServlet extends HttpServlet {
-	
-	private static final long serialVersionUID = 3927309967423553406L;
-
+@WebServlet("/user/testViewMyPage")
+public class ViewMyPage extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+	doPost(request, response);
+	System.out.println("사용자 정보 두포스트 검색");
+	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("사용자 정보 두포스트 검색");
+		HttpSession httpSession = request.getSession(true);
+		UserDTO user = (UserDTO) httpSession.getAttribute("loginUser");
+		System.out.println(user);
+
+		if( user == null) {
+			System.out.println("음");
+			
+			request.setAttribute("message", "비정상적인 접근입니다.");
+			
+			request.getRequestDispatcher("/WEB-INF/views/user/result.jsp").forward(request, response);
+		}
+		
+		int code = user.getCode();
+		
 		UserService  userService = new UserService();
 		System.out.println("사용자 정보 두포스트 검색");
 		request.setCharacterEncoding("UTF-8");
-		
-		int code = Integer.valueOf(request.getParameter("userNum"));
 		System.out.println(code);
 		UserDTO user1= userService.selectUser(code);
 		
@@ -51,7 +59,6 @@ public class UserStatusServlet extends HttpServlet {
 		
 		
 		
-		
 	}
-
+	
 }

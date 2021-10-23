@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.service.UserService;
@@ -26,6 +27,12 @@ public class UserStatusForAdminServlet extends HttpServlet {
 	private static final long serialVersionUID = 3927309967423553406L;
 	UserService  userService = new UserService();
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		HttpSession httpSession = request.getSession(true);
+//		UserDTO user = (UserDTO) httpSession.getAttribute("loginUser");
+//		System.out.println(user);
+//		int no = user.getCode();
+		
+
 		System.out.println("사용자 정보 두포스트 검색");
 		request.setCharacterEncoding("UTF-8");
 		int code = Integer.valueOf(request.getParameter("userNum"));

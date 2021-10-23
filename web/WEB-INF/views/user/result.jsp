@@ -8,33 +8,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1 align="center">${ requestScope.message }</h1>
+
 <h2 align="center">${ requestScope.signupUser }</h2>
 <h2 align="center">${ requestScope.userList }</h2>
 <h2 align="center">${ requestScope.userCount }</h2>
-<h2 align="center">아이디 찾기</h2>
+<div style="height: 50px"></div>
+<div align="center">
+<img style="width: 800px" src="${pageContext.servletContext.contextPath}/source/image/warring.jpg">
+<h1 align="center" style=" font-size: 60px; position: relative; top : -350px;">${ requestScope.message }</h1>
+</div>
 
 <c:forEach var="users" items="${ requestScope.userLists }">
 	<h2 align="center"><br>ID : ${ users.id }<br></h2>
 </c:forEach>
 
 <div align="center" >
-<button class="btn btn-danger" style="font-size: 200%;" onclick="location.href='${pageContext.servletContext.contextPath}/usertest'" type="button">메인으로</button>
+<button class="btn btn-danger" style="font-size: 200%;" onclick="location.href='${pageContext.servletContext.contextPath}'" type="button">메인으로</button>
 </div>
 <br>
 <%-- ${ requestScope.user1Pic }	
 <br>
 ${ requestScope.user1Pic.profileImgPath } --%>
 <br>
-${ requestScope.user1Pic.profileImgPath }				
+${ requestScope.user1Pic.profileImgPath }
 <br>
 
 
-
-
-<div class="detailImgArea">
-	<img id="detailImg3" class="detailImg" width="250" height="180" src="${ pageContext.servletContext.contextPath }${ requestScope.user1Pic.profileImgPath }"/>
-</div>
 
 <script>
 
