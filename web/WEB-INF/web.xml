@@ -138,4 +138,12 @@
      <servlet-name>noticeInsertForm</servlet-name>                                                        
      <url-pattern>/noticeInsertForm</url-pattern>
 </servlet-mapping>
+<servlet>
+     <servlet-name>adminPage</servlet-name>
+     <jsp-file>/WEB-INF/views/common/adminPage.jsp</jsp-file>                                       
+</servlet>
+<servlet-mapping>
+     <servlet-name>adminPage</servlet-name>                                                        
+     <url-pattern>/adminPage</url-pattern>
+</servlet-mapping>
 </web-app>
