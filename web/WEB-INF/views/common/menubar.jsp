@@ -36,9 +36,9 @@
         </div>
         <nav>
             <div class="nav_bar">
-                <a href="post/list" id="board">게시판</a>
-                <a href="notice/list/allNotice" id="contact">공지사항</a>
-                <a href="inquiry/list" id="contact">1:1문의</a>
+                <a href="${ pageContext.servletContext.contextPath }/post/list" id="board">게시판</a>
+                <a href="${ pageContext.servletContext.contextPath }/notice/list/allNotice" id="contact">공지사항</a>
+                <a href="${ pageContext.servletContext.contextPath }/inquiry/list" id="contact">1:1문의</a>
                 <a href="#" id="contact">매거진</a>
             </div>
         </nav>
