@@ -84,11 +84,6 @@ public class AuthenticationFilter implements Filter {
 		List<String> memberPermitList = new ArrayList<>();
 		List<String> allPermitList = new ArrayList<>();
 		
-		adminPermitList.add("/notice/insert");
-		adminPermitList.add("/notice/update");
-		
-		memberPermitList.add("/notice/list");
-		memberPermitList.add("/notice/detail");
 		memberPermitList.add("/board/list");
 		memberPermitList.add("/board/insert");
 		memberPermitList.add("/board/search");
@@ -96,6 +91,11 @@ public class AuthenticationFilter implements Filter {
 		memberPermitList.add("/thumbnail/insert");
 		memberPermitList.add("/thumbnail/detail");
 
+		allPermitList.add("/notice/insert");
+		allPermitList.add("/notice/modify");
+		allPermitList.add("/notice/delete");
+		allPermitList.add("/notice/list/allNotice");
+		allPermitList.add("/notice/list/searchNotice");
 		allPermitList.add("/member/regist");
 		allPermitList.add("/member/login");
 		allPermitList.add("/member/logout");

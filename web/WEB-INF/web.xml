@@ -114,4 +114,28 @@
 	<servlet-name>logIn</servlet-name>
 	<url-pattern>/logIn</url-pattern>
 </servlet-mapping>
+<servlet>
+	<servlet-name>noticeDeleteForm</servlet-name>
+	<jsp-file>/WEB-INF/views/notice/NoticeDelete.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+	<servlet-name>noticeDeleteForm</servlet-name>
+	<url-pattern>/noticeDeleteForm</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>noticeModifyForm</servlet-name>
+	<jsp-file>/WEB-INF/views/notice/NoticeModify.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+	<servlet-name>noticeModifyForm</servlet-name>
+	<url-pattern>/noticeModifyForm</url-pattern>
+</servlet-mapping>
+<servlet>
+     <servlet-name>noticeInsertForm</servlet-name>
+     <jsp-file>/WEB-INF/views/notice/NoticeInsert.jsp</jsp-file>                                       
+</servlet>
+<servlet-mapping>
+     <servlet-name>noticeInsertForm</servlet-name>                                                        
+     <url-pattern>/noticeInsertForm</url-pattern>
+</servlet-mapping>
 </web-app>
