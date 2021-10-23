@@ -9,6 +9,8 @@
 <title>1:1문의 상세조회</title>
 </head>
 <body>
+
+<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
 	<h2 align="center">1:1문의 내용</h2>
 	<div class="table-area">
 		<table class="table table-striped table-dark" align="center">
@@ -56,5 +58,6 @@
 		<button class="btn btn-info"
 			onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">돌아가기</button>
 	</div>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

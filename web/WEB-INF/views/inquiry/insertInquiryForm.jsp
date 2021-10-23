@@ -9,6 +9,9 @@
 <title>1:1문의 작성 페이지</title>
 </head>
 <body>
+
+	<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
+
 	<form action="${pageContext.servletContext.contextPath}/inquiry/insert"
 		method="post">
 		<select class="form-select" aria-label="Default select example" name="type">
@@ -33,5 +36,8 @@
 		<button type="submit" class="btn btn-primary">등록하기</button>
 		<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.servletContext.contextPath}'">취소하기</button>
 	</form>
+	
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
+	
 </body>
 </html>
