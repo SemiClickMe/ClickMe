@@ -43,6 +43,9 @@ public class UserPswResetServlet extends HttpServlet {
 		 * r이 암호화 되기 전의 초기화 비밀번호
 		 * PWEncrypt 그것을 암호화한 비밀번호
 		 * 여기에선 필터가 듣지 않으니 직점 생성해주자!
+		 * 
+		 * 기존 랜덤클래스는 시간이 같으면 난수가 같게 나오는 단점이 있다.
+		 * 보안을 위하여 비밀번호 관련 난수 생성시에는 SecureRandom 클래스를 활용하자 
 		 * */
 		Random secureBox = new SecureRandom();
 		String r = "";

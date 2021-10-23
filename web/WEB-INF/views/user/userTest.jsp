@@ -14,7 +14,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
     <div class="layoutMiddle">
 
         <!-- 헤더 -->
@@ -103,7 +102,7 @@
 									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/idcece'" type="button">아이디 체커</button>
 							    </div>
 							    <div class="col">
-									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user'" type="button"> ???진? </button>
+									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/testViewMyPage'" type="button"> 로그인시 개인 페이지 조회 </button>
 							    </div>
 							  </div>
 							</div>
