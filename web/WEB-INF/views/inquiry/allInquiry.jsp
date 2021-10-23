@@ -26,8 +26,7 @@
 					<option value="inqTypeCode" ${ (param.searchOption eq "inqTypeCode") ? "selected" : "" }>분류코드</option>
 				</select>	
 		        <input type="search" id="searchValue" class="form-control w-50" name="searchValue" value="${ param.searchValue }"/>
-
-				<button class="btn btn-dark" type="submit">검색하기</button>
+		        <button class="btn btn-dark" type="submit">검색하기</button>
 				</div>
 			</form>
 		</div>

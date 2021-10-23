@@ -138,7 +138,8 @@ label {
 </head>
 <body>
 
-	
+	<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
+
 	<form id="loginForm"
 		action="${ pageContext.servletContext.contextPath }/user/login"
 		method="post">
@@ -179,5 +180,6 @@ label {
 		</div>
 	</div>
 	</form>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

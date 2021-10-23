@@ -10,6 +10,8 @@
 </head>
 <body>
 
+	<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
+
 	<table class="table">
 		<tbody>
 			<tr>
@@ -120,5 +122,7 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
