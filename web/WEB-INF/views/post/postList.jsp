@@ -10,30 +10,28 @@
 <title>게시글 단위 테스트 서블릿 페이지</title>
 </head>
 <body>
-	<h1>게시판 메인 페이지</h1>
-	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button><hr>
+	<!-- header 영역 -->
+	<jsp:include page="../common/menubar.jsp"/>
 	
 	<main>
 		<!-- 검색 영역 -->
-		<div class="post-search-form-div" align="center">
-			<form class="form-control" action="${pageContext.servletContext.contextPath}/post/list" id="post-search-form" method="get" style="display: inline-block">
+		<div align="center">
+			<form action="${pageContext.servletContext.contextPath}/post/list" id="post-search-form" method="get">
 				<fieldset>
-					<legend align="center">게시글 검색 옵션</legend>
+					<legend class="mb-3" align="center">게시글 검색 옵션</legend>
 					<!-- <div class="seller-id">
 						<label>작성자 아이디</label>
 						<input type="text" name="sellerId" placeholder="작성자의 아이디를 입력해 주세요." value="${ param.sellerId }">
 					</div> -->
-					<div class="title">
-						<label>제목</label>
-						<input type="text" name="title" placeholder="게시글의 제목을 입력해 주세요." value="${ param.title }">
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label" for="title">제목</label>
+						<input type="text" class="col-sm-4 col-form-control" name="title" placeholder="게시글의 제목을 입력해 주세요." value="${ param.title }">
+						<label class="col-sm-1 col-form-label" for="content">내용</label>
+						<input type="text" class="col-sm-4 col-form-control" name="content" placeholder="게시글의 내용을 입력해 주세요." value="${ param.content }">
 					</div>
-					<div class="content">
-						<label>내용</label>
-						<input type="text" name="content" placeholder="게시글의 내용을 입력해 주세요." value="${ param.content }">
-					</div>
-					<div class="authentic">
-						<label>감정상태</label>
-						<select name="authCode">
+					<div class="row mb-3">
+						<label class="col-sm-1 col-form-label" for="authCode">감정상태</label>
+						<select class="col-sm-2 col-form-select" name="authCode">
 							<option value="0" ${ (param.authCode eq "0") ? "selected" : "" }>-전체-</option>
 							<option value="1" ${ (param.authCode eq "1") ? "selected" : "" }>감정전</option>
 							<option value="2" ${ (param.authCode eq "2") ? "selected" : "" }>감정중</option>
@@ -41,17 +39,15 @@
 							<option value="4" ${ (param.authCode eq "4") ? "selected" : "" }>감정반려</option>
 							<option value="5" ${ (param.authCode eq "5") ? "selected" : "" }>미신청</option>
 						</select>
-					</div>
-					<div class="price-range">
-						<label>가격</label>
-						<input type="number" name="itemPriceRangeMin" value="${ (param.itemPriceRangeMin eq '-1') ? '' : param.itemPriceRangeMin }" placeholder="min">
+						<label class="col-sm-1 offset-md-2 col-form-label">가격대</label>
+						<input type="number" class="col-sm-2 col-form-control" name="itemPriceRangeMin" value="${ (param.itemPriceRangeMin eq '-1') ? '' : param.itemPriceRangeMin }" placeholder="최소값">
 						~
-						<input type="number" name="itemPriceRangeMax" value="${ (param.itemPriceRangeMax eq '-1') ? '' : param.itemPriceRangeMax }" placeholder="max">
+						<input type="number" class="col-sm-2 col-form-control" name="itemPriceRangeMax" value="${ (param.itemPriceRangeMax eq '-1') ? '' : param.itemPriceRangeMax }" placeholder="최대값">
 					</div>
-					<div class="submit-button">
-						<button type="submit">검색</button>
+					<div class="mb-3" align="center">
+						<button type="submit" class="btn btn-primary">검색</button>
 						<c:if test="${ !empty sessionScope.loginUser }">
-						<button type="button" onclick="location.href='${pageContext.servletContext.contextPath}/post/insert'">작성하기</button>
+						<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/post/insert'">작성하기</button>
 						</c:if>
 					</div>
 				</fieldset>
@@ -89,6 +85,9 @@
 		
 		<!-- 페이징 영역 -->
 		<jsp:include page="/WEB-INF/views/post/postListPagenation.jsp"/>
+		
+		<!-- footer 영역 -->
+		<jsp:include page="../common/footer.jsp"/>
 	</main>
 	<script>
 		$("#singlePost*").click(function() {
