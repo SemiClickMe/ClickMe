@@ -166,10 +166,11 @@ label {
 
 							<div class="col-lg-12 loginbttm">
 								<div class="col-lg-6 login-btm login-text">
-									<!-- Error Message -->
+									<a onclick="location.href='${ pageContext.servletContext.contextPath }/user/userpwdPage'">비밀번호를 잊으셨습니까?</a>
 								</div>
 								<div class="col-lg-6 login-btm login-button">
 									<button type="submit" class="btn btn-outline-primary" id="login">로그인</button>
+									<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.servletContext.contextPath}/signup'">회원가입</button>
 								</div>
 							</div>
 						</form>
