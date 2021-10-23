@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.clickMe.notice.model.dao.NoticeMapper">
+	<resultMap type="NoticeDTO" id="noticeResultMap">
+		<id property="code" column="NOTICE_CODE"/>
+		<result property="title" column="NOTICE_TITLE"/>
+		<result property="content" column="NOTICE_CONTENT"/>
+		<result property="time" column="NOTICE_TIME"/>
+	</resultMap>
+	<!-- 공지사항 전체 조회 -->
+	<select id="selectNoticeList" resultMap="noticeResultMap">
+		SELECT
+		       A.NOTICE_CODE
+		     , A.NOTICE_TITLE
+		     , A.NOTICE_CONTENT
+		     , A.NOTICE_TIME
+		  FROM NOTICE A
+		 ORDER BY A.NOTICE_CODE DESC 
+	</select>
+	<!-- 공지사항 선택 조회 -->
+ 	<select id="selectNoticeByNoticeSearch" parameterType="NoticeSearch" resultMap="noticeResultMap">
+		SELECT
+		       A.NOTICE_CODE
+		     , A.NOTICE_TITLE
+		     , A.NOTICE_CONTENT
+		     , A.NOTICE_TIME
+		  FROM NOTICE A
+		  <if test="option == 'code'">
+		 WHERE A.NOTICE_CODE LIKE '%' || #{value} || '%'  
+		  </if>
+		  <if test="option == 'title'">
+		 WHERE A.NOTICE_TITLE LIKE '%' || #{value} || '%'
+		  </if>
+		  <if test="option == 'content'">
+		 WHERE A.NOTICE_CONTENT LIKE '%' || #{value} || '%' 
+		  </if>
+		 ORDER BY A.NOTICE_CODE DESC 
+	</select>
+	<!-- 공지사항 등록 -->
+	<insert id="registNotice" parameterType="NoticeDTO">
+		INSERT
+		  INTO NOTICE A
+		  (
+		  A.NOTICE_CODE
+		, A.NOTICE_TITLE
+		, A.NOTICE_CONTENT
+		, A.NOTICE_TIME  
+		  )
+		  VALUES
+		  (
+		   SEQ_NOTICE_CODE.NEXTVAL
+		 , #{ title }
+		 , #{ content }
+		 , SYSDATE		  
+		  )
+	</insert>
+	<!-- 공지사항 수정 -->
+	<update id="modifyNotice" parameterType="org.clickMe.common.model.dto.NoticeDTO">
+		UPDATE
+		       NOTICE A
+		   SET A.NOTICE_TITLE = #{ title }
+		     , A.NOTICE_CONTENT = #{ content }
+		 WHERE A.NOTICE_CODE = #{ code }       
+	</update>
+	<!-- 공지사항 삭제 -->
+	<delete id="deleteNotice" parameterType="_int">
+		DELETE
+		  FROM NOTICE A
+		 WHERE A.NOTICE_CODE = #{ code } 
+	</delete>
+	<select id="selectNoticeDetail" resultMap="noticeResultMap">
+		SELECT
+		       A.NOTICE_CODE
+		     , A.NOTICE_TITLE
+		     , A.NOTICE_CONTENT
+		     , A.NOTICE_TIME
+		  FROM NOTICE A
+	</select>
+</mapper>

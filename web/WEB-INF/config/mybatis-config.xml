@@ -10,6 +10,8 @@
 		<typeAlias type="org.clickMe.post.model.dto.DetailPostDTO" alias="DetailPostDTO"/>
 		<typeAlias type="org.clickMe.post.model.dto.PostForUserDTO" alias="PostForUserDTO"/>
 		<typeAlias type="org.clickMe.post.paging.PostPageCriteria" alias="PostPageCriteria"/>
+		<typeAlias type="org.clickMe.common.model.dto.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="org.clickMe.notice.model.dto.NoticeSearch" alias="NoticeSearch"/>
 	</typeAliases>
 	
 	<environments default="dev">
@@ -31,6 +33,7 @@
 		<mapper resource="org/clickMe/xmlmapper/CmtMapper.xml"/>
  		<mapper resource="org/clickMe/xmlmapper/RecommentMapper.xml"/>
 		<mapper resource="org/clickMe/xmlmapper/PaymentMapper.xml"/>
+		<mapper resource="org/clickMe/xmlmapper/NoticeMapper.xml"/>
 	</mappers>
 </configuration>
 

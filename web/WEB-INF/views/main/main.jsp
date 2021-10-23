@@ -115,6 +115,18 @@
 								      <th scope="row" >결제 정보 추가</th>
 								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/payment/add'">결제</button></td>
 								    </tr>
+								    <tr>
+								      <th scope="row" rowspan="3">공지사항</th>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/notice/list/allNotice'">공지사항 전체 조회</button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/notice/list/searchNotice'">공지사항 검색 조회</button></td>
+								    </tr>
+								    <tr>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/noticeInsertForm'">공지사항 등록 - 관리자용 </button></td>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/noticeDeleteForm'">공지사항 삭제 - 관리자용 </button></td>
+								    </tr>
+								    <tr>
+								      <td><button class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/noticeModifyForm'">공지사항 수정 - 관리자용</button></td>
+								    </tr>
 								  </tbody>
 								</table>
 							  </div>
