@@ -35,7 +35,7 @@
 					<td>${cmt.content}</td>
 					<td>${cmt.time}</td>
 					<td>${cmt.yn}</td>
-					<td><input type=submit id="${cmt.code}" value="버튼${cmt.code}" 
+					<td><input type=submit name="cmtCode" id="${cmt.code}" value="버튼${cmt.code}" 
 						onClick="location.href='${pageContext.servletContext.contextPath}/cmt/blind'"></td>
 					
 					<td><a href="#"><button
@@ -44,6 +44,16 @@
 				</tr>
 			</c:forEach>
 	</table>
-
+	<br><br><br>
+	<div style="border: 1px solid; width: 600px; padding: 5px">
+    	<form name="insertForm" action="${pageContext.servletContext.contextPath}/cmt/insert" method="post">
+		
+		<label>postCode</label>
+		<input type="textfield" name="postCode">
+		<br><br>
+        <textarea name="content" rows="3" cols="60" maxlength="500" placeholder="댓글을 달아주세요."></textarea>
+        <button onclick="${pageContext.servletContext.contextPath}/cmt/list">저장</button>
+    </form>
+</div>
 </body>
 </html>
