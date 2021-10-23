@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="../resource/css/board.css">
+<link rel="stylesheet" href="/ClickMe/resource/css/board.css">
 <title>Insert title here</title>
 </head>
 <body>
 		<div class="layoutMiddle">
         <!-- 헤더 -->
         <header>
-            <img src="${ pageContext.servletContext.contextPath }/source/image/logo-removebg.png" alt="타이틀 로고" class="titleImage" onclick="location.href='${pageContext.servletContext.contextPath}'">
+            <img src="/ClickMe/source/image/logo-removebg.png" alt="타이틀 로고" class="titleImage" onclick="location.href='${pageContext.servletContext.contextPath}'">
             <div class=buttonlist>
           	<c:if test="${ empty sessionScope.loginUser }">
                 <button onclick="location.href='${pageContext.servletContext.contextPath}/logIn'">로그인</button>

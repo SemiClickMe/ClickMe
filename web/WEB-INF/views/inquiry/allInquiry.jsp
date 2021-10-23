@@ -9,7 +9,7 @@
 <title>1:1문의 리스트</title>
 </head>
 <body>
-<jsp:include page="../common/menubar.jsp"/>
+	<jsp:include page="../common/menubar.jsp"/>
 	<div>
 	<button class="btn btn-danger" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list/noreply'">아직 답변되지않은 문의 조회</button>
 	<button class="btn btn-success" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list/answered'">답변이 완료 된 문의 조회</button>

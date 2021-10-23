@@ -18,16 +18,6 @@
 
     <div class="hi">
 
-        <div class="wrap">
-            <aside>
-                <div class="sidebar">
-                    <img src="source/icon/user.png" id="icon">
-                    <img src="source/icon/cart.png" id="icon">
-                    <img src="source/icon/heart.png" id="icon">
-                    <img src="source/icon/clock.png" id="icon">
-                    <button onclick="topFunction()" title="top" id="topbutton">Top </button>
-                </div>
-            </aside>
 
 	        <!-- 이미지 캐러셀 -->
 	        <section>
@@ -63,7 +53,6 @@
 	        </section>
 			
         <jsp:include page="../common/footer.jsp"/>
-    </div>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
