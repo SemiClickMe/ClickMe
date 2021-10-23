@@ -68,8 +68,10 @@
 				</div>
 			</div>
 			<div class="col mb-4 justify-content-center">
-				<button type="button" class="btn btn-primary" onclick="location.href=">수정하기</button>
-				<button type="button" class="btn btn-primary" onclick="location.href=">삭제하기</button>
+				<c:if test="${sessionScope.loginUser.id eq requestScope.detailPost.sellerId}">
+					<button type="button" class="btn btn-primary" onclick="location.href=">수정하기</button>
+					<button type="button" class="btn btn-primary" onclick="location.href=">삭제하기</button>
+				</c:if>
 				<button type="button" class="btn btn-primary" onclick="history.back()">뒤로가기</button>
 			</div>
 		</form>
