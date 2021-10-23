@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.service.UserSignupService;
 
-/**   
+/**   @dummy : !더미데이터
 	* @packageName : org.clickMe.user.controller 
 	* @Class : UserSignupServlet
     * @Comment : 회원가입

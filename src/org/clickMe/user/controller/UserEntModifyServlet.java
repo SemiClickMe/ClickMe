@@ -19,6 +19,7 @@ import org.clickMe.user.service.UserService;
 	* @fileName : UserEntModifyServlet.java 
 	* @author : Hansoo Lee
     * @History : 2021.10.15 Hansoo Lee 처음 작성함 
+    * @see : 관리자용 회원정보 수정 페이지에서 사용
 */
 @WebServlet("/user/entModify")
 public class UserEntModifyServlet extends HttpServlet {

@@ -27,10 +27,11 @@
 	</c:choose>
 </head>
 <body>
-	<div style="height: 200px"></div>
-	<h1 align="center">이름이 '${ requestScope.userList.name }'인 사용자 1명 <br> 스탯 조회 및 수정</h1>
+<div style="height: 100px"></div>
+	<h1 align="center">아이디 '${ requestScope.userList.id }' 사용자의 <br> 정보 관리 페이지</h1>
+	<form action="${pageContext.servletContext.contextPath}/user/statusModifyWithPicForAdmin" method="POST"  encType="multipart/form-data">
+	<jsp:include page="profilePicViewer.jsp"/>
 	<div align="center" class="container justify-content-end">
-		<form action="${pageContext.servletContext.contextPath}/user/statusModify" method="POST">
 		   <input type="hidden" name="code" value="${ requestScope.userList.code }">
 			<table class="table table-striped w-50 align-middle text-end">
 				<tbody>
@@ -50,7 +51,7 @@
 						<td class="col-2">생년월일</td>
 						<td class="col-2"><input class="form-control" name="bdate" type="date" value="${ requestScope.userList.date }" aria-label="Userbdate"></td>
 						<td class="col-1">성별</td>
-						<td class="col-4"><input class="form-control" name="gender" type="hidden" value="${ requestScope.userList.gender }" aria-label="UserGender" readonly>
+						<td class="col-4"><input class="form-control" name="gender" type="hidden" value="${ requestScope.userList.gender }" aria-label="UserGender" disabled readonly>
 						<input class="form-control" name="gender1" type="text" value="${genderKor}" aria-label="UserGender" readonly></td>
 					</tr>
 					<tr>
@@ -63,9 +64,8 @@
 			</table>
 			<button class="btn btn-danger" onclick="history.back();" type="button">취소 버튼</button>
 			<button class="btn btn-secondary" type="submit">정보 수정 설정 버튼</button>
-		</form>
-	</div>
-		<div align="center" class="position-relative" style="top: 100px"><h1>이한수 최고!!!</h1></div>
+		</div>
+	</form>
 </body>
 
 </html>

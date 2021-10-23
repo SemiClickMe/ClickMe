@@ -62,19 +62,18 @@
 							    <div class="col">
 							      	<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/select'">
 									사용자 전체 셀렉</button>
-								</form>
 							    </div>
 							    <div class="col">
 							    	<form action="${pageContext.servletContext.contextPath}/user/oneSelect" method="post">
-							    	    <input type="text" name="userNum" id="userNum">
-									    <button class="btn btn-secondary" type="submit" placeholder="코드를 입력하세요">사용자 1명 선택</button>
+							    	    <input type="text" name="userNum" id="userNum" placeholder="코드를 입력하세요" autocomplete="off">
+									    <button class="btn btn-secondary" type="submit" >사용자 1명 선택</button>
 									</form>
 							    </div>
 							  </div>
 							  <div class="row mb-5">
 							    <div class="col">
 							  		<form action="${pageContext.servletContext.contextPath}/user/statusPage" method="post">
-							    	    <input type="text" name="userNum" id="userNum" placeholder="코드를 입력하세요" class="w-50">
+							    	    <input type="text" name="userNum" id="userNum" placeholder="코드를 입력하세요" class="w-50" autocomplete="off">
 									    <button class="btn btn-secondary" type="submit">사용자용 본인 스탯 <br> 조회 및 수정 </button>
 									</form>
 							    </div>
@@ -96,7 +95,15 @@
 									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/userpwdPage'" type="button">비밀번호 초기화</button>
 							    </div>
 							    <div class="col">
-									<button class="btn btn-secondary" onclick="#" type="button"> 뭘 추가해볼까 ? </button>
+									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/profilePicTest'" type="button"> 프로필 사진? </button>
+							    </div>
+							  </div>
+							  <div class="row mb-5">
+							    <div class="col">
+									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/idcece'" type="button">아이디 체커</button>
+							    </div>
+							    <div class="col">
+									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user'" type="button"> ???진? </button>
 							    </div>
 							  </div>
 							</div>

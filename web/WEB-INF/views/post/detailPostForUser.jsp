@@ -9,12 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1 align="left">관리자 페이지</h1>
+	<h1 align="center">게시글 상세 내용</h1><br>
 	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button><br>
 	
 	<br><hr>
-	
-	<h2>게시글 상세 내용</h2><br>
 	
 	<div class="border border-1 border-dark rounded mx-auto">
 		<form class="">
@@ -70,8 +68,9 @@
 				</div>
 			</div>
 			<div class="col mb-4 justify-content-center">
-				<button type="button" class="btn btn-primary">수정</button>
-				<button type="button" class="btn btn-primary" onclick="history.back()">닫기</button>
+				<button type="button" class="btn btn-primary" onclick="location.href=">수정하기</button>
+				<button type="button" class="btn btn-primary" onclick="location.href=">삭제하기</button>
+				<button type="button" class="btn btn-primary" onclick="history.back()">뒤로가기</button>
 			</div>
 		</form>
 	</div>

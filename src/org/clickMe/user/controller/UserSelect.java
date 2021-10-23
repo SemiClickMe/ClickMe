@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.service.UserService;
 
-/**   
+/**   @dummy : !더미데이터
 	* @packageName : org.clickMe.user.controller 
 	* @Class : UserSelect
     * @Comment : 사용자 모두 검색

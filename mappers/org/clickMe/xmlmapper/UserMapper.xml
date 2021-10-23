@@ -243,16 +243,39 @@
  		  FROM "USER" A
  		 WHERE A.USER_CODE = #{ code }
  	</select>
- 	
- 	<update id="modifyUserInfor" parameterType="org.clickMe.common.model.dto.UserDTO">
+	 	<update id="modifyUserInforPic" parameterType="org.clickMe.common.model.dto.UserDTO">
+        UPDATE
+               "USER" A
+           SET A.USER_EMAIL = #{ email }
+             , A.PHONE = #{ phone }
+           <if test="profileUuidName != null">
+             , A.PROFILE_ORIG_NAME = #{ profileOrigName }
+		     , A.PROFILE_UUID_NAME = #{ profileUuidName }
+		     , A.PROFILE_IMG_PATH = #{ profileImgPath }
+		   </if>
+         WHERE A.USER_CODE = #{ code }
+	</update>
+	 	<update id="modifyUserInforPicAdmin" parameterType="org.clickMe.common.model.dto.UserDTO">
         UPDATE
                "USER" A
            SET A.USER_EMAIL = #{ email }
              , A.PHONE = #{ phone }
              , A.USER_NAME = #{ name }
              , A.BIRTH_DATE = #{ date }
-             , A.GENDER = #{ gender }
              , A.DEPOSIT = #{ deposit }
+           <if test="profileUuidName != null">
+             , A.PROFILE_ORIG_NAME = #{ profileOrigName }
+		     , A.PROFILE_UUID_NAME = #{ profileUuidName }
+		     , A.PROFILE_IMG_PATH = #{ profileImgPath }
+		   </if>
+         WHERE A.USER_CODE = #{ code }
+	</update>
+	<update id="profilePicUpload" parameterType="org.clickMe.common.model.dto.UserDTO">
+        UPDATE
+               "USER" A
+           SET A.PROFILE_ORIG_NAME = #{ profileOrigName }
+             , A.PROFILE_UUID_NAME = #{ profileUuidName }
+             , A.PROFILE_IMG_PATH = #{ profileImgPath }
          WHERE A.USER_CODE = #{ code }
 	</update>
 	
@@ -269,6 +292,15 @@
           FROM "USER" A
          WHERE A.ENT_CODE = '1'
            AND A.USER_ID = #{ id }
+	</select>
+	
+	<select id="selectUserPic" resultMap="userResultMap">
+        SELECT
+               A.PROFILE_ORIG_NAME
+             , A.PROFILE_UUID_NAME
+             , A.PROFILE_IMG_PATH
+          FROM "USER" A
+         WHERE A.USER_CODE = #{ code }
 	</select>
 	
 	<select id="selectLoginMember" resultMap="userResultMap">
@@ -301,4 +333,49 @@
            AND A.USER_NAME = #{ name }
            AND A.USER_EMAIL = #{ email }
 	</update>
+	
+	<select id="idCheck" parameterType="string" resultType="_int">
+        SELECT 
+               COUNT(*)
+          FROM "USER" A
+         WHERE A.USER_ID = #{ id }
+	</select>
+	<insert id="userSignUp" parameterType="org.clickMe.common.model.dto.UserDTO">
+	    INSERT
+	      INTO "USER" A
+	    (
+	      A.USER_CODE
+	    , A.USER_ID
+	    , A.USER_PSW
+	    , A.USER_EMAIL
+	    , A.PHONE
+	    , A.USER_NAME
+	    , A.BIRTH_DATE
+	    , A.GENDER
+	    , A.PROFILE_ORIG_NAME
+     	, A.PROFILE_UUID_NAME
+     	, A.PROFILE_IMG_PATH
+	    )
+	      VALUES
+	    (
+	      SEQ_USER_CODE.NEXTVAL
+	    , #{ id }
+	    , #{ psw }
+	    , #{ email }
+	    , #{ phone }
+	    , #{ name }
+	    , #{ date }
+	    , #{ gender }
+		<if test="profileUuidName != null">
+	    , #{ profileOrigName }
+	    , #{ profileUuidName }
+	    , #{ profileImgPath }
+	    </if>
+	    <if test="profileUuidName == null">
+	    , NULL
+	    , NULL
+	    , '/resource/upload/profile/default_profile.jpg'
+	    </if>
+	    )
+	</insert>
 </mapper>
