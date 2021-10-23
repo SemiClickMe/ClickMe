@@ -9,6 +9,7 @@
 <title>1:1문의 상세조회</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
 	<h2 align="center">1:1문의 내용</h2>
 	<div class="table-area">
 		<table class="table table-striped table-dark" align="center">
@@ -42,5 +43,6 @@
 			</tr>
 		</table>
 		<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/select/user'">취소하기</button>
+		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>

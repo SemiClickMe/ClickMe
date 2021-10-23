@@ -9,6 +9,10 @@
 <title>나의 문의</title>
 </head>
 <body>
+
+	<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
+	
+	
 	<table class="table table-striped table-dark">
         <thead>
           <tr>
@@ -38,6 +42,9 @@
 		</c:forEach>
 	</table>
 	<button type="reset" class="btn btn-danger" onclick="location.href='${pageContext.servletContext.contextPath}'">돌아가기</button>
+	<button type="button" class="btn btn-success" onclick="location.href='${pageContext.servletContext.contextPath}/inquiryForm'">작성하기</button>
+	
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 	
  	<script>
 		if(document.getElementsByTagName("td")) {

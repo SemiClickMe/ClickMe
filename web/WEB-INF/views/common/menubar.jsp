@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 <link rel="stylesheet" href="/ClickMe/resource/css/board.css">
 <title>Insert title here</title>
 </head>
@@ -38,10 +39,9 @@
             <div class="nav_bar">
                 <a href="${ pageContext.servletContext.contextPath }/post/list" id="board">게시판</a>
                 <a href="${ pageContext.servletContext.contextPath }/notice/list/allNotice" id="contact">공지사항</a>
-                <a href="${ pageContext.servletContext.contextPath }/inquiry/list" id="contact">1:1문의</a>
+                <a href="${ pageContext.servletContext.contextPath }/inquiry/select/user" id="contact">1:1문의</a>
                 <a href="#" id="contact">매거진</a>
             </div>
         </nav>
-        
 </body>
 </html>

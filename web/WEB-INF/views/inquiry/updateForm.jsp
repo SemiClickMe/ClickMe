@@ -9,6 +9,9 @@
 </head>
 <body>
 	<h2 align="center">1:1문의 내용</h2>
+	
+		<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
+		
 		<div class="table-area">
 			<table align="center">
 				<tr>
@@ -37,5 +40,7 @@
 			<button onclick="location.href='${pageContext.servletContext.contextPath}/inquiry/list'">돌아가기</button>
 			<br>
 		</div>
+		
+		<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
