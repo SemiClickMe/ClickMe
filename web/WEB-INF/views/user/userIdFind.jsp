@@ -11,7 +11,8 @@
 <title>타이틀 넣어요</title>
 </head>
 <body>
-	<div style="height: 200px"></div>
+	<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
+	<div style="height: 80px"></div>
 	    <h1 align="center">아이디 찾기</h1>
 	    <div align="center" class="container justify-content-end">
 		<form action="${pageContext.servletContext.contextPath}/user/idFinder" method="POST">
@@ -19,10 +20,10 @@
 			<table class="table table-striped w-50 align-middle text-end">
 				<tbody>
 					<tr>
-						<td class="col-1">이메일</td>
-						<td class="col-4"><input class="form-control" name="email" type="email" value="${ requestScope.userList.email }" aria-label="UserEmail"></td>
 						<td class="col-1">이름</td>
 						<td class="col-4"><input class="form-control" name="name" type="text" value="${ requestScope.userList.name }" aria-label="UserName"></td>
+						<td class="col-1" style="width: 30px !important;">이메일</td>
+						<td class="col-4"><input class="form-control" name="email" type="email" value="${ requestScope.userList.email }" aria-label="UserEmail" style="width: 240px;"></td>
 					</tr>
 				</tbody>
 			</table>
@@ -30,5 +31,26 @@
 			<button class="btn btn-secondary" type="submit">아이디 찾기</button>
 		</form>
 	</div>
+		<div style="height: 80px"></div>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
+<script type="text/javascript">
+(function () {
+  'use strict'
+
+  var forms = document.querySelectorAll('.needs-validation')
+
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+</script>
 </html>

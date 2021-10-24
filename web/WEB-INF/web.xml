@@ -146,4 +146,12 @@
      <servlet-name>adminPage</servlet-name>                                                        
      <url-pattern>/adminPage</url-pattern>
 </servlet-mapping>
+<servlet>
+     <servlet-name>userFaQ</servlet-name>
+     <jsp-file>/WEB-INF/views/user/userFaQ.jsp</jsp-file>                                       
+</servlet>
+<servlet-mapping>
+     <servlet-name>userFaQ</servlet-name>                                                        
+     <url-pattern>/userFaQ</url-pattern>
+</servlet-mapping>
 </web-app>

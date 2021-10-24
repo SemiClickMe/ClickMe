@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" href="resource/css/board.css">
+<link rel="stylesheet" href="/ClickMe/resource/css/board.css">
 <title>Insert title here</title>
 </head>
 <body>
@@ -28,7 +28,7 @@
                 (주) 클릭美<br>
                 대표 : 신사임당 ㅣ 소재지 : 서울 서초구 서초대로78길 48 송림빌딩 (13층, 클릭미)<br>
                 사업자등록 : 123-45-678 ㅣ 통신판매업신고 : 서울강남 77777호<br>
-                개인정보관리책임자 : 이순신 ㅣ E-MAIL : toohotproject@gmail.com<br>
+                개인정보관리책임자 : 이순신 ㅣ E-MAIL : clickmeprojectco@gmail.com<br>
                 <br>
                 고객센터<br>
                 <br>
