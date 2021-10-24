@@ -146,4 +146,8 @@
      <servlet-name>adminPage</servlet-name>                                                        
      <url-pattern>/adminPage</url-pattern>
 </servlet-mapping>
+<error-page>
+	<exception-type>java.lang.NullPointerException</exception-type>
+	<location>/WEB-INF/views/common/error.jsp</location>
+</error-page>
 </web-app>
