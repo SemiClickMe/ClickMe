@@ -171,7 +171,7 @@ label {
 								</div>
 								<div class="col-lg-6 login-btm login-button">
 									<button type="submit" class="btn btn-outline-primary" id="login">로그인</button>
-									<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.servletContext.contextPath}/signup'">회원가입</button>
+									<button type="button" class="btn btn-outline-primary" onclick="location.href='${pageContext.servletContext.contextPath}/signUpTerms'">회원가입</button>
 								</div>
 							</div>
 						</form>

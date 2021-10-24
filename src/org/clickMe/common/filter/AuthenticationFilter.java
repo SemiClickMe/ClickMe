@@ -37,7 +37,10 @@ public class AuthenticationFilter implements Filter {
 		
 		/* 세션에 권한이 있는지 확인하여 허용된 url에만 접근 가능하도록 설정한다. */
 		HttpSession requestSession = hrequest.getSession();
-		UserDTO loginMember = (UserDTO) requestSession.getAttribute("loginMember");
+		UserDTO loginMember = (UserDTO) requestSession.getAttribute("loginUser");
+		System.out.println(loginMember);
+		
+		System.out.println(permitURIList.toString());
 		
 		boolean isAuthorized = false;
 		if(loginMember != null) {
@@ -45,6 +48,7 @@ public class AuthenticationFilter implements Filter {
 			boolean isPermitAdmin = permitURIList.get("adminPermitList").contains(intent);
 			boolean isPermitMember = permitURIList.get("memberPermitList").contains(intent);
 			boolean isPermitAll = permitURIList.get("allPermitList").contains(intent);
+			
 			if("Y".equals(loginMember.getAuthority())) {
 				
 				if(isPermitAdmin || isPermitMember || isPermitAll) {
@@ -84,18 +88,24 @@ public class AuthenticationFilter implements Filter {
 		List<String> memberPermitList = new ArrayList<>();
 		List<String> allPermitList = new ArrayList<>();
 		
+		
+//		adminPermitList.add("/user/listForAdmin");
+//		adminPermitList.add("/user/listPage");
+//		adminPermitList.add("/user/statusModifyWithPicForAdmin");
+//		adminPermitList.add("/user/statusPageAdmin");
+		
 		memberPermitList.add("/board/list");
 		memberPermitList.add("/board/insert");
 		memberPermitList.add("/board/search");
-		memberPermitList.add("/thumbnail/list");
-		memberPermitList.add("/thumbnail/insert");
-		memberPermitList.add("/thumbnail/detail");
+//		memberPermitList.add("/user/viewMyPage");
+//		memberPermitList.add("/user/statusModifyPic");
+		
 
-//		allPermitList.add("/notice/insert");
-//		allPermitList.add("/notice/modify");
-//		allPermitList.add("/notice/delete");
-//		allPermitList.add("/notice/list/allNotice");
-//		allPermitList.add("/notice/list/searchNotice");
+		allPermitList.add("/notice/insert");
+		allPermitList.add("/notice/modify");
+		allPermitList.add("/notice/delete");
+		allPermitList.add("/notice/list/allNotice");
+		allPermitList.add("/notice/list/searchNotice");
 		allPermitList.add("/member/regist");
 		allPermitList.add("/member/login");
 		allPermitList.add("/member/logout");

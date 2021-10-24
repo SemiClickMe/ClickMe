@@ -107,7 +107,6 @@ public class UserListPageServlet extends HttpServlet {
 
 		} else {
 
-			System.out.println("음111");
 
 			request.setAttribute("message", "비정상적인 접근입니다.");
 

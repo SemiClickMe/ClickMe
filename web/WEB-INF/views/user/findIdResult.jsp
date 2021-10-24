@@ -18,17 +18,14 @@
 <div align="center" >
 <button class="btn btn-danger" style="font-size: 200%;" onclick="location.href='${pageContext.servletContext.contextPath}'" type="button">메인으로</button>
 </div>
-<br>
-<br>
-${ requestScope.user1Pic.profileImgPath }
-<br>
-
-
-
+</body>
 <script>
 
+window.onload = function() {
+	
+	var message = '${ requestScope.message }';
+
+	alert(message);
+}
 </script>
-	
-	
-</body>
 </html>

@@ -88,7 +88,7 @@ public class UserPswResetServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			page = "/WEB-INF/views/user/result.jsp";
+			page = "/WEB-INF/views/user/successResult.jsp";
 			System.out.println("입력성공");
 			request.setAttribute("message", "이메일로 초기화된<br> 비밀번호를 보냈습니다.");
 			request.setAttribute("userList", userPWResetCode);

@@ -50,7 +50,7 @@ public class UserSignupServlet extends HttpServlet {
 		
 		if(userSignupService.userSignup(signupUser)) {
 			
-			page = "/WEB-INF/views/user/result.jsp";
+			page = "/WEB-INF/views/user/successResult.jsp";
 			System.out.println("입력성공");
 			request.setAttribute("message", "등록 성공");
 			request.setAttribute("signupUser", signupUser);
