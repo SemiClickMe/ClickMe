@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
+import org.clickMe.Inquiry.model.dao.InquiryMapper;
 import org.clickMe.common.model.dto.NoticeDTO;
+import org.clickMe.notice.controller.NoticeController;
 import org.clickMe.notice.model.dao.NoticeMapper;
 import org.clickMe.notice.model.dto.NoticeForAdminDTO;
 import org.clickMe.notice.model.dto.NoticeSearch;
@@ -89,10 +91,12 @@ public class NoticeService {
 	}
 	/* 공지사항 상세보기 메소드 */
 	public NoticeDTO selectNoticeDetail(int code) {
+		
 		SqlSession sqlSession = getSqlSession();
 		NoticeDTO noticeDetail = null;
+		
 		mapper = sqlSession.getMapper(NoticeMapper.class);
-		noticeDetail = mapper.selectinquiryDetail(code);
+		noticeDetail = mapper.selectNoticeDetail(code);
 
 		if(noticeDetail != null) {
 			sqlSession.commit();
@@ -103,6 +107,8 @@ public class NoticeService {
 		sqlSession.close();
 		
 		return noticeDetail;
+
+
 	}	
 
 }

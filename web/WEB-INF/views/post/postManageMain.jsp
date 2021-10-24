@@ -5,34 +5,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>ClickMe - 관리자페이지 > 게시글 관리 페이지</title>
 </head>
 <body>
+
+	<!-- header 영역 -->
+	<jsp:include page="../common/menubar.jsp"/>
+	
+	<br>
 	<h1 align="left">관리자 페이지</h1>
-	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button><br>
 	
 	<br><hr>
 	
-	<h2>게시글 관리 페이지</h2>
-	<div class="post-search-form">
-		<form action="${pageContext.servletContext.contextPath}/post/list/admin" method="get" style="display: inline-block">
+	<div align="center">
+		<form action="${pageContext.servletContext.contextPath}/post/list/admin" method="get">
 			<fieldset>
 				<legend align="center">게시글 검색 옵션</legend>
-				<div class="seller-id">
-					<label>작성자 아이디</label>
-					<input type="text" name="sellerId" placeholder="작성자의 아이디를 입력해 주세요." value="${ param.sellerId }">
+				<div class="col mb-2">
+					<label class="col-form-label" for="sellerId">작성자 아이디</label>
+					<input type="text" class="col-form-control" name="sellerId" placeholder="작성자의 아이디를 입력해 주세요." value="${ param.sellerId }">
 				</div>
-				<div class="title">
-					<label>제목</label>
-					<input type="text" name="title" placeholder="게시글의 제목을 입력해 주세요." value="${ param.title }">
+				<div class="col mb-2">
+					<label class="col-form-label" for="title">제목</label>
+					<input type="text" class="col-form-control" name="title" placeholder="게시글의 제목을 입력해 주세요." value="${ param.title }">
 				</div>
-				<div class="content">
-					<label>내용</label>
-					<input type="text" name="content" placeholder="게시글의 내용을 입력해 주세요." value="${ param.content }">
+				<div class="col mb-2">
+					<label class="col-form-label" for="content">내용</label>
+					<input type="text" class="col-form-control" name="content" placeholder="게시글의 내용을 입력해 주세요." value="${ param.content }">
 				</div>
-				<div class="authentic">
-					<label>감정상태</label>
-					<select name="authCode">
+				<div class="col mb-2">
+					<label class="col-form-label" for="authCode">감정상태</label>
+					<select class="col-form-control" name="authCode">
 						<option value="default" ${ (param.authCode eq "default") ? "selected" : "" }>-선택-</option>
 						<option value="1" ${ (param.authCode eq "1") ? "selected" : "" }>감정전</option>
 						<option value="2" ${ (param.authCode eq "2") ? "selected" : "" }>감정중</option>
@@ -40,14 +45,14 @@
 						<option value="4" ${ (param.authCode eq "4") ? "selected" : "" }>감정반려</option>
 					</select>
 				</div>
-				<div class="blindness">
-					<label>블라인드</label>
-					<input type="radio" name="blindYn" id="both" value="both" checked>
-					<label for="blind">both</label>
-					<input type="radio" name="blindYn" id="Y" value="Y" ${ (param.blindYn eq "Y") ? "checked" : "" }>
-					<label for="Y">Y</label>
-					<input type="radio" name="blindYn" id="N" value="N" ${ (param.blindYn eq "N") ? "checked" : "" }>
-					<label for="N">N</label>
+				<div class="col mb-2">
+					<label class="col-form-label" for="blindYn">블라인드</label>
+					<input class="col-form-check-input" type="radio" name="blindYn" id="both" value="both" checked>
+					<label class="form-check-label" for="blind">both</label>
+					<input class="col-form-check-input" type="radio" name="blindYn" id="Y" value="Y" ${ (param.blindYn eq "Y") ? "checked" : "" }>
+					<label class="form-check-label" for="Y">Y</label>
+					<input class="col-form-check-input" type="radio" name="blindYn" id="N" value="N" ${ (param.blindYn eq "N") ? "checked" : "" }>
+					<label class="form-check-label" for="N">N</label>
 				</div>
 				<!-- 
 				<div class="price-range">
@@ -57,25 +62,26 @@
 					<input type="number" name="itemPriceMax" placeholder="max">
 				</div>
 				 -->
-				<div class="submit-button"><button type="submit">검색</button></div>
+				<div class="submit-button" align="center">
+					<button class="btn btn-primary" type="submit">검색</button>
+				</div>
 			</fieldset>
 		</form>
 	</div>
 	
-	<br>
+	<br><br><hr>
 	
-	<h2>게시글 리스트</h2>
-	<div class="post-list">
+	<h2 align="center">게시글 리스트</h2>
+	<div class="post-list" align="center">
 		<table border="1">
-			<caption>게시글 검색 결과</caption>
 			<thead>
 				<tr>
-					<th>게시글코드</th>
+					<th width="100px">게시글코드</th>
 					<th width="100px">감정상태</th>
-					<th width="600px">제목</th>
+					<th width="400px">제목</th>
 					<th width="150px">판매자</th>
-					<th>블라인드</th>
-					<th>작성날짜</th>
+					<th width="100px">블라인드</th>
+					<th width="100px">작성날짜</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -116,6 +122,12 @@
 		}
 	</script>
 	
-	<h2>Paging 영역 입니다.</h2>
+	<!-- 페이징 영역 -->
+	<jsp:include page="/WEB-INF/views/post/postPagenationForAdmin.jsp"/>
+	
+	<!-- footer 영역 -->
+	<jsp:include page="../common/footer.jsp"/>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 </html>

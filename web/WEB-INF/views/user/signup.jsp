@@ -26,7 +26,7 @@
 	                  <img class="upload" id="upload_thumb" src="${pageContext.servletContext.contextPath}/resource/upload/profile/default_profile.jpg" width="225" height="225" style="object-fit: cover; border-radius:50%;">
        	              <div class="">
 	                  <label for="proPicThumb" class="btn btn-info btn-lg rounded-pill" style="font-size: 30px; position: relative; top: -30px; left: 75px;" >📷</label>
-	                  <input class="form-control" type="file" name="proPicThumb" id="proPicThumb" onChange="proPicPreview();" hidden accept="image/*"><br>
+	                  <input class="form-control" type="file" name="proPicThumb" id="proPicThumb" onChange="proPicPreview();" hidden accept=".jpg, .png"><br>
 	                </div>
                   </div>
 	              </div>    

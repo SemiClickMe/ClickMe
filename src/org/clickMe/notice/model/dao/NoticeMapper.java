@@ -3,6 +3,7 @@ package org.clickMe.notice.model.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.clickMe.common.model.dto.NoticeDTO;
 import org.clickMe.notice.model.dto.NoticeForAdminDTO;
 import org.clickMe.notice.model.dto.NoticeSearch;
@@ -21,6 +22,7 @@ public interface NoticeMapper {
 
 	int deleteNotice(int code);
 
-	NoticeDTO selectinquiryDetail(int code);
+	NoticeDTO selectNoticeDetail(SqlSession sqlSession, int code);
+
 
 }

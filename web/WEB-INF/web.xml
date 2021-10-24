@@ -19,6 +19,14 @@
     <url-pattern>/signup</url-pattern>
 </servlet-mapping>
 <servlet>
+    <servlet-name>signUpTerms</servlet-name>
+    <jsp-file>/WEB-INF/views/user/signUpTerms.jsp</jsp-file>                                            
+</servlet>
+<servlet-mapping>
+    <servlet-name>signUpTerms</servlet-name>                                                        
+    <url-pattern>/signUpTerms</url-pattern>
+</servlet-mapping>
+<servlet>
 	<servlet-name>userStatus</servlet-name>
     <jsp-file>/WEB-INF/views/user/userStatus.jsp</jsp-file>                                            
 </servlet>
@@ -130,14 +138,23 @@
 	<servlet-name>noticeModifyForm</servlet-name>
 	<url-pattern>/noticeModifyForm</url-pattern>
 </servlet-mapping>
-<servlet>
+ <servlet>
+	<servlet-name>searchedNoticeListForm</servlet-name>
+	<jsp-file>/WEB-INF/views/notice/SearchedNoticeList.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+	<servlet-name>searchedNoticeListForm</servlet-name>
+	<url-pattern>/searchedNoticeListForm</url-pattern>
+</servlet-mapping>
+
+<!-- <servlet>
      <servlet-name>noticeInsertForm</servlet-name>
      <jsp-file>/WEB-INF/views/notice/NoticeInsert.jsp</jsp-file>                                       
 </servlet>
 <servlet-mapping>
      <servlet-name>noticeInsertForm</servlet-name>                                                        
      <url-pattern>/noticeInsertForm</url-pattern>
-</servlet-mapping>
+</servlet-mapping> -->
 <servlet>
      <servlet-name>adminPage</servlet-name>
      <jsp-file>/WEB-INF/views/common/adminPage.jsp</jsp-file>                                       

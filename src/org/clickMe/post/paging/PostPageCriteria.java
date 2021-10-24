@@ -25,27 +25,7 @@ public class PostPageCriteria implements Serializable {
 	public PostPageCriteria() {
 	}
 
-	public PostPageCriteria(int pageNo, int totalPostCount, int limitPostNumPerPage, int buttonAmount, int maxPage,
-			int startPage, int endPage, int startRow, int endRow, String sellerId, String title, String content,
-			String blindYn, int authCode, int itemPriceRangeMin, int itemPriceRangeMax) {
-		this.pageNo = pageNo;
-		this.totalPostCount = totalPostCount;
-		this.limitPostNumPerPage = limitPostNumPerPage;
-		this.buttonAmount = buttonAmount;
-		this.maxPage = maxPage;
-		this.startPage = startPage;
-		this.endPage = endPage;
-		this.startRow = startRow;
-		this.endRow = endRow;
-		this.sellerId = sellerId;
-		this.title = title;
-		this.content = content;
-		this.blindYn = blindYn;
-		this.authCode = authCode;
-		this.itemPriceRangeMin = itemPriceRangeMin;
-		this.itemPriceRangeMax = itemPriceRangeMax;
-	}
-
+	/* 일반 사용자를 위한 게시글 리스트 페이지용 생성자 */
 	public PostPageCriteria(int pageNo, int totalPostCount, int limitPostNumPerPage, int buttonAmount, int maxPage,
 			int startPage, int endPage, int startRow, int endRow, String title, String content, int authCode,
 			int itemPriceRangeMin, int itemPriceRangeMax) {
@@ -65,9 +45,10 @@ public class PostPageCriteria implements Serializable {
 		this.itemPriceRangeMax = itemPriceRangeMax;
 	}
 
+	/* 관리자를 위한 게시글 리스트 페이지용 생성자 */
 	public PostPageCriteria(int pageNo, int totalPostCount, int limitPostNumPerPage, int buttonAmount, int maxPage,
-			int startPage, int endPage, int startRow, int endRow, String sellerId, String title, String content,
-			String blindYn, int authCode) {
+			int startPage, int endPage, int startRow, int endRow, String title, String content, int authCode,
+			String sellerId, String blindYn) {
 		this.pageNo = pageNo;
 		this.totalPostCount = totalPostCount;
 		this.limitPostNumPerPage = limitPostNumPerPage;
@@ -82,6 +63,28 @@ public class PostPageCriteria implements Serializable {
 		this.content = content;
 		this.blindYn = blindYn;
 		this.authCode = authCode;
+	}
+	
+	/* 모든 멤버 변수를 매개변수로 사용하는 생성자 */
+	public PostPageCriteria(int pageNo, int totalPostCount, int limitPostNumPerPage, int buttonAmount, int maxPage,
+			int startPage, int endPage, int startRow, int endRow, String sellerId, String title, String content,
+			String blindYn, int authCode, int itemPriceRangeMin, int itemPriceRangeMax) {
+		this.pageNo = pageNo;
+		this.totalPostCount = totalPostCount;
+		this.limitPostNumPerPage = limitPostNumPerPage;
+		this.buttonAmount = buttonAmount;
+		this.maxPage = maxPage;
+		this.startPage = startPage;
+		this.endPage = endPage;
+		this.startRow = startRow;
+		this.endRow = endRow;
+		this.sellerId = sellerId;
+		this.title = title;
+		this.content = content;
+		this.blindYn = blindYn;
+		this.authCode = authCode;
+		this.itemPriceRangeMin = itemPriceRangeMin;
+		this.itemPriceRangeMax = itemPriceRangeMax;
 	}
 
 	public int getPageNo() {

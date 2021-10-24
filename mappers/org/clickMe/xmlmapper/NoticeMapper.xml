@@ -70,6 +70,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		  FROM NOTICE A
 		 WHERE A.NOTICE_CODE = #{ code } 
 	</delete>
+	<!-- 개별 공지사항 -->
 	<select id="selectNoticeDetail" resultMap="noticeResultMap">
 		SELECT
 		       A.NOTICE_CODE
@@ -77,5 +78,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		     , A.NOTICE_CONTENT
 		     , A.NOTICE_TIME
 		  FROM NOTICE A
+		 WHERE A.NOTICE_CODE = #{ code } 
 	</select>
 </mapper>

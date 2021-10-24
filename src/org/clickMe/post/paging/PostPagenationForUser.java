@@ -1,6 +1,6 @@
 package org.clickMe.post.paging;
 
-public class PostPagenation {
+public class PostPagenationForUser {
 
 	public static PostPageCriteria getPostPageCriteria(int pageNo, int totalPostCount, int limitPostNumPerPage,
 			int buttonAmount) {
