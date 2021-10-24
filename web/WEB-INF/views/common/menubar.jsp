@@ -13,16 +13,16 @@
 		<div class="layoutMiddle">
         <!-- 헤더 -->
         <header>
-            <img src="/ClickMe/source/image/logo-removebg.png" alt="타이틀 로고" class="titleImage" onclick="location.href='${pageContext.servletContext.contextPath}'">
+            <img src="/ClickMe/source/image/logo-removebg.png" alt="타이틀 로고" class="titleImage" onclick="location.href='${pageContext.servletContext.contextPath}'" style="cursor:pointer">
             <div class=buttonlist>
           	<c:if test="${ empty sessionScope.loginUser }">
                 <button onclick="location.href='${pageContext.servletContext.contextPath}/logIn'">로그인</button>
-                <button onclick="location.href='${pageContext.servletContext.contextPath}/signup'">회원가입</button>
+                <button onclick="location.href='${pageContext.servletContext.contextPath}/signUpTerms'">회원가입</button>
             </c:if>
             <c:if test="${ sessionScope.loginUser.authority eq 'N' }">   
              	<div class=buttonlist>
              	<button onclick="location.href='${ pageContext.servletContext.contextPath }/user/logout'">로그아웃</button>
-             	<button onclick="location.href='${ pageContext.servletContext.contextPath }/user/testViewMyPage'">정보수정</button>
+             	<button onclick="location.href='${ pageContext.servletContext.contextPath }/user/viewMyPage'">정보수정</button>
              	</div>
              </c:if>
              <c:if test="${ sessionScope.loginUser.authority eq 'Y' }">
@@ -38,9 +38,10 @@
         <nav>
             <div class="nav_bar">
                 <a href="${ pageContext.servletContext.contextPath }/post/list" id="board">게시판</a>
-                <a href="${ pageContext.servletContext.contextPath }/notice/list/allNotice" id="contact">공지사항</a>
+                <a href="${ pageContext.servletContext.contextPath }/notice/list/allNotice" id="nitice">공지사항</a>
                 <a href="${ pageContext.servletContext.contextPath }/inquiry/select/user" id="contact">1:1문의</a>
-                <a href="#" id="contact">매거진</a>
+                <a href="#" id="magazine">매거진</a>
+                <a href="${ pageContext.servletContext.contextPath }/userFaQ" id="faq">자주묻는질문</a>
             </div>
         </nav>
 </body>

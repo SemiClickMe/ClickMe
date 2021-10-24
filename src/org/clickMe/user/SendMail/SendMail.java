@@ -22,8 +22,8 @@ import javax.mail.internet.MimeMessage;
 public class SendMail {
 
 	final String HOST = "smtp.gmail.com";
-	final String FROM = "";
-	final String PASSWORD = "";
+	final String FROM = "clickmeprojectco@gmail.com";
+	final String PASSWORD = "clickmehphs";
 	final int PORT = 587;
 	
 	public void mailSender (String userAddress , String userResetPW) throws Exception {
@@ -37,7 +37,7 @@ public class SendMail {
 				+ "    <div style=\"width:480px; height:220px;\"></div>\r\n"
 				+ "    <div style=\"width:490px; height:300px; float:left;\"></div>\r\n"
 				+ "    <div style=\"width:220px; height:100px; float:left;\">\r\n"
-				+ "    <p style=\"font-size: 38px; text-align: center; font-weight:750; color: #ff00dd;float:left;\">"
+				+ "    <p style=\"font-size: 35px; text-align: center; font-weight:750; color: #ff00dd;float:left;\">"
 				+ resetPassword
 				+ "</p>\r\n"
 				+ "</div></div>";

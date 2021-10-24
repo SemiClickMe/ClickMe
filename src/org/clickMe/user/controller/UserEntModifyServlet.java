@@ -26,7 +26,7 @@ public class UserEntModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UserService  userService = new UserService();
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		request.setCharacterEncoding("UTF-8");
 		String[] userModifyList = request.getParameterValues("userNum");
 		
 		UserDTO user = new UserDTO();

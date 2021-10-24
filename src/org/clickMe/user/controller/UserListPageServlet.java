@@ -34,6 +34,7 @@ public class UserListPageServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession httpSession = request.getSession(true);
+		request.setCharacterEncoding("UTF-8");
 		UserDTO user = (UserDTO) httpSession.getAttribute("loginUser");
 
 		if (user != null) {
@@ -86,7 +87,7 @@ public class UserListPageServlet extends HttpServlet {
 				for (UserDTO us : userList) {
 					System.out.println(us);
 				}
-				System.out.println("음222111");
+
 				String page = "";
 				page = "/WEB-INF/views/user/userListForAdmin.jsp";
 				request.setAttribute("userList", userList);
@@ -94,15 +95,25 @@ public class UserListPageServlet extends HttpServlet {
 
 				request.getRequestDispatcher(page).forward(request, response);
 
+			} else {
+
+				request.setAttribute("message", "권한이 없습니다.");
+
+				request.getRequestDispatcher("/WEB-INF/views/user/result.jsp").forward(request, response);
+				
+				
+				
 			}
 
+		} else {
+
+
+			request.setAttribute("message", "비정상적인 접근입니다.");
+
+			request.getRequestDispatcher("/WEB-INF/views/user/result.jsp").forward(request, response);
+			
 		}
 
-		System.out.println("음111");
-
-		request.setAttribute("message", "비정상적인 접근입니다.");
-
-		request.getRequestDispatcher("/WEB-INF/views/user/result.jsp").forward(request, response);
 
 	}
 

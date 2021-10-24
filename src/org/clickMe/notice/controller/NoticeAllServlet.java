@@ -25,6 +25,7 @@ public class NoticeAllServlet extends HttpServlet {
 		/* NoticeDTO에 담긴 정보를 NoticeService에 있는 selectAllNotice()메소드와 연결 */
 		List<NoticeDTO> noticeList = noticeService.selectAllNotice();
 		
+		/* 다중행이니 forEach문을 사용 */
 		for(NoticeDTO notice : noticeList) {
 			System.out.println(notice);
 		}
@@ -36,7 +37,8 @@ public class NoticeAllServlet extends HttpServlet {
 			/* 죽, noticeList가 비어 있지 않다면 그대로 출력 */
 			request.setAttribute("noticeList", noticeList);
 		} else {
-			noticeResultView.printErrorMessage("search");
+//			noticeResultView.printErrorMessage("search");
+			System.out.println("오류");
 		}
 		/*  getRequestDispatcher() =  페이지출력, 페이지전환 및 특정 url로 재 요청 */
 		request.getRequestDispatcher(forwardingPath).forward(request, response);

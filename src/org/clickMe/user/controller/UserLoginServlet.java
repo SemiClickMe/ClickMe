@@ -34,7 +34,9 @@ public class UserLoginServlet extends HttpServlet {
 
 		UserDTO loginUser = userService.loginCheck(requestUser);
 		System.out.println(loginUser);
-
+		String page="";
+		
+		
 		if (loginUser != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
@@ -42,6 +44,11 @@ public class UserLoginServlet extends HttpServlet {
 			response.sendRedirect(request.getContextPath());
 		} else {
 			System.out.println("로그인 실패 입니다.");
+			page = "/WEB-INF/views/user/result.jsp";
+			System.out.println("조회실패");
+			request.setAttribute("message", "로그인 실패!<br> 다시 로그인해 주세요");
+			request.getRequestDispatcher(page).forward(request, response);
+			
 		}
 	}
 }

@@ -14,7 +14,7 @@
 <c:if test="${ !empty requestScope.userPageList.searchUserCondition}">
 	<c:set var="pageUrl">${ pageContext.servletContext.contextPath }/user/listPage?userListEntCondition=${ requestScope.userPageList.userListEntCondition }&searchUserCondition=${ requestScope.userPageList.searchUserCondition}&searchUserValue=${ requestScope.userPageList.searchUserValue}&currentPage=</c:set>
 </c:if>
-<title>타이틀 넣어요</title>
+<title>리스트 페이징</title>
 </head>
 	<body>
 		<nav aria-label="User Page navigation">

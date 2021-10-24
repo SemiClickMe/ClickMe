@@ -12,8 +12,8 @@ import org.apache.ibatis.reflection.SystemMetaObject;
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.service.UserService;
 
-@WebServlet("/user/testViewMyPage")
-public class ViewMyPage extends HttpServlet {
+@WebServlet("/user/viewMyPage")
+public class ViewMyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
@@ -22,6 +22,7 @@ public class ViewMyPage extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("사용자 정보 두포스트 검색");
+		request.setCharacterEncoding("UTF-8");
 		HttpSession httpSession = request.getSession(true);
 		UserDTO user = (UserDTO) httpSession.getAttribute("loginUser");
 		System.out.println(user);

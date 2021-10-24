@@ -205,9 +205,9 @@ public class UserStatusModifyWithPicServlet extends HttpServlet {
 			
 			if (userService.modifyUserInfor(statusModifyUser)) {
 				
-				page = "/WEB-INF/views/user/result.jsp";
+				page = "/WEB-INF/views/user/successResult.jsp";
 				System.out.println("입력성공");
-				request.setAttribute("message", "업로드 성공");
+				request.setAttribute("message", "수정 성공");
 				request.setAttribute("user1Pic", statusModifyUser);
 
 			} else {

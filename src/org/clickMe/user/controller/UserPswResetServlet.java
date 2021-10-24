@@ -31,6 +31,7 @@ public class UserPswResetServlet extends HttpServlet {
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserService userService = new UserService();
+		request.setCharacterEncoding("UTF-8");
 		System.out.println("비번 리셋 두포스트 오나요?");
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
@@ -87,16 +88,16 @@ public class UserPswResetServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			page = "/WEB-INF/views/user/result.jsp";
+			page = "/WEB-INF/views/user/successResult.jsp";
 			System.out.println("입력성공");
-			request.setAttribute("message", "초기화 성공");
+			request.setAttribute("message", "이메일로 초기화된<br> 비밀번호를 보냈습니다.");
 			request.setAttribute("userList", userPWResetCode);
 
 		} else {
 
 			page = "/WEB-INF/views/user/result.jsp";
 			System.out.println("입력실패");
-			request.setAttribute("message", "초기화 실패!");
+			request.setAttribute("message", "입력하신 정보가<br> 맞지 않습니다.");
 		}
 
 		request.getRequestDispatcher(page).forward(request, response);

@@ -11,20 +11,14 @@
 	<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
 		<div style="height: 50px"></div>
 		<div align="center"style="height: 600px">
-		<img style="width: 800px" src="${pageContext.servletContext.contextPath}/source/image/warring.jpg">
+<img style="width: 800px" src="${pageContext.servletContext.contextPath}/source/image/frame_g.jpg">
 		<h1 align="center" style=" font-size: 60px; position: relative; top : -400px;">${ requestScope.message }</h1>
 		</div>
-		
-		<c:forEach var="users" items="${ requestScope.userLists }">
-			<h2 align="center"><br>ID : ${ users.id }<br></h2>
-		</c:forEach>
-		
 		<div align="center" >
 		<button class="btn btn-danger" style="font-size: 200%;" onclick="location.href='${pageContext.servletContext.contextPath}'" type="button">메인으로</button>
 		</div>
     <jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
-
 <script>
 
 window.onload = function() {

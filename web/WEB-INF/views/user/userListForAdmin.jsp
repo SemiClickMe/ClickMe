@@ -16,10 +16,11 @@
 	location.href="listPage"; 
 </script>
  </c:if>
-<title>타이틀 넣어요</title>
+<title>관리자용 사용자 리스트 페이지</title>
 </head>
 <body>
-	<div align="center" class="container position-absolute start-0 m-5">
+	<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
+	<div align="center" class="container">
 		<h1 align="center"> 관리자용 사용자 리스트 페이지</h1>
 		<div align="left">
 		<div class="btn-group" role="group" aria-label="User ent button group">
@@ -39,6 +40,7 @@
 		  <label class="btn btn-outline-primary" for="btnradio5">👤 탈퇴회원</label>
 		</div>
 		</div>
+		<form action="${pageContext.servletContext.contextPath}/user/entModify" method="post" id="form1">
 			<table class="table table-striped text-center" id="userTable">
 			  <thead>
 			    <tr>
@@ -56,7 +58,7 @@
 			      <th scope="col">가입일</th>
 			    </tr>
 			  </thead>
-			<form action="${pageContext.servletContext.contextPath}/user/entModify" method="post" id="form1">
+
 			  <tbody>
 			      <c:forEach var="users" items="${ requestScope.userList }">
 					<tr class="userListAdmin">
@@ -81,8 +83,9 @@
 					</tr>
 				  </c:forEach>
 			  </tbody>
-			 </form>
+			
 		  </table>
+		   </form>
 		  <div id="entModifyButtons"  align="left">
 		  회원 상태 변경<br>	  
 		  <button class="btn btn-outline-primary mb-1" type="button" onclick="entCheckbox_check('1');">👨‍🦲 활동회원</button>
@@ -100,19 +103,19 @@
 			<div class="input-group mb-3" align="center">		
 			    <input type="hidden" name="currentPage" value="1">
 			    <input type="hidden" name="userListEntCondition" value="${ requestScope.userPageList.userListEntCondition }">
-			    <select id="searchUserCondition" class="form-select" name="searchUserCondition" style="width:110px;">
-					<option value="" ${ requestScope.userPageList.searchUserCondition }>카테고리</option>
+			    <select id="searchUserCondition" class="form-select w-25" style=" width:110px !important;" name="searchUserCondition">
+					<option value="" ${ requestScope.userPageList.searchUserCondition }>선택</option>
 					<option value="code" ${ requestScope.userPageList.searchUserCondition eq "code"? "selected": "" }>회원코드</option>
 					<option value="id" ${ requestScope.userPageList.searchUserCondition eq "id"? "selected": "" }>아이디</option>
 					<option value="name" ${ requestScope.userPageList.searchUserCondition eq "name"? "selected": "" }>이름</option>
 				</select>	
-		        <input type="search" id="searchUserValue" class="form-control w-50" name="searchUserValue" value="<c:out value="${ requestScope.userPageList.searchUserValue }"/>">
-
-				<button class="btn btn-dark" type="submit">검색하기</button>
+		        <input type="search" id="searchUserValue" class="form-control w-50" name="searchUserValue" style=" width:130px !important; height: 40px !important;" value="${ requestScope.userPageList.searchUserValue }">
+				<button class="btn btn-dark" type="submit" style="margin-left: -10px">검색하기</button>
 				</div>
 			</form>
 		</div>
 	</div>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 <script>
 
@@ -200,13 +203,13 @@ function viewUserInfor(num) {
 	userCodeinput.setAttribute("name", "userNum");
 	userCodeinput.setAttribute("value", num);
 
-	// append input (to form)
+
 	viewUserInforForm.appendChild(userCodeinput);
 
-	// append form (to body)
+
 	document.body.appendChild(viewUserInforForm);
 	
-	// submit form
+
 	viewUserInforForm.submit();
 }
 
