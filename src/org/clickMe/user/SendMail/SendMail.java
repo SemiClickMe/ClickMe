@@ -22,8 +22,8 @@ import javax.mail.internet.MimeMessage;
 public class SendMail {
 
 	final String HOST = "smtp.gmail.com";
-	final String FROM = "";
-	final String PASSWORD = "";
+	final String FROM = "clickmeprojectco@gmail.com";
+	final String PASSWORD = "clickmehphs";
 	final int PORT = 587;
 	
 	public void mailSender (String userAddress , String userResetPW) throws Exception {

@@ -22,6 +22,7 @@ public class ViewMyPage extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("사용자 정보 두포스트 검색");
+		request.setCharacterEncoding("UTF-8");
 		HttpSession httpSession = request.getSession(true);
 		UserDTO user = (UserDTO) httpSession.getAttribute("loginUser");
 		System.out.println(user);
