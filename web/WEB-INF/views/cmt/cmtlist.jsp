@@ -8,25 +8,23 @@
 <title>댓글 테스트 페이지</title>
 </head>
 <body>
-	<h1 align="center">댓글 조회</h1>
-	<%-- 메인 홈으로 가는 버튼 --%>
-	<button
-		onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button>
-		
 	<%-- Comment, Recomment 전체값 조회 테이블 --%>
- 	<table id ="cmtlistTable" border="1" >
-		<thead>
-			<tr>
-				<th width="150px">댓글코드</th>
-				<th width="150px">게시물번호</th>
-				<th width="150px">댓글내용</th>
-				<th width="150px">댓글작성시간</th>
-				<th width="150px">댓글 활성화 여부</th>
-				<th width="150px">댓글 삭제하기</th>
-				<th width="150px">대댓글 작성하기</th>
-				<th width="150px">대댓글 내용</th>
-			</tr>
-		</thead>
+	
+	<div style="border: 1px solid; width: 600px; padding: 5px">
+    <form name="insertForm" action="${pageContext.servletContext.contextPath}/cmt/insert" method="post">
+		
+		<label>아이디</label>
+		<input type="text" maxlength="500" name="loginUserId" id="loginUserId" value="${sessionScope.loginUser.id}">
+		<label>이름</label>
+		<input type="text" maxlength="500" name="loginUserName" id="loginUserName" value="${sessionScope.loginUser.name}">
+		<br><br>
+        <textarea name="content" rows="3" cols="60" maxlength="500" placeholder="댓글을 달아주세요."></textarea>
+        <button type="submit">저장</button>
+    </form>
+    
+	</div>
+	
+ 	<%-- <table id ="cmtlistTable" border="1" >
 		<tbody>
 			<c:forEach var="cmt" items="${requestScope.cmtList}">
 				<tr>
@@ -43,17 +41,8 @@
 								name="insertRecomment">대댓글작성하기</button></a></td>
 				</tr>
 			</c:forEach>
-	</table>
+	</table> --%>
 	<br><br><br>
-	<div style="border: 1px solid; width: 600px; padding: 5px">
-    	<form name="insertForm" action="${pageContext.servletContext.contextPath}/cmt/insert" method="post">
-		
-		<label>postCode</label>
-		<input type="textfield" name="postCode">
-		<br><br>
-        <textarea name="content" rows="3" cols="60" maxlength="500" placeholder="댓글을 달아주세요."></textarea>
-        <button onclick="${pageContext.servletContext.contextPath}/cmt/list">저장</button>
-    </form>
-</div>
+
 </body>
 </html>
