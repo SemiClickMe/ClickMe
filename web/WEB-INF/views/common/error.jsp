@@ -9,8 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<h1>로그인을 먼저 해주셔야 합니다!</h1>
 	<button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
-		data-bs-target="#exampleModal">Launch demo modal</button>
+		data-bs-target="#exampleModal">로그인은 되어있나요?</button>
 
 	<!-- Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1"
@@ -18,15 +19,13 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+					<h5 class="modal-title" id="exampleModalLabel">로그인은 되어있나요?</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</div>
-				<div class="modal-body">...</div>
+				<div class="modal-body">로그인을 하셔야 1:1문의를 볼 수 있습니다.</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-secondary"
-						data-bs-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
+					<button type="button" class="btn btn-primary" onclick="location.href='${pageContext.servletContext.contextPath}/logIn'">로그인 하러가기</button>
 				</div>
 			</div>
 		</div>
