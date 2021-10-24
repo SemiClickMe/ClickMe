@@ -3,6 +3,7 @@ package org.clickMe.notice.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
 import org.clickMe.common.model.dto.NoticeDTO;
 import org.clickMe.notice.NoticeResultView;
 import org.clickMe.notice.model.dto.NoticeSearch;
@@ -68,5 +69,7 @@ public class NoticeController {
 			noticeResultView.printErrorMessage("delete");
 		}
 	}
+
+	
 	
 }

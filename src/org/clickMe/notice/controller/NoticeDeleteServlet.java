@@ -14,6 +14,12 @@ import org.clickMe.notice.model.service.NoticeService;
 @WebServlet("/notice/delete")
 public class NoticeDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String path = "/WEB-INF/views/notice/NoticeDelete.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
@@ -26,11 +32,11 @@ public class NoticeDeleteServlet extends HttpServlet {
 		
 		String forwardingPath = "/WEB-INF/views/notice/NoticeDelete.jsp";
 		if (noticeService.deleteNotice(code)) {
-			noticeResultView.printSuccessMessage("delete");
-			request.setAttribute("isDMLSuccess", "success");
+			forwardingPath = "/WEB-INF/views/common/success.jsp";
+			request.setAttribute("successCode", "deleteNotice");
 		} else {
-			noticeResultView.printErrorMessage("delete");
-			request.setAttribute("isDMLSuccess", "fail");
+			forwardingPath = "/WEB-INF/views/common/failed.jsp";
+			request.setAttribute("errorCode", "deleteNotice");
 		}
 		
 		request.getRequestDispatcher(forwardingPath).forward(request, response);

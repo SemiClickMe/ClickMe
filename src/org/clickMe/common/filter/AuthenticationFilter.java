@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 import org.clickMe.common.model.dto.UserDTO;
 
 /* 변경 될 예정입니다. */
-@WebFilter(urlPatterns = {"/notice/*", "/member/*", "/board/*", "/thumbnail/*"})
+@WebFilter(urlPatterns = {"/member/*", "/board/*", "/thumbnail/*"})
 public class AuthenticationFilter implements Filter {
 	
 	Map<String, List<String>> permitURIList;
@@ -91,11 +91,11 @@ public class AuthenticationFilter implements Filter {
 		memberPermitList.add("/thumbnail/insert");
 		memberPermitList.add("/thumbnail/detail");
 
-		allPermitList.add("/notice/insert");
-		allPermitList.add("/notice/modify");
-		allPermitList.add("/notice/delete");
-		allPermitList.add("/notice/list/allNotice");
-		allPermitList.add("/notice/list/searchNotice");
+//		allPermitList.add("/notice/insert");
+//		allPermitList.add("/notice/modify");
+//		allPermitList.add("/notice/delete");
+//		allPermitList.add("/notice/list/allNotice");
+//		allPermitList.add("/notice/list/searchNotice");
 		allPermitList.add("/member/regist");
 		allPermitList.add("/member/login");
 		allPermitList.add("/member/logout");
