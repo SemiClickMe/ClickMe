@@ -350,6 +350,9 @@
 			<if test="title != null and title != ''">
 				A.POST_TITLE = #{title}
 			</if>
+			<if test="catCode != null and catCode gt 0">
+			  , A.POST_CAT_CODE = #{catCode}
+			</if>
 			<if test="content != null and content != ''">
 			  , A.POST_CONTENT = #{content}
 			</if>
