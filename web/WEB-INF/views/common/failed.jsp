@@ -23,6 +23,9 @@
 				case "listPostForUser" : 
 					errorMessage = "게시글을 불러오는 도중 오류가 발생했습니다!";
 					break;
+				case "listPostForAdmin" : 
+					errorMessage = "게시글을 불러오는 도중 오류가 발생했습니다!";
+					break;
 				case "selectDetailPost" : 
 					errorMessage = "해당 게시글을 불러오는 도중 오류가 발생했습니다!";
 					break;

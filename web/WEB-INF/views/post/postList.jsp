@@ -84,7 +84,7 @@
 		</div>
 		
 		<!-- 페이징 영역 -->
-		<jsp:include page="/WEB-INF/views/post/postListPagenation.jsp"/>
+		<jsp:include page="/WEB-INF/views/post/postPagenationForUser.jsp"/>
 		
 		<!-- footer 영역 -->
 		<jsp:include page="../common/footer.jsp"/>

@@ -63,7 +63,7 @@
 			<tr>
 				<td><button class="btn btn-primary"
 						onclick="location.href='${pageContext.servletContext.contextPath}/post/list/admin'">
-						게시글 관리<br>(관리자) - 개발중
+						게시글 관리<br>(관리자)
 					</button></td>
 			</tr>
 			<tr>

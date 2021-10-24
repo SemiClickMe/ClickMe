@@ -8,8 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<!-- header 영역 -->
+	<jsp:include page="../common/menubar.jsp"/>
+	
 	<h1 align="left">관리자 페이지</h1>
-	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button><br>
 	
 	<br><hr>
 	
@@ -95,5 +98,8 @@
 			<button type="button" onclick="history.back()">목록으로</button>
 		</div>
 	</form>
+	
+	<!-- footer 영역 -->
+	<jsp:include page="../common/footer.jsp"/>
 </body>
 </html>

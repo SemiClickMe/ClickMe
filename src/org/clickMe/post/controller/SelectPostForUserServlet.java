@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.clickMe.post.model.dto.PostForUserDTO;
 import org.clickMe.post.model.service.PostService;
 import org.clickMe.post.paging.PostPageCriteria;
-import org.clickMe.post.paging.PostPagenation;
+import org.clickMe.post.paging.PostPagenationForUser;
 
 @WebServlet("/post/list")
 public class SelectPostForUserServlet extends HttpServlet {
@@ -80,6 +80,8 @@ public class SelectPostForUserServlet extends HttpServlet {
 		searchOption.put("itemPriceRangeMin", itemPriceRangeMin);
 		searchOption.put("itemPriceRangeMax", itemPriceRangeMax);
 		
+		System.out.println("searchOption Map = " + searchOption);
+		
 		/* 검색 옵션들이 저장된 조건의 게시글이 '몇 개'인지 SELECT */
 		int totalPostCount = postService.selectTotalPostCount(searchOption);
 		System.out.println("검색 조건으로 검색된 총 게시글 수 : " + totalPostCount);
@@ -96,12 +98,12 @@ public class SelectPostForUserServlet extends HttpServlet {
 				|| itemPriceRangeMaxStr != null && !"".equals(itemPriceRangeMaxStr)) {
 			
 			/* 화면단의 검색 옵션들 중, 단 하나라도 parameter로 넘어왔을 때. */
-			postPageCriteria = PostPagenation.getPostPageCriteria(pageNo, totalPostCount, limitPostNumPerPage, buttonAmount,
+			postPageCriteria = PostPagenationForUser.getPostPageCriteria(pageNo, totalPostCount, limitPostNumPerPage, buttonAmount,
 					title, content, authCode, itemPriceRangeMin, itemPriceRangeMax);
 		} else {
 			
 			/* 화면단의 검색 옵션들 중, 단 하나도 parameter로 넘어오지 않았을 때. = 게시판 처음 들어왔을 때. */
-			postPageCriteria = PostPagenation.getPostPageCriteria(pageNo, totalPostCount, limitPostNumPerPage, buttonAmount);
+			postPageCriteria = PostPagenationForUser.getPostPageCriteria(pageNo, totalPostCount, limitPostNumPerPage, buttonAmount);
 		}
 		
 		System.out.println(postPageCriteria);
@@ -112,12 +114,12 @@ public class SelectPostForUserServlet extends HttpServlet {
 		
 		String forwardingPath = "";
 		if (postListForUser != null) {
-			System.out.println("postList is not null.");
+			System.out.println("postListForUser is not null.");
 			forwardingPath = "/WEB-INF/views/post/postList.jsp";
 			request.setAttribute("postList", postListForUser);
 			request.setAttribute("postPageCriteria", postPageCriteria);
 		} else {
-			System.out.println("postList is null.");
+			System.out.println("postListForUser is null.");
 			forwardingPath = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("errorCode", "listPostForUser");
 		}
