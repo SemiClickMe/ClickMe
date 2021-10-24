@@ -48,7 +48,7 @@ public class UserIdFinderServlet extends HttpServlet {
 		String page="";
 		
 		if (!findedUserId.isEmpty()) {
-			page = "/WEB-INF/views/user/result.jsp";
+			page = "/WEB-INF/views/user/findIdResult.jsp";
 			System.out.println("조회성공");
 			request.setAttribute("message", "조회성공");
 			request.setAttribute("userLists", findedUserId);

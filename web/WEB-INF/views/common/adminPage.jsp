@@ -11,7 +11,7 @@
 <body>
 
 	<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
-
+<div style="width:1000px;">
 	<table class="table">
 		<tbody>
 			<tr>
@@ -122,7 +122,7 @@
 			</tr>
 		</tbody>
 	</table>
-	
+	</div>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"/>
 </body>
 </html>
