@@ -19,7 +19,7 @@
     <div class="hi">
 
 
-	        <!-- 이미지 캐러셀 -->
+	        <!-- 이미지 캐러셀 1 -->
 	        <section>
 	        	<article>
 			       	<div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
@@ -45,6 +45,39 @@
 							<span class="visually-hidden">Previous</span>
 						</button>
 						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Next</span>
+						</button>
+					</div>
+	        	</article>
+	        </section>
+	        <br>
+	        <!-- 이미지 캐러셀 2 -->
+	        <section>
+	        	<article>
+			       	<div id="carouselExampleInterval2" class="carousel slide" data-bs-ride="carousel">
+						<div class="carousel-inner">
+							<div class="carousel-item active" data-bs-interval="3000">
+								<img src="source/image/main_carousel_image_7.jpg" class="d-block w-100" alt="main_carousel_image_1">
+							</div>
+							<div class="carousel-item">
+								<img src="source/image/main_carousel_image_6.jpg" class="d-block w-100" alt="main_carousel_image_2">
+							</div>
+							<div class="carousel-item">
+								<img src="source/image/main_carousel_image_8.jpg" class="d-block w-100" alt="main_carousel_image_3">
+							</div>
+							<div class="carousel-item">
+								<img src="source/image/main_carousel_image_9.jpg" class="d-block w-100" alt="main_carousel_image_4">
+							</div>
+							<div class="carousel-item">
+								<img src="source/image/main_carousel_image_10.jpg" class="d-block w-100" alt="main_carousel_image_5">
+							</div>
+						</div>
+						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval2" data-bs-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="visually-hidden">Previous</span>
+						</button>
+						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval2" data-bs-slide="next">
 							<span class="carousel-control-next-icon" aria-hidden="true"></span>
 							<span class="visually-hidden">Next</span>
 						</button>
