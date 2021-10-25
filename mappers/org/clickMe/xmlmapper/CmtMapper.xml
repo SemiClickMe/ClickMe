@@ -18,7 +18,7 @@
 		     , A.CMT_TIME
 		     , A.CMT_YN
 		  FROM CMT A
-	     WHERE A.POST_CODE = 27
+	     WHERE A.POST_CODE = 25
 	</select>
 
 	<insert parameterType="org.clickMe.common.model.dto.CmtDTO" id="insertCmt">
