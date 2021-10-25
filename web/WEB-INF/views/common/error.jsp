@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<jsp:include page="../common/menubar.jsp"/>
 	<h1>로그인을 먼저 해주셔야 합니다!</h1>
 	<button type="button" class="btn btn-danger btn-lg" data-bs-toggle="modal"
 		data-bs-target="#exampleModal">로그인은 되어있나요?</button>
@@ -30,5 +31,6 @@
 			</div>
 		</div>
 	</div>
+<jsp:include page="../common/footer.jsp"/>
 </body>
 </html>

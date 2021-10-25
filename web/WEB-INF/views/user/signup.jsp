@@ -40,7 +40,7 @@
 	                          </div>
 	                       </div>
 	                       <div class="form-floating m-3">
-	                        <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password"  required>
+	                        <input type="password" class="form-control" name="password" id="password" placeholder="Password"  required>
 	                           <label for="floatingPassword">비밀번호</label>
 	                           <div class="invalid-feedback">
 	                            비밀번호를 입력해 주세요.
