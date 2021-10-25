@@ -24,7 +24,6 @@ public class SelectPostForAdminServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PostService postService = new PostService();
-		PostUnitTestResultView resultView = new PostUnitTestResultView();
 		
 		System.out.println(SearchPostServlet.class.getName() + " is successfully called.");
 		

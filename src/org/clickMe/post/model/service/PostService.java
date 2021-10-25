@@ -241,4 +241,19 @@ public class PostService {
 		return detailPost;
 	}
 
+	public boolean deletePost(int code) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.deletePost(code);
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result > 0 ? true : false;
+	}
+
 }

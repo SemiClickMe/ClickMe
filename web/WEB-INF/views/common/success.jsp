@@ -23,6 +23,10 @@
 					successMessage = "게시글 수정에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/post/list/detail?code=${ code }";
 					break;
+				case "deletePost" : 
+					successMessage = "게시글 삭제에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/post/list";
+					break;
 				case "insertNotice" : 
 					successMessage = "공지사항 추가에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/list/allNotice";

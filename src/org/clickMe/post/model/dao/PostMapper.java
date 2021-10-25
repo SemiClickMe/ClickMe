@@ -45,4 +45,6 @@ public interface PostMapper {
 
 	DetailPostDTO selectDetailPostForUser(int code);
 
+	int deletePost(int code);
+
 }

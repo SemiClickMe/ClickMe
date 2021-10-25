@@ -13,28 +13,50 @@ import org.clickMe.post.model.service.PostService;
 @WebServlet("/post/delete")
 public class DeletePostServlet extends HttpServlet {
 	private static final long serialVersionUID = -7923101865376518182L;
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PostService postService = new PostService();
-		PostUnitTestResultView resultView = new PostUnitTestResultView();
 		
 		System.out.println(DeletePostServlet.class.getName() + " is successfully called.");
 		
-		request.setCharacterEncoding("UTF-8");
-		
 		int code = Integer.valueOf(request.getParameter("code"));
+		System.out.println("Delete post code : " + code);
 		
-		String forwardingPath = "/WEB-INF/views/post/deletePost.jsp";
-		if (postService.deletePostByCode(code)) {
-			resultView.printSuccessMessage("delete");
-			request.setAttribute("isDMLSuccess", "success");
+		String forwardingPath = "";
+		if (postService.deletePost(code)) {
+			forwardingPath = "/WEB-INF/views/common/success.jsp";
+			request.setAttribute("successCode", "deletePost");
+			request.setAttribute("code", code);
 		} else {
-			resultView.printErrorMessage("delete");
-			request.setAttribute("isDMLSuccess", "fail");
+			forwardingPath = "/WEB-INF/views/common/failed.jsp";
+			request.setAttribute("errorCode", "deletePost");
 		}
 		
 		request.getRequestDispatcher(forwardingPath).forward(request, response);
 	}
+
+//	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+//			throws ServletException, IOException {
+//		PostService postService = new PostService();
+//		PostUnitTestResultView resultView = new PostUnitTestResultView();
+//		
+//		System.out.println(DeletePostServlet.class.getName() + " is successfully called.");
+//		
+//		request.setCharacterEncoding("UTF-8");
+//		
+//		int code = Integer.valueOf(request.getParameter("code"));
+//		
+//		String forwardingPath = "/WEB-INF/views/post/deletePost.jsp";
+//		if (postService.deletePostByCode(code)) {
+//			resultView.printSuccessMessage("delete");
+//			request.setAttribute("isDMLSuccess", "success");
+//		} else {
+//			resultView.printErrorMessage("delete");
+//			request.setAttribute("isDMLSuccess", "fail");
+//		}
+//		
+//		request.getRequestDispatcher(forwardingPath).forward(request, response);
+//	}
 
 }

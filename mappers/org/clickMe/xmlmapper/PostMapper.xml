@@ -195,35 +195,6 @@
 		         WHERE ROWNUM <= #{endRow}) E
 		         ]]>
 		 WHERE E.RNUM >= #{startRow}
-	
-		<!-- SELECT
-		       A.POST_CODE AS "code"
-		     , B.AUTH_STATUS AS "authStatus"
-		     , A.POST_TITLE AS "title"
-		     , C.USER_ID AS "sellerId"
-		     , A.BLIND_YN AS "blindYn"
-		     , A.POST_TIME AS "time"
-		  FROM POST A
-		  JOIN AUTHENTIC B ON (A.AUTH_CODE = B.AUTH_CODE)
-		  JOIN "USER" C ON (A.SELLER_CODE = C.USER_CODE)
-		<where>
-			<if test="authCode != null and authCode gt 0">
-				A.AUTH_CODE = #{authCode}
-			</if>
-			<if test="blindYn != null and blindYn != 'both'">
-				AND A.BLIND_YN = #{blindYn}
-			</if>
-			<if test="sellerId != null and sellerId != ''">
-				AND C.USER_ID = #{sellerId}
-			</if>
-			<if test="title != null and title != ''">
-				AND A.POST_TITLE LIKE '%' || #{title} || '%'
-			</if>
-			<if test="content != null and content != ''">
-				AND A.POST_CONTENT LIKE '%' || #{content} || '%'
-			</if>
-		</where>
-		 ORDER BY A.POST_CODE DESC -->
 	</select>
 	<select id="selectTotalPostCount" parameterType="hashmap" resultType="_int">
 		SELECT
@@ -442,6 +413,12 @@
 		   SET A.POST_VIEW = (SELECT B.POST_VIEW
 		                        FROM POST B
 		                       WHERE B.POST_CODE = #{code}) + 1
+		 WHERE A.POST_CODE = #{code}
+	</update>
+	<update id="deletePost">
+		UPDATE
+			   POST A
+		   SET A.BLIND_YN = 'Y'
 		 WHERE A.POST_CODE = #{code}
 	</update>
 	

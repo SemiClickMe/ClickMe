@@ -32,6 +32,9 @@
 				case "insertPost" : 
 					errorMessage = "해당 게시글을 수정하는 도중 오류가 발생했습니다!";
 					break;
+				case "deletePost" : 
+					errorMessage = "해당 게시글을 삭제하는 도중 오류가 발생했습니다!";
+					break;
 				case "insertNotice" : 
 					errorMessage = "해당 공지사항을 추가하는 도중 오류가 발생했습니다!";
 					break;
