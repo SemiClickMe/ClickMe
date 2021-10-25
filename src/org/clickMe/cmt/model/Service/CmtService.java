@@ -32,7 +32,7 @@ public class CmtService {
 	}
 	
 	/*댓글 작성*/
-	public int insertCmt(CmtDTO cmt) {
+	public boolean insertCmt(CmtDTO cmt) {
 		SqlSession sqlSession = getSqlSession();
 		CmtMapper cmtmapper = sqlSession.getMapper(CmtMapper.class);
 		
@@ -45,7 +45,7 @@ public class CmtService {
 		}
 		sqlSession.close();
 		
-		return result;
+		return result > 0 ? true : false;
 	}
 
 	/* 댓글 블라인드 하기 */
@@ -64,4 +64,6 @@ public class CmtService {
 		
 		return result > 0 ? true : false;
 	}
+
+
 }

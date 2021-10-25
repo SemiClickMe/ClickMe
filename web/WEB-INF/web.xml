@@ -175,4 +175,12 @@
      <servlet-name>userFaQ</servlet-name>                                                        
      <url-pattern>/userFaQ</url-pattern>
 </servlet-mapping>
+<servlet>
+     <servlet-name>insertCmt</servlet-name>
+     <jsp-file>/WEB-INF/views/cmt/cmtlist.jsp</jsp-file>                                       
+</servlet>
+<servlet-mapping>
+     <servlet-name>insertCmt</servlet-name>                                                        
+     <url-pattern>/insertCmt</url-pattern>
+</servlet-mapping>
 </web-app>

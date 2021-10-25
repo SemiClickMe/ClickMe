@@ -14,13 +14,7 @@ import org.clickMe.common.model.dto.CmtDTO;
 public class InsertCmtServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
 
-		String path = "/WEB-INF/views/cmt/list.jsp";
-
-		request.getRequestDispatcher(path).forward(request, response);
-	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -33,20 +27,21 @@ public class InsertCmtServlet extends HttpServlet {
 		newCmt.setPostCode(postCode);
 		
 		CmtService cmtService = new CmtService();		
-		int result = cmtService.insertCmt(newCmt);
+		
 
 
-		String path = "/WEB-INF/views/cmt/cmtlist.jsp";
-		if (result > 0) {
-			
+		String forwardingPath = "";
+		if (cmtService.insertCmt(newCmt)) {
+			forwardingPath = "/WEB-INF/views/common/success.jsp";
 			System.out.println("Insert Success");
-			request.setAttribute("isDMLSuccess", "success");
+			request.setAttribute("successCode", "insertCmt");
 		} else {
+			forwardingPath = "/WEB-INF/views/common/fail.jsp";
 			System.out.println("Insert Fail");
-			request.setAttribute("isDMLSuccess", "fail");
+			request.setAttribute("errorCode", "insertCmt");
 		}
 
-		request.getRequestDispatcher(path).forward(request, response);
+		request.getRequestDispatcher(forwardingPath).forward(request, response);
 		
 
 	}

@@ -38,7 +38,11 @@
 				case "modifyNotice" : 
 					successMessage = "공지사항 수정에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/modify";
-					break;	
+					break;
+				case "insertCmt" : 
+					successMessage = "댓글 입력에 성공했습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/cmt/list";
+					break;
 				/* 아래꺼 복사해서 쓰세요. */
 				/* case "string" : 
 					successMessage = "성공멘트";
