@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>댓글작성하기</title>
 </head>
-	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button><br><br>
 <body>
 	<form action="${pageContext.servletContext.contextPath}/cmt/blind" id="blindCmt" method="post">
 		<fieldset>
@@ -21,20 +20,5 @@
 		</fieldset>
 	</form>
 
-	<br>
-		<%
-		String result = (String) request.getAttribute("isDMLSuccess");
-		String backgroundColor = "";
-		
-		if (result == null) {
-			result = "미입력";
-		} else if (result == "성공") {
-			backgroundColor = "green";
-		} else {
-			backgroundColor = "red";
-		}
-	%>
-		<label>성공 여부 : </label>
-	<label><%= result %></label>
 </body>
 </html>

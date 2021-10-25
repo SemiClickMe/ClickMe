@@ -71,7 +71,6 @@
 			<div class="col mb-2" align="center">
 				<c:if test="${sessionScope.loginUser.id eq requestScope.detailPost.sellerId}">
 				
-				<jsp:include page="../cmt/cmtlist.jsp"/>
 				
 					<button type="submit" class="btn btn-primary">수정하기</button>
 					<button type="button" class="btn btn-primary" onclick="location.href=${pageContext.servletContext.contextPath}/post/delete">삭제하기</button>
@@ -79,6 +78,8 @@
 				<button type="button" class="btn btn-primary" onclick="history.back()">뒤로가기</button>
 			</div>
 		</form>
+		<br><br><br><br><br>
+		<jsp:include page="../cmt/cmtForm.jsp"/>
 	</div>
 	
 	<!-- footer 영역 -->

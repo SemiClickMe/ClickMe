@@ -18,6 +18,7 @@
 		     , A.CMT_TIME
 		     , A.CMT_YN
 		  FROM CMT A
+	     WHERE A.CMT_CODE = #{postCode}
 	</select>
 
 	<insert parameterType="org.clickMe.common.model.dto.CmtDTO" id="insertCmt">
