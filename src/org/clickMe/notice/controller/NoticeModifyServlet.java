@@ -16,6 +16,12 @@ import org.clickMe.notice.model.service.NoticeService;
 @WebServlet("/notice/modify")
 public class NoticeModifyServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String path = "/WEB-INF/views/notice/NoticeModify.jsp";
+		request.getRequestDispatcher(path).forward(request, response);
+	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -33,13 +39,13 @@ public class NoticeModifyServlet extends HttpServlet {
 		noticeInfo.put("title", title);
 		noticeInfo.put("content", content);
 		
-		String forwardingPath = "/WEB-INF/views/notice/NoticeModify.jsp";
+		String forwardingPath = "";
 		if (noticeService.modifyNotice(noticeInfo)) {
-			noticeResultView.printSuccessMessage("update");
-			request.setAttribute("isDMLSuccess", "success");
+			forwardingPath = "/WEB-INF/views/common/success.jsp";
+			request.setAttribute("successCode", "modifyNotice");
 		} else {
-			noticeResultView.printErrorMessage("update");
-			request.setAttribute("isDMLSuccess", "fail");
+			forwardingPath = "/WEB-INF/views/common/failed.jsp";
+			request.setAttribute("errorCode", "modifyNotice");
 		}
 		
 		request.getRequestDispatcher(forwardingPath).forward(request, response);

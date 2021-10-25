@@ -7,34 +7,18 @@
 <meta charset="UTF-8">
 <title>댓글작성하기</title>
 </head>
-	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button><br><br>
 <body>
 	<form action="${pageContext.servletContext.contextPath}/cmt/blind" id="blindCmt" method="post">
 		<fieldset>
 			<legend>댓글 블라인드</legend>
-			<label>comment code</label>
-			<%-- <input type="number" name="code" value="${ requestScope.cmtCode }" readonly="readonly"> --%>
-
+			<label>댓글 코드를 입력하세요</label>
 			<br>
-			<label>comment blind update</label>
+			<input type="number" name="code" value="${ requestScope.cmtCode }">
+
 			<button type="submit">수정</button>
+			<input type="button" value="조회" onClick="location.href='${pageContext.servletContext.contextPath}/cmt/list'">
 		</fieldset>
 	</form>
 
-	<br>
-		<%
-		String result = (String) request.getAttribute("isDMLSuccess");
-		String backgroundColor = "";
-		
-		if (result == null) {
-			result = "미입력";
-		} else if (result == "성공") {
-			backgroundColor = "green";
-		} else {
-			backgroundColor = "red";
-		}
-	%>
-		<label>성공 여부 : </label>
-	<label><%= result %></label>
 </body>
 </html>

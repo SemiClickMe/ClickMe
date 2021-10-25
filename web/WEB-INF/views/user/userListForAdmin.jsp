@@ -203,13 +203,13 @@ function viewUserInfor(num) {
 	userCodeinput.setAttribute("name", "userNum");
 	userCodeinput.setAttribute("value", num);
 
-	// append input (to form)
+
 	viewUserInforForm.appendChild(userCodeinput);
 
-	// append form (to body)
+
 	document.body.appendChild(viewUserInforForm);
 	
-	// submit form
+
 	viewUserInforForm.submit();
 }
 

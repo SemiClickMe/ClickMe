@@ -17,12 +17,12 @@
             <div class=buttonlist>
           	<c:if test="${ empty sessionScope.loginUser }">
                 <button onclick="location.href='${pageContext.servletContext.contextPath}/logIn'">로그인</button>
-                <button onclick="location.href='${pageContext.servletContext.contextPath}/signup'">회원가입</button>
+                <button onclick="location.href='${pageContext.servletContext.contextPath}/signUpTerms'">회원가입</button>
             </c:if>
             <c:if test="${ sessionScope.loginUser.authority eq 'N' }">   
              	<div class=buttonlist>
              	<button onclick="location.href='${ pageContext.servletContext.contextPath }/user/logout'">로그아웃</button>
-             	<button onclick="location.href='${ pageContext.servletContext.contextPath }/user/testViewMyPage'">정보수정</button>
+             	<button onclick="location.href='${ pageContext.servletContext.contextPath }/user/viewMyPage'">정보수정</button>
              	</div>
              </c:if>
              <c:if test="${ sessionScope.loginUser.authority eq 'Y' }">

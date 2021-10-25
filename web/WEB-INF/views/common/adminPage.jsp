@@ -10,8 +10,8 @@
 </head>
 <body>
 
-	<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
-<div style="width:1000px;">
+<jsp:include page="/WEB-INF/views/common/menubar.jsp"/>
+<div style="width:1000px; margin:auto;">
 	<table class="table">
 		<tbody>
 			<tr>
@@ -19,9 +19,8 @@
 				<td><button class="btn btn-primary"
 						onclick="location.href='${pageContext.servletContext.contextPath}/usertest'">회원
 						테스트 페이지로 이동</button></td>
-				<td><button class="btn btn-primary"
-						onclick="location.href='${pageContext.servletContext.contextPath}/signup'">가입
-						페이지로 이동</button></td>
+				<td><button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/listPage'" type="button">관리자용 사용자 리스트 조회</button>
+				</td>
 			</tr>
 			<tr>
 				<th scope="row">관리자</th>
@@ -63,7 +62,7 @@
 			<tr>
 				<td><button class="btn btn-primary"
 						onclick="location.href='${pageContext.servletContext.contextPath}/post/list/admin'">
-						게시글 관리<br>(관리자) - 개발중
+						게시글 관리<br>(관리자)
 					</button></td>
 			</tr>
 			<tr>

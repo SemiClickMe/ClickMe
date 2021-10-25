@@ -40,13 +40,25 @@ public class PostService {
 		
 		return searchedPostList;
 	}
-
-	public List<PostForAdminDTO> selectPostForAdmin(Map<String, Object> parameter) {
+	
+	public List<PostForUserDTO> selectPostForUser(PostPageCriteria postPageCriteria) {
 		SqlSession sqlSession = getSqlSession();
 		
 		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
 		
-		List<PostForAdminDTO> postList = postMapper.selectPostforAdmin(parameter);
+		List<PostForUserDTO> postList = postMapper.selectPostForUser(postPageCriteria);
+		
+		sqlSession.close();
+		
+		return postList;
+	}
+
+	public List<PostForAdminDTO> selectPostForAdmin(PostPageCriteria postPageCriteria) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		List<PostForAdminDTO> postList = postMapper.selectPostforAdmin(postPageCriteria);
 		
 		sqlSession.close();
 		
@@ -204,18 +216,6 @@ public class PostService {
 		return result > 0 ? true : false;
 	}
 
-	public List<PostForUserDTO> selectPostForUser(PostPageCriteria postPageCriteria) {
-		SqlSession sqlSession = getSqlSession();
-		
-		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
-		
-		List<PostForUserDTO> postList = postMapper.selectPostForUser(postPageCriteria);
-		
-		sqlSession.close();
-		
-		return postList;
-	}
-
 	public DetailPostDTO selectDetailPostForUser(int code) {
 		SqlSession sqlSession = getSqlSession();
 		
@@ -239,6 +239,21 @@ public class PostService {
 		sqlSession.close();
 		
 		return detailPost;
+	}
+
+	public boolean deletePost(int code) {
+		SqlSession sqlSession = getSqlSession();
+		
+		PostMapper postMapper = sqlSession.getMapper(PostMapper.class);
+		
+		int result = postMapper.deletePost(code);
+		if (result > 0) {
+			sqlSession.commit();
+		} else {
+			sqlSession.rollback();
+		}
+		
+		return result > 0 ? true : false;
 	}
 
 }

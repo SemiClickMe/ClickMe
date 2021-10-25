@@ -8,12 +8,11 @@
 <title>공지사항 단위 테스트 서블릿 페이지</title>
 </head>
 <body>
+<jsp:include page="../common/menubar.jsp"/>
 	<h1 align="center">공지사항 검색 조회 단위 테스트</h1>
 	<button onclick="location.href='${pageContext.servletContext.contextPath}'" name="backToHome">홈으로</button>
 
 	<h2 align="center"><b>어떤 공지사항을 찾고 싶으신가요?</b></h2>
-		<table align="center">
-			<tr>
 			<form action="${pageContext.servletContext.contextPath}/notice/list/searchNotice" method="get" style="display: inline-block">
 			<fieldset>
 			<legend align="center"><b>공지사항 검색 필드</b></legend>
@@ -27,11 +26,9 @@
 			<label>검색값</label>
 			<input type="search" name="searchValue" placeholder="검색할 내용을 입력해 주세요" value="${ param.searchValue }"/>
 			<button type="submit">검색</button>
-		
 			</fieldset>
-	</table>
-	</form>
-	
+			</form>
+	<jsp:include page="../common/footer.jsp"/>
 	<h2 align="center">공지사항 검색 결과입니다.</h2>
 	<table border="1" align="center">
 		<caption>공지사항 검색 결과</caption>

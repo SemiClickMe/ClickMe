@@ -12,8 +12,8 @@ import org.apache.ibatis.reflection.SystemMetaObject;
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.service.UserService;
 
-@WebServlet("/user/testViewMyPage")
-public class ViewMyPage extends HttpServlet {
+@WebServlet("/user/viewMyPage")
+public class ViewMyPageServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

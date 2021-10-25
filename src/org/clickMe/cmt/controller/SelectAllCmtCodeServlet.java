@@ -19,7 +19,9 @@ public class SelectAllCmtCodeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		CmtService cmtService = new CmtService();
+
 		List<CmtDTO> cmtList = cmtService.selectAllCode();
+		
 
 		String path = "";
 		if (cmtList != null) {

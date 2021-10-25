@@ -18,10 +18,8 @@
 
         <!-- 헤더 -->
         <header>
-            <img src="source/image/logo-removebg.png" alt="타이틀 로고" class="titleImage">
+            <img src="/ClickMe/source/image/logo-removebg.png" alt="타이틀 로고" class="titleImage" onclick="location.href='${pageContext.servletContext.contextPath}'" style="cursor:pointer">
             <div class=buttonlist>
-                <button>로그인</button>
-                <button>회원가입</button>
             </div>
             <div class="search-container">
                 <input type="text" name="search">
@@ -102,7 +100,7 @@
 									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/idcece'" type="button">아이디 체커</button>
 							    </div>
 							    <div class="col">
-									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/testViewMyPage'" type="button"> 로그인시 개인 페이지 조회 </button>
+									<button class="btn btn-secondary" onclick="location.href='${pageContext.servletContext.contextPath}/user/viewMyPage'" type="button"> 로그인시 개인 페이지 조회 </button>
 							    </div>
 							  </div>
 							</div>

@@ -19,6 +19,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import org.clickMe.common.model.dto.UserDTO;
 import org.clickMe.user.service.UserService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import net.coobird.thumbnailator.Thumbnails;
 
@@ -157,7 +158,12 @@ public class signUpAndPicUploadServlet extends HttpServlet {
 			}
 			
 			String id = parameter.get("id");
-			String pwd = parameter.get("password");
+			
+			/* multipart/form-data Form은 필터를 거치지 않기 때문에 서블렛에서 직접 비밀번호 안호화 처리*/
+			String pwdRare = parameter.get("password");
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			String pwd = passwordEncoder.encode(pwdRare);
+			
 			String email = parameter.get("email");
 			/*사용자가 '-'기호를 이용하여 전화번호를 입력하는 경우 통일시키기 위해서 replace 이용함 */
 			String phone = parameter.get("phoneNum").replace("-", "");
@@ -169,7 +175,6 @@ public class signUpAndPicUploadServlet extends HttpServlet {
 			
 			String page = "";
 			
-
 			userSignUpData.setId(id);
 			userSignUpData.setPsw(pwd);
 			userSignUpData.setEmail(email);
@@ -191,9 +196,9 @@ public class signUpAndPicUploadServlet extends HttpServlet {
 			
 			if (userService.userSignUp(userSignUpData)) {
 
-				page = "/WEB-INF/views/user/result.jsp";
+				page = "/WEB-INF/views/user/successResult.jsp";
 				System.out.println("입력성공");
-				request.setAttribute("message", "업로드 성공");
+				request.setAttribute("message", "회원가입 완료 ");
 				request.setAttribute("user1Pic", userSignUpData);
 
 			} else {
@@ -203,82 +208,8 @@ public class signUpAndPicUploadServlet extends HttpServlet {
 				request.setAttribute("message", "업로드 실패!");
 			}
 			
-			
-			
-			/*
-			if (!fileList.isEmpty()) {
-				// 사진 있을때
-				
-				userSignUpData.setId(id);
-				userSignUpData.setPsw(pwd);
-				userSignUpData.setEmail(email);
-				userSignUpData.setPhone(phone);
-				userSignUpData.setName(name);
-				userSignUpData.setDate(bdate);
-				userSignUpData.setGender(gender);
-				userSignUpData.setProfileOrigName(fileList.get(0).get("profileOrigName"));
-				userSignUpData.setProfileUuidName(fileList.get(0).get("profileUUIDName"));
-				userSignUpData.setProfileImgPath(fileList.get(0).get("imgPath"));
-
-				
-				System.out.println(userSignUpData+"DTO1");
-				
-				
-				if (userService.userSignUp(userSignUpData)) {
-
-					page = "/WEB-INF/views/user/result.jsp";
-					System.out.println("입력성공");
-					request.setAttribute("message", "업로드 성공");
-					request.setAttribute("user1Pic", userSignUpData);
-
-				} else {
-
-					page = "/WEB-INF/views/user/result.jsp";
-					System.out.println("입력실패");
-					request.setAttribute("message", "업로드 실패!");
-				}
-				
-			} else { 
-				
-				userSignUpData.setId(id);
-				userSignUpData.setPsw(pwd);
-				userSignUpData.setEmail(email);
-				userSignUpData.setPhone(phone);
-				userSignUpData.setName(name);
-				userSignUpData.setDate(bdate);
-				userSignUpData.setGender(gender);
-				userSignUpData.setProfileImgPath("/resource/upload/profile/default_profile.jpg");
-				userSignUpData.setProfileOrigName("defualt");
-				userSignUpData.setProfileUuidName("defualt");
-						
-				System.out.println(userSignUpData+"DTO2");
-				
-				if (userService.userSignUp(userSignUpData)) {
-
-					page = "/WEB-INF/views/user/result.jsp";
-					System.out.println("입력성공");
-					request.setAttribute("message", "업로드 성공");
-					request.setAttribute("user1Pic", userSignUpData);
-
-				} else {
-
-					page = "/WEB-INF/views/user/result.jsp";
-					System.out.println("입력실패");
-					request.setAttribute("message", "업로드 실패!");
-				}
-				
-				
-				
-				
-			}
-			*/
-			
 			request.getRequestDispatcher(page).forward(request, response);
 
-			
-			
-			
-			
 	
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

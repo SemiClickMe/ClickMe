@@ -27,7 +27,7 @@ public interface PostMapper {
 
 	int modifyPostBlind(Map<String, Object> postInfo);	// used in level.2 unit test
 
-	List<PostForAdminDTO> selectPostforAdmin(Map<String, Object> parameter);
+	List<PostForAdminDTO> selectPostforAdmin(PostPageCriteria postPageCriteria);
 
 	DetailPostDTO selectSinglePost(int code);
 
@@ -44,5 +44,7 @@ public interface PostMapper {
 	int increasePostViews(int code);
 
 	DetailPostDTO selectDetailPostForUser(int code);
+
+	int deletePost(int code);
 
 }

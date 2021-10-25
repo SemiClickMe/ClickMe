@@ -7,7 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2 align="center">게시글 등록 & 파일 입출력 테스트</h2>
+
+	<!-- header 영역 -->
+	<jsp:include page="../common/menubar.jsp"/>
+	
+	<br>
+	<h2 align="center">게시글 등록하기</h2>
+	<br>
 	<form action="${ pageContext.servletContext.contextPath }/post/insert" method="post" encType="multipart/form-data">
 		<table align="center">
 			<tr>
@@ -76,11 +82,14 @@
 			<input type="file" id="thumbnailImg4" name="thumbnailImg4" onchange="fileValidityCheck(this,4)" accept="image/*">
 		</div>
 		<br>
-		<div class="thumbnail-btn-area" style="width: 150px; margin-left: auto; margin-right: auto;">
+		<div style="width: 200px; margin-left: auto; margin-right: auto;">
 			<button type="button" onclick="history.back()">취소하기</button>
 			<button type="submit">작성완료</button>
 		</div>
 	</form>
+	
+	<!-- footer 영역 -->
+	<jsp:include page="../common/footer.jsp"/>
 	
 	<script>
 		

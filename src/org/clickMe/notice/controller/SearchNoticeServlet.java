@@ -33,7 +33,7 @@ public class SearchNoticeServlet extends HttpServlet {
 		  
 		  List<NoticeDTO> searchedNoticeList = noticeService.selectNoticeByNoticeSearch(noticeSearch);
 		  
-		  String forwardingPath = ""; 
+		  String forwardingPath = "/WEB-INF/views/notice/SearchedNoticeList.jsp"; 
 		  
 		  if (!searchedNoticeList.isEmpty()) {
 		  forwardingPath = "/WEB-INF/views/notice/SearchedNoticeList.jsp";
