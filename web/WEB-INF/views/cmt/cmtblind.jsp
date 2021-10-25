@@ -11,12 +11,12 @@
 	<form action="${pageContext.servletContext.contextPath}/cmt/blind" id="blindCmt" method="post">
 		<fieldset>
 			<legend>댓글 블라인드</legend>
-			<label>comment code</label>
-			<%-- <input type="number" name="code" value="${ requestScope.cmtCode }" readonly="readonly"> --%>
-
+			<label>댓글 코드를 입력하세요</label>
 			<br>
-			<label>comment blind update</label>
+			<input type="number" name="code" value="${ requestScope.cmtCode }">
+
 			<button type="submit">수정</button>
+			<input type="button" value="조회" onClick="location.href='${pageContext.servletContext.contextPath}/cmt/list'">
 		</fieldset>
 	</form>
 

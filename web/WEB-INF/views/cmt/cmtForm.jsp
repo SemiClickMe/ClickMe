@@ -21,6 +21,7 @@
         <textarea name="content" rows="3" cols="60" maxlength="500" placeholder="댓글을 달아주세요."></textarea>
         <br>
         <button type="submit">저장</button>
+        <input type="button" value="조회" onClick="location.href='${pageContext.servletContext.contextPath}/cmt/list'">
     </form>
 	</div>
 	</div>

@@ -9,10 +9,10 @@
 </head>
 <body>
 <% String postCode=request.getParameter("code"); %>
-
  		<div align="center">
         <div style="border: 1px solid; width: 80%; padding: 5px" align="left">
-        <button type="submit">조회</button>
+		<input type="button" value="게시물조회하기" onClick="location.href='${pageContext.servletContext.contextPath}/post/list'">
+		<br><br>
         <table id ="cmtlistTable" border="1" >
 		<thead>
 			<tr>
@@ -33,7 +33,7 @@
 					<td>${cmtList.content}</td>
 					<td>${cmtList.time}</td>
 					<td>${cmtList.yn}</td>
-					<td><input type=submit name="cmtCode" id="${cmt.code}" value="버튼${cmt.code}" 
+					<td><input type=submit name="cmtCode" id="${cmtList.code}" value="버튼${cmtList.code}" 
 						onClick="location.href='${pageContext.servletContext.contextPath}/cmt/blind'"></td>
 
 				</tr>
